@@ -14,10 +14,10 @@
                 <a href="#home">TRIIN RUUMET</a>
             </div>
             <ul class="nav-menu">
-                <li><a href="#films">FILMS</a></li>
-                <li><a href="#commercial">COMMERCIAL</a></li>
-                <li><a href="#about">ABOUT</a></li>
-                <li><a href="#contact">CONTACT</a></li>
+                <li><a href="#films"><span class="content-en">FILMS</span><span class="content-ee">FILMID</span></a></li>
+                <li><a href="#commercial"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
+                <li><a href="#about"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
+                <li><a href="#contact"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -26,6 +26,12 @@
             </div>
         </div>
     </nav>
+
+    <!-- Add language switcher to homepage -->
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="switchLanguage('ee')">EE</button>
+    </div>
 
     <!-- Hero Section - Clean video only -->
     <section id="home" class="hero">
@@ -36,7 +42,7 @@
 
     <!-- Films Section -->
     <section id="films" class="section">
-        <h2 class="section-title">FILMS</h2>
+        <h2 class="section-title"><span class="content-en">FILMS</span><span class="content-ee">FILMID</span></h2>
         <div class="films-grid">
             <div class="film-card" onclick="location.href='projects/dark-paradise.html'">
                 <img src="images/films/dark-paradise/dark-paradise-cover.jpg" alt="Dark Paradise">
@@ -57,7 +63,7 @@
 
     <!-- Commercial Section -->
     <section id="commercial" class="section commercial">
-        <h2 class="section-title">COMMERCIAL</h2>
+        <h2 class="section-title"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></h2>
         <div class="commercial-grid">
             <div class="commercial-card" onclick="location.href='projects/saku-on-ice.html'">
                 <img src="images/commercial/saku-on-ice/saku-on-ice-cover.jpg" alt="Saku On Ice">
@@ -100,24 +106,47 @@
 
     <!-- About Section -->
     <section id="about" class="section">
-        <h2 class="section-title">ABOUT</h2>
+        <h2 class="section-title"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></h2>
         <div class="about-content">
-            <p class="about-text">
-                Triin Ruumet is an Estonian film director and producer with over a decade of experience in both narrative and commercial filmmaking. Known for her distinctive visual style and compelling storytelling, she has directed feature films, documentaries, and commercial campaigns for leading brands.
-            </p>
-            <p class="about-text">
-                Her work explores themes of identity, ambition, and human connection, often set against the backdrop of contemporary Estonian society. With a background in both film production and visual arts, Triin brings a unique perspective to every project.
-            </p>
+            <div class="content-en">
+                <p class="about-text">
+                    Triin Ruumet is an acclaimed Estonian film director whose distinctive vision and storytelling prowess have earned her a place on the international stage. Her original films, which she both writes and directs, have captivated audiences and critics alike, premiering at prestigious festivals such as the Karlovy Vary International Film Festival and the Tallinn Black Nights Film Festival.
+                </p>
+                <p class="about-text">
+                    In addition to her celebrated film work, Ruumet is a skilled videographer, bringing a cinematic touch to a range of commercial projects. This includes agency-led social media campaigns that maintain a cinematic quality while meeting the unique demands of digital platforms.
+                </p>
+            </div>
+            <div class="content-ee">
+                <p class="about-text">
+                    Triin Ruumet on tunnustatud eesti filmirežissöör, kelle ainulaadne visioon ja loojutustamisoskus on toonud talle rahvusvahelise tunnustuse. Ruumeti kirjutatud ja lavastatud originaalfilmid on lummanud nii publikut kui ka kriitikuid, esilinastudes mainekatel festivalidel, sealhulgas Karlovy Vary rahvusvahelisel filmifestivalil ja Pimedate Ööde filmifestivalil Tallinnas.
+                </p>
+                <p class="about-text">
+                    Lisaks oma hinnatud filmitööle on Ruumet osav videograaf, tuues kinematograafilist hõngu erinevatesse kommertsprojektidesse ja sotsiaalmeedia kampaaniatesse. Nendes projektides püüdleb ta alati filmikvaliteedi saavutamise poole, vastates samas erinevate digikanalite nõudmistele.
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section contact">
-        <h2 class="section-title">CONTACT</h2>
+        <h2 class="section-title"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></h2>
         <div class="contact-content">
-            <p class="about-text">
-                Available for film projects, commercial campaigns, and creative collaborations.
-            </p>
+            <div class="content-en">
+                <p class="about-text">
+                    Open to new opportunities and collaborations that align with a passion for storytelling, whether in film, commercial projects or social media.
+                </p>
+                <p class="about-text">
+                    For any questions or enquiries please complete the form below
+                </p>
+            </div>
+            <div class="content-ee">
+                <p class="about-text">
+                    Olen avatud uutele ideedele ja koostööle, mis on kooskõlas kirega jutustada lugusid, olgu selleks siis filmid, kommertsprojektid või sotsiaalmeedia kampaaniad.
+                </p>
+                <p class="about-text">
+                    Ettepanekute puhul täida palun allolev vorm :)
+                </p>
+            </div>
             <form class="contact-form">
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -171,6 +200,25 @@
                 }
             });
         });
+
+        // Language switching
+        function switchLanguage(lang) {
+            const body = document.body;
+            const buttons = document.querySelectorAll('.lang-btn');
+            
+            // Remove active class from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+            
+            // Switch language
+            if (lang === 'ee') {
+                body.classList.add('lang-ee');
+            } else {
+                body.classList.remove('lang-ee');
+            }
+        }
 
         // Contact form submission
         document.querySelector('.contact-form').addEventListener('submit', function(e) {

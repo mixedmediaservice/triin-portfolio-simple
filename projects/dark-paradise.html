@@ -7,13 +7,33 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="project-page">
-    <!-- Navigation will be injected here -->
-    <div id="nav-placeholder"></div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">TRIIN RUUMET</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#films"><span class="content-en">FILMS</span><span class="content-ee">FILMID</span></a></li>
+                <li><a href="../index.html#commercial"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
+                <li><a href="../index.html#about"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
+                <li><a href="../index.html#contact"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
     <!-- Project Hero -->
     <section class="project-hero">
-        <!-- Language switcher will be injected here -->
-        <div id="lang-placeholder"></div>
+        <!-- Language switcher -->
+        <div class="language-switcher">
+            <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="switchLanguage('ee')">EE</button>
+        </div>
         
         <div class="project-info">
             <h1 class="project-title content-en">Dark Paradise</h1>
@@ -35,14 +55,13 @@
 
     <!-- Project Content -->
     <div class="project-content">
-        <a href="../index.html#films" class="back-link">← Back to Films</a>
-        
         <!-- Main Video -->
         <section class="content-section">
             <div class="video-container">
-                <iframe src="https://player.vimeo.com/video/192954169?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                <div class="video-poster" style="background-image: url('../images/films/dark-paradise/dark-paradise-cover.jpg');" onclick="playVideo(this)"></div>
+                <iframe id="vimeo-iframe" src="" 
                         frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
-                        allowfullscreen title="Dark Paradise Trailer"></iframe>
+                        allowfullscreen title="Dark Paradise Trailer" style="display: none;"></iframe>
             </div>
         </section>
 
@@ -98,6 +117,53 @@
         </section>
     </div>
 
-    <script src="../shared-nav.js"></script>
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Video poster functionality
+        function playVideo(poster) {
+            const iframe = document.getElementById('vimeo-iframe');
+            iframe.src = 'https://player.vimeo.com/video/192954169?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&color=ffffff&title=0&byline=0&portrait=0';
+            iframe.style.display = 'block';
+            poster.style.opacity = '0';
+            setTimeout(() => {
+                poster.style.display = 'none';
+            }, 300);
+        }
+
+        // Language switching
+        function switchLanguage(lang) {
+            const body = document.body;
+            const buttons = document.querySelectorAll('.lang-btn');
+            
+            // Remove active class from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+            
+            // Switch language
+            if (lang === 'ee') {
+                body.classList.add('lang-ee');
+            } else {
+                body.classList.remove('lang-ee');
+            }
+        }
+    </script>
 </body>
 </html>

@@ -440,8 +440,7 @@ body.lang-ee .content-ee { display: block; }
     width: 100%;
     height: 0;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    background: #000;
-    border-radius: 0;
+    background: white;
     overflow: hidden;
     margin-bottom: 3rem;
 }
@@ -452,6 +451,47 @@ body.lang-ee .content-ee { display: block; }
     left: 0;
     width: 100%;
     height: 100%;
+    border: none;
+}
+
+.video-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.video-poster::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23000"><path d="M8 5v14l11-7z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: 52% 50%;
+    background-size: 30px;
+}
+
+.video-poster:hover::after {
+    background: rgba(255, 255, 255, 1);
+}
+
+.video-poster.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .image-gallery {
