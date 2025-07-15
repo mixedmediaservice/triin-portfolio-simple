@@ -4,90 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Triin Ruumet - Film Director & Producer</title>
+    <link rel="stylesheet" href="shared-styles.css">
     <style>
-        :root {
-            --accent-gold: #c9a961;
-            --text-dark: #1a1a1a;
-            --text-light: #666;
-            --bg-light: #fefefe;
-            --bg-section: #f8f8f8;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-light);
-        }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .nav-logo a {
-            font-size: 1.5rem;
-            font-weight: 600;
-            text-decoration: none;
-            color: var(--text-dark);
-            letter-spacing: 2px;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 400;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: var(--accent-gold);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--text-dark);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
+        /* Homepage-specific styles */
         .hero {
             height: 100vh;
             position: relative;
@@ -130,6 +49,7 @@
             font-weight: 300;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
 
         .hero p {
@@ -137,21 +57,7 @@
             margin-bottom: 2rem;
             color: var(--accent-gold);
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            font-weight: 300;
-            color: var(--text-dark);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
 
         /* Films Section */
@@ -326,39 +232,6 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background: white;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                padding: 2rem 0;
-                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger.active span:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-
-            .hamburger.active span:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -369,10 +242,6 @@
 
             .commercial-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 3rem 1rem;
             }
         }
 
@@ -387,7 +256,7 @@
         }
     </style>
 </head>
-<body>
+<body class="home-page">
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
@@ -557,8 +426,8 @@
                 }
             });
         });
-
-        // Contact form submission (basic functionality)
+        
+        // Contact form submission
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             // Add EmailJS integration here later
