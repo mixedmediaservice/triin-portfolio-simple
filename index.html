@@ -3,21 +3,400 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Triin Ruumet - Estonian Film Director</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Triin Ruumet - Film Director & Producer</title>
+    <style>
+        :root {
+            --accent-gold: #c9a961;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #fefefe;
+            --bg-section: #f8f8f8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-logo a {
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-dark);
+            letter-spacing: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 400;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-gold);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            color: var(--text-dark);
+        }
+
+        /* Films Section */
+        .films-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .film-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background: #f5f5f5;
+            aspect-ratio: 16/9;
+        }
+
+        .film-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .film-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .film-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 2rem;
+            transform: translateY(60%);
+            transition: transform 0.3s ease;
+        }
+
+        .film-card:hover .film-overlay {
+            transform: translateY(0);
+        }
+
+        .film-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .film-meta {
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+        }
+
+        /* Commercial Section */
+        .commercial {
+            background: var(--bg-section);
+        }
+
+        .commercial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .commercial-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            aspect-ratio: 16/9;
+        }
+
+        .commercial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .commercial-card img {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+        }
+
+        .commercial-info {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .commercial-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* About Section */
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-section);
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .submit-btn {
+            padding: 1rem 2rem;
+            background: var(--accent-gold);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #b8955a;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .films-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .commercial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .films-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .commercial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
+    <!-- Navigation -->
+    <nav class="nav">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="#home">TRIIN RUUMET</a>
             </div>
-            <div class="nav-menu">
-                <a href="#films" class="nav-link">FILMS</a>
-                <a href="#commercial" class="nav-link">COMMERCIAL</a>
-                <a href="#about" class="nav-link">ABOUT</a>
-                <a href="#contact" class="nav-link">CONTACT</a>
-            </div>
+            <ul class="nav-menu">
+                <li><a href="#films">FILMS</a></li>
+                <li><a href="#commercial">COMMERCIAL</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -26,118 +405,163 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
-        <video autoplay muted loop>
-            <source src="video.mp4" type="video/mp4">
+        <video class="hero-video" autoplay muted loop>
+            <source src="images/hero-video.mp4" type="video/mp4">
         </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>TRIIN RUUMET</h1>
+            <p>Film Director & Producer</p>
+        </div>
     </section>
 
-    <section id="films" class="films-section">
-        <div class="container">
-            <h2>FILMS</h2>
-            <div class="films-grid">
-                <div class="film-item">
-                    <a href="projects/dark-paradise.html">
-                        <img src="images/dark-paradise-cover.jpg" alt="Dark Paradise">
-                        <h3>Dark Paradise</h3>
-                    </a>
+    <!-- Films Section -->
+    <section id="films" class="section">
+        <h2 class="section-title">FILMS</h2>
+        <div class="films-grid">
+            <div class="film-card" onclick="location.href='projects/dark-paradise.html'">
+                <img src="images/films/dark-paradise/dark-paradise-cover.jpg" alt="Dark Paradise">
+                <div class="film-overlay">
+                    <h3 class="film-title">Dark Paradise</h3>
+                    <p class="film-meta">2023 • Feature Film • 1hr 51min</p>
                 </div>
-                <div class="film-item">
-                    <a href="projects/the-days-that-confused.html">
-                        <img src="images/the-days-that-confused-cover.jpg" alt="The Days That Confused">
-                        <h3>The Days That Confused</h3>
-                    </a>
+            </div>
+            <div class="film-card" onclick="location.href='projects/the-days-that-confused.html'">
+                <img src="images/films/the-days-that-confused/the-days-that-confused-cover.jpg" alt="The Days That Confused">
+                <div class="film-overlay">
+                    <h3 class="film-title">The Days That Confused</h3>
+                    <p class="film-meta">2016 • Feature Film • 1hr 45min</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="commercial" class="commercial-section">
-    <div class="container">
-        <h2>COMMERCIAL</h2>
+    <!-- Commercial Section -->
+    <section id="commercial" class="section commercial">
+        <h2 class="section-title">COMMERCIAL</h2>
         <div class="commercial-grid">
-            <div class="commercial-item">
-                <a href="projects/saku-on-ice.html">
-                    <img src="images/saku-on-ice-cover.jpg" alt="Saku On Ice">
-                    <h3>Saku On Ice</h3>
-                </a>
+            <div class="commercial-card" onclick="location.href='projects/saku-on-ice.html'">
+                <img src="images/commercial/saku-on-ice/saku-on-ice-cover.jpg" alt="Saku On Ice">
+                <div class="commercial-info">
+                    <h3 class="commercial-title">Saku On Ice</h3>
+                </div>
             </div>
-            <div class="commercial-item">
-                <a href="projects/koik-on-tehtav.html">
-                    <img src="images/koik-on-tehtav-cover.jpg" alt="Kõik on tehtav!">
-                    <h3>Kõik on tehtav!</h3>
-                </a>
+            <div class="commercial-card" onclick="location.href='projects/koik-on-tehtav.html'">
+                <img src="images/commercial/koik-on-tehtav/koik-on-tehtav-cover.jpg" alt="Kõik on tehtav!">
+                <div class="commercial-info">
+                    <h3 class="commercial-title">Kõik on tehtav!</h3>
+                </div>
             </div>
-            <div class="commercial-item">
-                <a href="projects/meliva-imago.html">
-                    <img src="images/meliva-imago-cover.jpg" alt="Meliva Imago">
-                    <h3>Meliva Imago</h3>
-                </a>
+            <div class="commercial-card" onclick="location.href='projects/meliva-imago.html'">
+                <img src="images/commercial/meliva-imago/meliva-imago-cover.jpg" alt="Meliva Imago">
+                <div class="commercial-info">
+                    <h3 class="commercial-title">Meliva Imago</h3>
+                </div>
             </div>
-            <div class="commercial-item">
-                <a href="projects/coop-pank-kaardivagi.html">
-                    <img src="images/coop-pank-kaardivagi-cover.jpg" alt="Coop Pank Kaardivagi">
-                    <h3>Coop Pank Kaardivagi</h3>
-                </a>
+            <div class="commercial-card" onclick="location.href='projects/coop-pank-kaardivagi.html'">
+                <img src="images/commercial/coop-pank-kaardivagi/coop-pank-kaardivagi-cover.jpg" alt="Coop Pank Kaardivagi">
+                <div class="commercial-info">
+                    <h3 class="commercial-title">Coop Pank Kaardivagi</h3>
+                </div>
             </div>
-            <div class="commercial-item">
-                <a href="projects/miljardid-protsendid.html">
-                    <img src="images/miljardid-protsendid-cover.jpg" alt="Miljardid - Protsendid saavad otsa">
-                    <h3>Miljardid - Protsendid saavad otsa</h3>
-                </a>
+            <div class="commercial-card" onclick="location.href='projects/miljardid-protsendid.html'">
+                <img src="images/commercial/miljardid-protsendid/miljardid-protsendid-cover.jpg" alt="Miljardid - Protsendid saavad otsa">
+                <div class="commercial-info">
+                    <h3 class="commercial-title">Miljardid - Protsendid saavad otsa</h3>
+                </div>
             </div>
-            <div class="commercial-item">
-                <a href="projects/anna-arile-vunki.html">
-                    <img src="images/anna-arile-vunki-cover.jpg" alt="Anna ärile vunki juurde!">
-                    <h3>Anna ärile vunki juurde!</h3>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2>ABOUT</h2>
-            <div class="about-content">
-                <p>Triin Ruumet is an acclaimed Estonian film director whose distinctive vision and storytelling prowess have earned her a place on the international stage. Her original films, which she both writes and directs, have captivated audiences and critics alike, premiering at prestigious festivals such as the Karlovy Vary International Film Festival and the Tallinn Black Nights Film Festival.</p>
-                
-                <p>In addition to her celebrated film work, Ruumet is a skilled videographer, bringing a cinematic touch to a range of commercial projects. This includes agency-led social media campaigns that maintain a cinematic quality while meeting the unique demands of digital platforms.</p>
+            <div class="commercial-card" onclick="location.href='projects/anna-arile-vunki.html'">
+                <img src="images/commercial/anna-arile-vunki/anna-arile-vunki-cover.jpg" alt="Anna ärile vunki juurde!">
+                <div class="commercial-info">
+                    <h3 class="commercial-title">Anna ärile vunki juurde!</h3>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>CONTACT</h2>
-            <div class="contact-content">
-                <p>Open to new opportunities and collaborations that align with a passion for storytelling, whether in film, commercial projects or social media.</p>
-                
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title">ABOUT</h2>
+        <div class="about-content">
+            <p class="about-text">
+                Triin Ruumet is an Estonian film director and producer with over a decade of experience in both narrative and commercial filmmaking. Known for her distinctive visual style and compelling storytelling, she has directed feature films, documentaries, and commercial campaigns for leading brands.
+            </p>
+            <p class="about-text">
+                Her work explores themes of identity, ambition, and human connection, often set against the backdrop of contemporary Estonian society. With a background in both film production and visual arts, Triin brings a unique perspective to every project.
+            </p>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 Triin Ruumet</p>
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <h2 class="section-title">CONTACT</h2>
+        <div class="contact-content">
+            <p class="about-text">
+                Available for film projects, commercial campaigns, and creative collaborations.
+            </p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="project">Project Type</label>
+                    <input type="text" id="project" name="project" placeholder="Feature Film, Commercial, Documentary...">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
         </div>
-    </footer>
+    </section>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form submission (basic functionality)
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add EmailJS integration here later
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>

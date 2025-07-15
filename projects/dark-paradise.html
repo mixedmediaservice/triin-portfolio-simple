@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Paradise - Triin Ruumet</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Project-specific styles */
+        .project-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        .project-info {
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .project-subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .content-section {
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .project-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 16/9;
+            background: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #999;
+            font-size: 1.1rem;
+        }
+
+        .credits {
+            background: var(--bg-section);
+            padding: 3rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+
+        .credits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .credit-item {
+            text-align: center;
+        }
+
+        .credit-role {
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .credit-name {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent-gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-link:hover {
+            background: #b8955a;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2.5rem;
+            }
+            
+            .project-meta {
+                gap: 2rem;
+            }
+            
+            .project-content {
+                padding: 3rem 1rem;
+            }
+            
+            .content-section {
+                margin-bottom: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">TRIIN RUUMET</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#films">FILMS</a></li>
+                <li><a href="../index.html#commercial">COMMERCIAL</a></li>
+                <li><a href="../index.html#about">ABOUT</a></li>
+                <li><a href="../index.html#contact">CONTACT</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <!-- Background video placeholder - replace with actual trailer -->
+        <video autoplay muted loop>
+            <source src="../images/video/dark-paradise-trailer.mp4" type="video/mp4">
+        </video>
+        
+        <div class="project-info">
+            <h1 class="project-title">Dark Paradise</h1>
+            <p class="project-subtitle">Feature Film</p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Year</div>
+                    <div class="meta-value">2023</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Runtime</div>
+                    <div class="meta-value">1h 51min</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Role</div>
+                    <div class="meta-value">Director</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <div class="project-content">
+        <a href="../index.html#films" class="back-link">← Back to Films</a>
+        
+        <!-- Description -->
+        <section class="content-section">
+            <h2 class="section-title">About the Film</h2>
+            <p class="project-description">
+                Dark Paradise explores the complex relationship between ambition and morality in contemporary society. 
+                Set against the backdrop of Estonia's changing landscape, the film follows a young entrepreneur 
+                who must confront the consequences of their choices. Through intimate character studies and 
+                breathtaking cinematography, Dark Paradise questions what we're willing to sacrifice for success.
+            </p>
+        </section>
+
+        <!-- Main Video -->
+        <section class="content-section">
+            <h2 class="section-title">Watch Trailer</h2>
+            <div class="video-container">
+                <!-- Vimeo embed placeholder - replace with actual video ID -->
+                <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID?h=YOUR_HASH&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen title="Dark Paradise Trailer"></iframe>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="content-section">
+            <h2 class="section-title">Behind the Scenes</h2>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        Production Still 1
+                        <!-- Replace with: <img src="../images/films/dark-paradise/dark-paradise-1.jpg" alt="Dark Paradise production still"> -->
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        Production Still 2
+                        <!-- Replace with: <img src="../images/films/dark-paradise/dark-paradise-2.jpg" alt="Dark Paradise production still"> -->
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        Production Still 3
+                        <!-- Replace with: <img src="../images/films/dark-paradise/dark-paradise-3.jpg" alt="Dark Paradise production still"> -->
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        Production Still 4
+                        <!-- Replace with: <img src="../images/films/dark-paradise/dark-paradise-4.jpg" alt="Dark Paradise production still"> -->
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        Production Still 5
+                        <!-- Replace with: <img src="../images/films/dark-paradise/dark-paradise-5.jpg" alt="Dark Paradise production still"> -->
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        Production Still 6
+                        <!-- Replace with: <img src="../images/films/dark-paradise/dark-paradise-6.jpg" alt="Dark Paradise production still"> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Credits -->
+        <section class="content-section">
+            <h2 class="section-title">Credits</h2>
+            <div class="credits">
+                <div class="credits-grid">
+                    <div class="credit-item">
+                        <div class="credit-role">Director</div>
+                        <div class="credit-name">Triin Ruumet</div>
+                    </div>
+                    <div class="credit-item">
+                        <div class="credit-role">Producer</div>
+                        <div class="credit-name">[Producer Name]</div>
+                    </div>
+                    <div class="credit-item">
+                        <div class="credit-role">Cinematographer</div>
+                        <div class="credit-name">[DP Name]</div>
+                    </div>
+                    <div class="credit-item">
+                        <div class="credit-role">Editor</div>
+                        <div class="credit-name">[Editor Name]</div>
+                    </div>
+                    <div class="credit-item">
+                        <div class="credit-role">Production Company</div>
+                        <div class="credit-name">[Company Name]</div>
+                    </div>
+                    <div class="credit-item">
+                        <div class="credit-role">Distributor</div>
+                        <div class="credit-name">[Distributor Name]</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Navigation Script -->
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
