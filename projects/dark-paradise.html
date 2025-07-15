@@ -8,53 +8,41 @@
     <style>
         /* Project-specific styles */
         .project-hero {
-            min-height: 80vh;
+            min-height: 20vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            color: white;
+            background: white;
+            color: var(--text-dark);
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .project-hero video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.7;
-            z-index: -1;
+            padding: 1rem;
         }
 
         .project-info {
             z-index: 2;
             max-width: 800px;
-            padding: 2rem;
+            padding: 1rem;
         }
 
         .project-title {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             font-weight: 300;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 0.3rem;
+            color: var(--text-dark);
         }
 
         .project-subtitle {
-            font-size: 1.2rem;
-            color: var(--accent-gold);
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
         }
 
         .project-meta {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            margin-bottom: 2rem;
+            gap: 2rem;
+            margin-bottom: 0.5rem;
             flex-wrap: wrap;
         }
 
@@ -63,26 +51,27 @@
         }
 
         .meta-label {
-            font-size: 0.9rem;
-            color: var(--accent-gold);
-            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .meta-value {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             font-weight: 500;
+            color: var(--text-dark);
         }
 
         .project-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 5rem 2rem;
+            padding: 2rem 2rem;
         }
 
         .content-section {
-            margin-bottom: 5rem;
+            margin-bottom: 3rem;
         }
 
         .section-title {
@@ -107,7 +96,7 @@
             height: 0;
             padding-bottom: 56.25%; /* 16:9 aspect ratio */
             background: #000;
-            border-radius: 8px;
+            border-radius: 0;
             overflow: hidden;
             margin-bottom: 3rem;
         }
@@ -157,15 +146,17 @@
 
         .credits {
             background: var(--bg-section);
-            padding: 3rem;
+            padding: 2rem;
             border-radius: 12px;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .credits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         .credit-item {
@@ -203,6 +194,39 @@
             transform: translateY(-2px);
         }
 
+        .language-switcher {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid var(--text-light);
+            color: var(--text-light);
+            padding: 0.3rem 0.7rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--accent-gold);
+            color: white;
+            border-color: var(--accent-gold);
+        }
+
+        .lang-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .content-en { display: block; }
+        .content-ee { display: none; }
+        
         /* Mobile responsive */
         @media (max-width: 768px) {
             .project-title {
@@ -246,13 +270,14 @@
 
     <!-- Project Hero -->
     <section class="project-hero">
-        <!-- Background video placeholder - replace with actual trailer -->
-        <video autoplay muted loop>
-            <source src="../images/video/dark-paradise-trailer.mp4" type="video/mp4">
-        </video>
+        <div class="language-switcher">
+            <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="switchLanguage('ee')">EE</button>
+        </div>
         
         <div class="project-info">
-            <h1 class="project-title">Dark Paradise</h1>
+            <h1 class="project-title content-en">Dark Paradise</h1>
+            <h1 class="project-title content-ee">Tume paradiis</h1>
             <p class="project-subtitle">Feature Film</p>
             
             <div class="project-meta">
@@ -264,10 +289,6 @@
                     <div class="meta-label">Runtime</div>
                     <div class="meta-value">1h 51min</div>
                 </div>
-                <div class="meta-item">
-                    <div class="meta-label">Role</div>
-                    <div class="meta-value">Director</div>
-                </div>
             </div>
         </div>
     </section>
@@ -276,25 +297,22 @@
     <div class="project-content">
         <a href="../index.html#films" class="back-link">← Back to Films</a>
         
-        <!-- Description -->
-        <section class="content-section">
-            <h2 class="section-title">About the Film</h2>
-            <p class="project-description">
-                Dark Paradise explores the complex relationship between ambition and morality in contemporary society. 
-                Set against the backdrop of Estonia's changing landscape, the film follows a young entrepreneur 
-                who must confront the consequences of their choices. Through intimate character studies and 
-                breathtaking cinematography, Dark Paradise questions what we're willing to sacrifice for success.
-            </p>
-        </section>
-
         <!-- Main Video -->
         <section class="content-section">
-            <h2 class="section-title">Watch Trailer</h2>
             <div class="video-container">
-                <!-- Vimeo embed placeholder - replace with actual video ID -->
-                <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID?h=YOUR_HASH&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                <iframe src="https://player.vimeo.com/video/192954169?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
                         frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen title="Dark Paradise Trailer"></iframe>
+            </div>
+        </section>
+
+        <!-- Description -->
+        <section class="content-section">
+            <div class="project-description content-en">
+                The film's main character, Karmen (Rea Lest), is a young woman pampered by her father yet grappling with self-loathing. Her once-secure life suddenly collapses, confronting her with the universe's darkness and emptiness. Her discomfort intensifies due to a misdirected relationship with her half-brother, Viktor (Jörgen Liik), whose inner world is thrown into confusion by unexpected events. The film unveils the dark, hedonistic world of today's youth, overshadowed by past secrets, toxic love affairs, and an undercurrent of the underground world.
+            </div>
+            <div class="project-description content-ee">
+                Filmi peategelaseks on isa poolt ära hellitatud, kuid iseendaga pahuksis olev Karmen (Rea Lest), kelle senise elu turvavõrgustik laguneb ootamatult ning ta seisab silmitsi universumi tumeduse ja tühjusega. Ebamugavust lisavad vales suunas arenevad suhted poolvenna Viktoriga (Jörgen Liik), kelle tõekspidamised ja arusaamad suhetest lähedastega on ootamatute sündmuste tõttu tema sisemaailma segi paisanud. Film avab ukse tänapäeva noorte hämarasse hedonistlikku maailma, mida varjutavad mineviku saladused, toksilised armusuhted ning undergroundlik maailm.
             </div>
         </section>
 
@@ -351,24 +369,8 @@
                         <div class="credit-name">Triin Ruumet</div>
                     </div>
                     <div class="credit-item">
-                        <div class="credit-role">Producer</div>
-                        <div class="credit-name">[Producer Name]</div>
-                    </div>
-                    <div class="credit-item">
-                        <div class="credit-role">Cinematographer</div>
-                        <div class="credit-name">[DP Name]</div>
-                    </div>
-                    <div class="credit-item">
-                        <div class="credit-role">Editor</div>
-                        <div class="credit-name">[Editor Name]</div>
-                    </div>
-                    <div class="credit-item">
                         <div class="credit-role">Production Company</div>
-                        <div class="credit-name">[Company Name]</div>
-                    </div>
-                    <div class="credit-item">
-                        <div class="credit-role">Distributor</div>
-                        <div class="credit-name">[Distributor Name]</div>
+                        <div class="credit-name">Kinosaurus</div>
                     </div>
                 </div>
             </div>
