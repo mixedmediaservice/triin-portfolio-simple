@@ -104,18 +104,16 @@ body {
 }
 
 /* ===================
-   LANGUAGE SWITCHER
+   LANGUAGE SWITCHER IN NAVIGATION
    =================== */
-.language-switcher {
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
+.nav-lang-switcher {
     display: flex;
     gap: 0.5rem;
-    font-size: 0.9rem;
+    align-items: center;
+    margin-left: 1rem;
 }
 
-.lang-btn {
+.nav-lang-btn {
     background: none;
     border: 1px solid var(--text-light);
     color: var(--text-light);
@@ -123,17 +121,23 @@ body {
     cursor: pointer;
     border-radius: 4px;
     transition: all 0.3s ease;
+    font-size: 0.9rem;
 }
 
-.lang-btn.active {
+.nav-lang-btn.active {
     background: var(--accent-gold);
     color: white;
     border-color: var(--accent-gold);
 }
 
-.lang-btn:hover {
+.nav-lang-btn:hover {
     border-color: var(--accent-gold);
     color: var(--accent-gold);
+}
+
+/* Remove old language switcher styles */
+.language-switcher {
+    display: none;
 }
 
 /* Language content switching */
@@ -572,6 +576,17 @@ body.lang-ee .content-ee { display: block; }
 
     .nav-menu.active {
         left: 0;
+    }
+
+    .nav-lang-switcher {
+        margin-left: 0;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    .nav-lang-btn {
+        color: var(--text-dark);
+        border-color: var(--text-dark);
     }
 
     .hamburger {

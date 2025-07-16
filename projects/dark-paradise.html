@@ -18,6 +18,10 @@
                 <li><a href="../index.html#commercial"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
                 <li><a href="../index.html#about"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
                 <li><a href="../index.html#contact"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
+                <li class="nav-lang-switcher">
+                    <button class="nav-lang-btn active" onclick="switchLanguage('en')">EN</button>
+                    <button class="nav-lang-btn" onclick="switchLanguage('ee')">EE</button>
+                </li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -29,12 +33,6 @@
 
     <!-- Project Hero -->
     <section class="project-hero">
-        <!-- Language switcher -->
-        <div class="language-switcher">
-            <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
-            <button class="lang-btn" onclick="switchLanguage('ee')">EE</button>
-        </div>
-        
         <div class="project-info">
             <h1 class="project-title content-en">Dark Paradise</h1>
             <h1 class="project-title content-ee">Tume paradiis</h1>
@@ -149,7 +147,7 @@
         // Language switching
         function switchLanguage(lang) {
             const body = document.body;
-            const buttons = document.querySelectorAll('.lang-btn');
+            const buttons = document.querySelectorAll('.nav-lang-btn');
             
             // Remove active class from all buttons
             buttons.forEach(btn => btn.classList.remove('active'));

@@ -18,6 +18,10 @@
                 <li><a href="#commercial"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
                 <li><a href="#about"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
                 <li><a href="#contact"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
+                <li class="nav-lang-switcher">
+                    <button class="nav-lang-btn active" onclick="switchLanguage('en')">EN</button>
+                    <button class="nav-lang-btn" onclick="switchLanguage('ee')">EE</button>
+                </li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -26,12 +30,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Add language switcher to homepage -->
-    <div class="language-switcher">
-        <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
-        <button class="lang-btn" onclick="switchLanguage('ee')">EE</button>
-    </div>
 
     <!-- Hero Section - Clean video only -->
     <section id="home" class="hero">
@@ -204,7 +202,7 @@
         // Language switching
         function switchLanguage(lang) {
             const body = document.body;
-            const buttons = document.querySelectorAll('.lang-btn');
+            const buttons = document.querySelectorAll('.nav-lang-btn');
             
             // Remove active class from all buttons
             buttons.forEach(btn => btn.classList.remove('active'));
