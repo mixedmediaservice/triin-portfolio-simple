@@ -195,6 +195,95 @@ body.lang-ee .content-ee { display: block; }
 }
 
 /* Mobile responsive - center language switcher in hamburger menu */
+/* ===================
+   ANIMATED LANGUAGE SWITCHER (ITEM 5)
+   =================== */
+.nav-lang-switcher {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.nav-lang-switcher::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(50% - 2px);
+    height: calc(100% - 4px);
+    background: linear-gradient(135deg, var(--accent-gold), #d4b56a);
+    border-radius: 18px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 2px 8px rgba(201, 169, 97, 0.3);
+    z-index: 1;
+}
+
+.nav-lang-switcher.ee-active::before {
+    transform: translateX(100%);
+}
+
+.nav-lang-btn {
+    position: relative;
+    background: transparent;
+    border: none;
+    color: var(--text-dark);
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    border-radius: 18px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    min-width: 32px;
+    z-index: 2;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.nav-lang-btn:hover {
+    color: var(--text-dark);
+    transform: scale(1.05);
+}
+
+.nav-lang-btn.active {
+    color: white;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.nav-lang-btn.active:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Mobile responsive - enhanced animated switcher */
+@media (max-width: 768px) {
+    .nav-lang-switcher {
+        justify-content: center;
+        margin-top: 1.5rem;
+        padding: 3px;
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+    }
+    
+    .nav-lang-switcher::before {
+        border-radius: 22px;
+        top: 3px;
+        left: 3px;
+        width: calc(50% - 3px);
+        height: calc(100% - 6px);
+    }
+    
+    .nav-lang-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        min-width: 40px;
+        border-radius: 22px;
+    }
+}
 @media (max-width: 768px) {
     .nav-lang-switcher {
         justify-content: center;

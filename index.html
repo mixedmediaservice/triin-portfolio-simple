@@ -314,8 +314,21 @@
         const languageManager = new LanguageManager();
 
         // Global function for onclick handlers (maintains backward compatibility)
-        function switchLanguage(lang) {
+      function switchLanguage(lang) {
             languageManager.switchLanguage(lang);
+            updateLanguageSwitcherAnimation(lang);
+        }
+
+        // Animated language switcher functionality
+        function updateLanguageSwitcherAnimation(lang) {
+            const switcher = document.querySelector('.nav-lang-switcher');
+            if (switcher) {
+                if (lang === 'ee') {
+                    switcher.classList.add('ee-active');
+                } else {
+                    switcher.classList.remove('ee-active');
+                }
+            }
         }
 
         // Enhanced EmailJS form with language-aware messages
