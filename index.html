@@ -410,6 +410,9 @@
             
             // Initialize other page functionality
             initializeNavigation();
+
+            // Initialize other page functionality
+            initializeNavigation()
         });
 
         function initializeNavigation() {
@@ -455,6 +458,88 @@
                     });
                 });
             }
+        }
+        // Page Transitions System
+        function initializePageTransitions() {
+            // Create transition overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'page-transition-overlay';
+            document.body.appendChild(overlay);
+            
+            // Add page loaded class after initial load
+            setTimeout(() => {
+                document.body.classList.add('page-loaded');
+            }, 100);
+            
+            // Handle all navigation links
+            document.querySelectorAll('a[href]').forEach(link => {
+                // Skip external links, anchors, and mailto links
+                const href = link.getAttribute('href');
+                if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('http')) {
+                    return;
+                }
+                
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Show transition overlay
+                    overlay.classList.add('active');
+                    document.body.classList.add('page-loading');
+                    
+                    // Navigate after transition
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 300);
+                });
+            });
+            
+            // Handle browser back/forward
+            window.addEventListener('pageshow', function() {
+                overlay.classList.remove('active');
+                document.body.classList.remove('page-loading');
+                document.body.classList.add('page-loaded');
+            });
+        }
+        // Page Transitions System
+        function initializePageTransitions() {
+            // Create transition overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'page-transition-overlay';
+            document.body.appendChild(overlay);
+            
+            // Add page loaded class after initial load
+            setTimeout(() => {
+                document.body.classList.add('page-loaded');
+            }, 100);
+            
+            // Handle all navigation links
+            document.querySelectorAll('a[href]').forEach(link => {
+                // Skip external links, anchors, and mailto links
+                const href = link.getAttribute('href');
+                if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('http')) {
+                    return;
+                }
+                
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Show transition overlay
+                    overlay.classList.add('active');
+                    document.body.classList.add('page-loading');
+                    
+                    // Navigate after transition
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 300);
+                });
+            });
+            
+            // Handle browser back/forward
+            window.addEventListener('pageshow', function() {
+                overlay.classList.remove('active');
+                document.body.classList.remove('page-loading');
+                document.body.classList.add('page-loaded');
+            });
         }
     </script>
 </body>

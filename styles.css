@@ -793,9 +793,7 @@ body.lang-ee .content-ee { display: block; }
 /* Language System CSS Additions */
 
 /* Placeholder updates for Estonian language */
-body.lang-ee input[data-placeholder-ee] {
-    /* This will be handled by JavaScript */
-}
+
 
 /* Ensure smooth transitions for language switches */
 .content-en,
