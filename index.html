@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Triin Ruumet - Film Director & Producer</title>
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("Q8mF-kCkl5IzUVp2b");
+        })();
+    </script>
 </head>
 <body class="home-page">
     <!-- Navigation -->
@@ -145,7 +153,7 @@
                     Ettepanekute puhul täida palun allolev vorm :)
                 </p>
             </div>
-            <form class="contact-form">
+            <form class="contact-form" id="contact-form">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
@@ -162,7 +170,10 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" class="submit-btn" id="submit-btn">
+                    <span class="content-en">Send Message</span>
+                    <span class="content-ee">Saada sõnum</span>
+                </button>
             </form>
         </div>
     </section>
@@ -218,11 +229,57 @@
             }
         }
 
-        // Contact form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        // EmailJS Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<span class="content-en">Sending...</span><span class="content-ee">Saadan...</span>';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                project: document.getElementById('project').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Send email using EmailJS
+            emailjs.send('service_jcm6n1o', 'template_uwb0s1f', formData)
+                .then(function(response) {
+                    console.log('Email sent successfully!', response.status, response.text);
+                    
+                    // Success message
+                    const isEstonian = document.body.classList.contains('lang-ee');
+                    const successMessage = isEstonian ? 
+                        'Aitäh sõnumi eest! Võtan teiega peagi ühendust.' :
+                        'Thank you for your message! I will get back to you soon.';
+                    
+                    alert(successMessage);
+                    
+                    // Reset form
+                    document.getElementById('contact-form').reset();
+                    
+                }, function(error) {
+                    console.log('Email failed to send:', error);
+                    
+                    // Error message
+                    const isEstonian = document.body.classList.contains('lang-ee');
+                    const errorMessage = isEstonian ? 
+                        'Viga sõnumi saatmisel. Palun proovige uuesti.' :
+                        'Error sending message. Please try again.';
+                    
+                    alert(errorMessage);
+                })
+                .finally(function() {
+                    // Reset button state
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
         });
     </script>
 </body>
