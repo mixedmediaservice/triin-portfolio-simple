@@ -30,11 +30,14 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.76);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     padding: 1rem 0;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .nav-container {
@@ -86,7 +89,13 @@ body {
     margin: 3px 0;
     transition: 0.3s;
 }
-
+/* Enhanced scroll effect */
+.nav.scrolled {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
 /* ===================
    HERO SECTION (Clean video only)
    =================== */
@@ -752,87 +761,6 @@ body.lang-ee .content-ee { display: block; }
     }
 }
 /* Language System CSS Additions */
-
-/* Placeholder updates for Estonian language */
-body.lang-ee input[data-placeholder-ee] {
-    /* This will be handled by JavaScript */
-}
-
-/* Ensure smooth transitions for language switches */
-.content-en,
-.content-ee {
-    transition: opacity 0.3s ease;
-}
-
-/* Loading state for language detection */
-.language-loading {
-    opacity: 0.7;
-    pointer-events: none;
-}
-
-/* Language switcher improvements */
-.nav-lang-switcher {
-    position: relative;
-}
-
-.nav-lang-btn {
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.nav-lang-btn.active {
-    transform: scale(1.05);
-}
-
-/* Form label improvements for bilingual support */
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: var(--text-dark);
-}
-
-.form-group label span {
-    display: inline-block;
-}
-
-/* Ensure proper spacing for bilingual labels */
-.form-group label .content-en,
-.form-group label .content-ee {
-    display: block;
-}
-
-body.lang-ee .form-group label .content-en {
-    display: none;
-}
-
-body.lang-ee .form-group label .content-ee {
-    display: block;
-}
-
-body:not(.lang-ee) .form-group label .content-en {
-    display: block;
-}
-
-body:not(.lang-ee) .form-group label .content-ee {
-    display: none;
-}
-
-/* Improved mobile responsiveness for language switcher */
-@media (max-width: 768px) {
-    .nav-lang-switcher {
-        justify-content: center;
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid #eee;
-    }
-    
-    .nav-lang-btn {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-    }
-}
-/* Language System CSS Additions - ADD TO BOTTOM OF styles.css */
 
 /* Placeholder updates for Estonian language */
 body.lang-ee input[data-placeholder-ee] {
