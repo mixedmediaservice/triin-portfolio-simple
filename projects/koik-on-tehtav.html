@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Kõik on tehtav! - Commercial by Triin Ruumet | Estonian Film Director</title>
+    <meta name="description" content="Watch 'Kõik on tehtav!' - a creative commercial directed by acclaimed Estonian filmmaker Triin Ruumet. Award-winning director showcasing innovative storytelling in advertising.">
+    <meta name="keywords" content="Triin Ruumet, Estonian director, commercial, advertising, Kõik on tehtav, film director, Estonia, creative director">
+    <meta name="author" content="Triin Ruumet">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://triinruumet.com/projects/koik-on-tehtav.html">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Kõik on tehtav! - Commercial by Triin Ruumet">
+    <meta property="og:description" content="Watch 'Kõik on tehtav!' - a creative commercial directed by acclaimed Estonian filmmaker Triin Ruumet.">
+    <meta property="og:type" content="video.other">
+    <meta property="og:url" content="https://triinruumet.com/projects/koik-on-tehtav.html">
+    <meta property="og:image" content="https://triinruumet.com/images/commercial/koik-on-tehtav/koik-on-tehtav-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Triin Ruumet - Film Director">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="et_EE">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kõik on tehtav! - Commercial by Triin Ruumet">
+    <meta name="twitter:description" content="Watch 'Kõik on tehtav!' - a creative commercial directed by acclaimed Estonian filmmaker Triin Ruumet.">
+    <meta name="twitter:image" content="https://triinruumet.com/images/commercial/koik-on-tehtav/koik-on-tehtav-cover.jpg">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Kõik on tehtav!",
+        "description": "A creative commercial directed by acclaimed Estonian filmmaker Triin Ruumet",
+        "thumbnailUrl": "https://triinruumet.com/images/commercial/koik-on-tehtav/koik-on-tehtav-cover.jpg",
+        "uploadDate": "2024-01-01",
+        "contentUrl": "https://vimeo.com/1062000341",
+        "embedUrl": "https://player.vimeo.com/video/1062000341",
+        "director": {
+            "@type": "Person",
+            "name": "Triin Ruumet",
+            "url": "https://triinruumet.com"
+        },
+        "creator": {
+            "@type": "Person",
+            "name": "Triin Ruumet",
+            "url": "https://triinruumet.com"
+        },
+        "genre": "Commercial",
+        "inLanguage": "et"
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="project-page">
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">TRIIN RUUMET</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#films"><span class="content-en">FILMS</span><span class="content-ee">FILMID</span></a></li>
+                <li><a href="../index.html#commercial"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
+                <li><a href="../index.html#about"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
+                <li><a href="../index.html#contact"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
+                <li class="nav-lang-switcher">
+                    <button class="nav-lang-btn active" onclick="switchLanguage('en')">EN</button>
+                    <button class="nav-lang-btn" onclick="switchLanguage('ee')">EE</button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="project-info">
+            <h1 class="project-title">Kõik on tehtav!</h1>
+            <p class="project-subtitle">Commercial</p>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <div class="project-content">
+        <!-- Main Video - Mobile Format (9:16) -->
+        <section class="content-section">
+            <div class="commercial-video-container">
+                <div class="video-poster" style="background-image: url('../images/commercial/koik-on-tehtav/koik-on-tehtav-cover.jpg');" onclick="playCommercialVideo(this)"></div>
+                <iframe id="commercial-vimeo-iframe" src="" 
+                        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen title="Kõik on tehtav! Commercial" style="display: none;"></iframe>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Video poster functionality for commercial
+        function playCommercialVideo(poster) {
+            const iframe = document.getElementById('commercial-vimeo-iframe');
+            iframe.src = 'https://player.vimeo.com/video/1062000341?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&color=ffffff&title=0&byline=0&portrait=0';
+            iframe.style.display = 'block';
+            poster.classList.add('hidden');
+            setTimeout(() => {
+                poster.style.display = 'none';
+            }, 300);
+        }
+
+        // Language switching
+        function switchLanguage(lang) {
+            const body = document.body;
+            const buttons = document.querySelectorAll('.nav-lang-btn');
+            
+            // Remove active class from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+            
+            // Switch language
+            if (lang === 'ee') {
+                body.classList.add('lang-ee');
+            } else {
+                body.classList.remove('lang-ee');
+            }
+        }
+    </script>
+</body>
+</html>

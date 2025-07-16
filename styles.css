@@ -1,5 +1,7 @@
 /* styles.css - Single source of truth for all styles */
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&display=swap');
+
 :root {
     --accent-gold: #c9a961;
     --text-dark: #1a1a1a;
@@ -28,7 +30,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.76);
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 0;
@@ -45,6 +47,7 @@ body {
 }
 
 .nav-logo a {
+    font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     font-weight: 600;
     text-decoration: none;
@@ -104,40 +107,38 @@ body {
 }
 
 /* ===================
-   LANGUAGE SWITCHER IN NAVIGATION
+   LANGUAGE SWITCHER
    =================== */
-.nav-lang-switcher {
+.language-switcher {
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
     display: flex;
     gap: 0.5rem;
-    align-items: center;
-    margin-left: 1rem;
+    font-size: 0.9rem;
+    z-index: 2000;
 }
 
-.nav-lang-btn {
-    background: none;
+.lang-btn {
+    background: rgba(255, 255, 255, 0.9);
     border: 1px solid var(--text-light);
-    color: var(--text-light);
+    color: var(--text-dark);
     padding: 0.3rem 0.7rem;
     cursor: pointer;
     border-radius: 4px;
     transition: all 0.3s ease;
-    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
 }
 
-.nav-lang-btn.active {
+.lang-btn.active {
     background: var(--accent-gold);
     color: white;
     border-color: var(--accent-gold);
 }
 
-.nav-lang-btn:hover {
+.lang-btn:hover {
     border-color: var(--accent-gold);
     color: var(--accent-gold);
-}
-
-/* Remove old language switcher styles */
-.language-switcher {
-    display: none;
 }
 
 /* Language content switching */
@@ -458,6 +459,78 @@ body.lang-ee .content-ee { display: block; }
     border: none;
 }
 
+/* ===================
+   COMMERCIAL VIDEO STYLES
+   =================== */
+.commercial-video-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px; /* Reduced from 400px */
+    margin: 0 auto;
+    height: 0;
+    padding-bottom: 177.78%; /* 9:16 aspect ratio for mobile/vertical videos */
+    background: #f5f5f5;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    border-radius: 8px;
+}
+
+.commercial-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.commercial-video-container .video-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.commercial-video-container .video-poster::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px; /* Reduced from 60px */
+    height: 50px; /* Reduced from 60px */
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23000"><path d="M8 5v14l11-7z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: 52% 50%;
+    background-size: 20px; /* Reduced from 24px */
+}
+
+.commercial-video-container .video-poster:hover::after {
+    background: rgba(255, 255, 255, 1);
+}
+
+.commercial-video-container .video-poster.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Mobile responsive for commercial videos */
+@media (max-width: 768px) {
+    .commercial-video-container {
+        max-width: 250px; /* Even smaller on mobile */
+    }
+}
+
 .video-poster {
     position: absolute;
     top: 0;
@@ -578,17 +651,6 @@ body.lang-ee .content-ee { display: block; }
         left: 0;
     }
 
-    .nav-lang-switcher {
-        margin-left: 0;
-        margin-top: 1rem;
-        justify-content: center;
-    }
-
-    .nav-lang-btn {
-        color: var(--text-dark);
-        border-color: var(--text-dark);
-    }
-
     .hamburger {
         display: flex;
     }
@@ -636,5 +698,9 @@ body.lang-ee .content-ee { display: block; }
 
     .commercial-grid {
         grid-template-columns: 1fr;
+    }
+
+    .commercial-video-container {
+        max-width: 300px;
     }
 }
