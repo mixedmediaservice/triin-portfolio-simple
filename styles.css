@@ -30,11 +30,11 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px) saturate(150%);
-    -webkit-backdrop-filter: blur(20px) saturate(150%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(25px) saturate(120%);
+    -webkit-backdrop-filter: blur(25px) saturate(120%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     z-index: 1000;
     padding: 1rem 0;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -54,8 +54,9 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     text-decoration: none;
-    color: var(--text-dark);
+    color: white;
     letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .nav-menu {
@@ -66,10 +67,11 @@ body {
 
 .nav-menu a {
     text-decoration: none;
-    color: var(--text-dark);
+    color: white;
     font-weight: 400;
     letter-spacing: 1px;
     transition: color 0.3s ease;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .nav-menu a:hover {
@@ -85,16 +87,16 @@ body {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: var(--text-dark);
+    background: white;
     margin: 3px 0;
     transition: 0.3s;
 }
 /* Enhanced scroll effect */
 .nav.scrolled {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(25px) saturate(180%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(30px) saturate(140%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 /* ===================
    HERO SECTION (Clean video only)
