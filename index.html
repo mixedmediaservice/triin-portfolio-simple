@@ -139,7 +139,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section with Bilingual Form Labels -->
     <section id="contact" class="section contact">
         <h2 class="section-title"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></h2>
         <div class="contact-content">
@@ -161,155 +161,293 @@
             </div>
             <form class="contact-form" id="contact-form">
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">
+                        <span class="content-en">Name</span>
+                        <span class="content-ee">Nimi</span>
+                    </label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">
+                        <span class="content-en">Email</span>
+                        <span class="content-ee">E-post</span>
+                    </label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="project">Project Type</label>
-                    <input type="text" id="project" name="project" placeholder="Feature Film, Commercial, Documentary...">
+                    <label for="project">
+                        <span class="content-en">Project Type</span>
+                        <span class="content-ee">Projekti Tüüp</span>
+                    </label>
+                    <input type="text" id="project" name="project" 
+                           placeholder="Feature Film, Commercial, Documentary..." 
+                           data-placeholder-en="Feature Film, Commercial, Documentary..."
+                           data-placeholder-ee="Mängufilm, Reklaam, Dokumentaal...">
                 </div>
                 <div class="form-group">
-                    <label for="message">Message</label>
+                    <label for="message">
+                        <span class="content-en">Message</span>
+                        <span class="content-ee">Sõnum</span>
+                    </label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
                 <button type="submit" class="submit-btn" id="submit-btn">
                     <span class="content-en">Send Message</span>
-                    <span class="content-ee">Saada sõnum</span>
+                    <span class="content-ee">Saada Sõnum</span>
                 </button>
             </form>
         </div>
     </section>
 
     <script>
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+        // Advanced Language System with Geo-Detection and Persistence
+        class LanguageManager {
+            constructor() {
+                this.defaultLang = 'en';
+                this.currentLang = 'en';
+                this.initialized = false;
+                this.init();
+            }
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+            async init() {
+                // Check if user has a saved preference
+                const savedLang = localStorage.getItem('preferred-language');
+                
+                if (savedLang) {
+                    // User has a preference, use it
+                    this.currentLang = savedLang;
+                    console.log('Using saved language preference:', savedLang);
+                } else {
+                    // First-time visitor, detect location
+                    this.currentLang = await this.detectUserLocation();
+                    console.log('Detected language for first-time visitor:', this.currentLang);
                 }
-            });
-        });
+                
+                this.applyLanguage(this.currentLang);
+                this.updateLanguageButtons();
+                this.initialized = true;
+            }
 
-        // Language switching
-        function switchLanguage(lang) {
-            const body = document.body;
-            const buttons = document.querySelectorAll('.nav-lang-btn');
-            
-            // Remove active class from all buttons
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
-            
-            // Switch language
-            if (lang === 'ee') {
-                body.classList.add('lang-ee');
-            } else {
-                body.classList.remove('lang-ee');
+            async detectUserLocation() {
+                try {
+                    // Try to get user's country using a free IP geolocation service
+                    const response = await fetch('https://ipapi.co/json/');
+                    const data = await response.json();
+                    
+                    console.log('Detected country:', data.country_code);
+                    
+                    // If user is from Estonia, default to Estonian
+                    if (data.country_code === 'EE') {
+                        return 'ee';
+                    }
+                    
+                    // Everyone else defaults to English
+                    return 'en';
+                    
+                } catch (error) {
+                    console.log('Geolocation detection failed, defaulting to English:', error);
+                    return 'en';
+                }
+            }
+
+            switchLanguage(lang) {
+                this.currentLang = lang;
+                
+                // Save user's preference
+                localStorage.setItem('preferred-language', lang);
+                
+                // Apply the language
+                this.applyLanguage(lang);
+                this.updateLanguageButtons();
+                
+                console.log('Language switched to:', lang);
+            }
+
+            applyLanguage(lang) {
+                const body = document.body;
+                
+                if (lang === 'ee') {
+                    body.classList.add('lang-ee');
+                } else {
+                    body.classList.remove('lang-ee');
+                }
+                
+                // Update placeholders
+                this.updatePlaceholders(lang);
+            }
+
+            updateLanguageButtons() {
+                const buttons = document.querySelectorAll('.nav-lang-btn');
+                
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    
+                    // Check if this button corresponds to current language
+                    const onclick = btn.getAttribute('onclick');
+                    if (onclick && onclick.includes(`'${this.currentLang}'`)) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+
+            updatePlaceholders(lang) {
+                const inputs = document.querySelectorAll('[data-placeholder-en][data-placeholder-ee]');
+                
+                inputs.forEach(input => {
+                    const enPlaceholder = input.getAttribute('data-placeholder-en');
+                    const eePlaceholder = input.getAttribute('data-placeholder-ee');
+                    
+                    if (lang === 'ee') {
+                        input.placeholder = eePlaceholder;
+                    } else {
+                        input.placeholder = enPlaceholder;
+                    }
+                });
+            }
+
+            getCurrentLanguage() {
+                return this.currentLang;
             }
         }
 
-        // EmailJS Contact form submission - FIXED VERSION
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Initialize the language manager
+        const languageManager = new LanguageManager();
+
+        // Global function for onclick handlers (maintains backward compatibility)
+        function switchLanguage(lang) {
+            languageManager.switchLanguage(lang);
+        }
+
+        // Enhanced EmailJS form with language-aware messages
+        function initializeContactForm() {
+            const contactForm = document.getElementById('contact-form');
+            if (!contactForm) return;
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Check if EmailJS is loaded
+                if (typeof emailjs === 'undefined') {
+                    console.error('EmailJS is not loaded');
+                    alert('Email service is not available. Please try again later.');
+                    return;
+                }
+                
+                const submitBtn = document.getElementById('submit-btn');
+                const originalText = submitBtn.innerHTML;
+                
+                // Get current language for messages
+                const currentLang = languageManager.getCurrentLanguage();
+                const isEstonian = currentLang === 'ee';
+                
+                // Show loading state
+                if (isEstonian) {
+                    submitBtn.innerHTML = 'Saadan...';
+                } else {
+                    submitBtn.innerHTML = 'Sending...';
+                }
+                submitBtn.disabled = true;
+                
+                // Get form data
+                const templateParams = {
+                    from_name: document.getElementById('name').value,
+                    from_email: document.getElementById('email').value,
+                    project_type: document.getElementById('project').value,
+                    message: document.getElementById('message').value
+                };
+                
+                console.log('Sending email with params:', templateParams);
+                
+                // Send email using EmailJS
+                emailjs.send('service_jcm6n1o', 'template_4t3k57a', templateParams)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        
+                        // Success message in current language
+                        const successMessage = isEstonian ? 
+                            'Aitäh sõnumi eest! Võtan teiega peagi ühendust.' :
+                            'Thank you for your message! I will get back to you soon.';
+                        
+                        alert(successMessage);
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                    })
+                    .catch(function(error) {
+                        console.log('FAILED...', error);
+                        
+                        // Error message in current language
+                        let errorMessage;
+                        if (error.status === 418) {
+                            errorMessage = isEstonian ? 
+                                'Emaili teenuse viga. Kontrollige teenuse seadistusi.' :
+                                'Email service error. Please check service settings.';
+                        } else if (error.status === 400) {
+                            errorMessage = isEstonian ? 
+                                'Viga sõnumi vormingus. Kontrollige kõiki välju.' :
+                                'Error in message format. Please check all fields.';
+                        } else {
+                            errorMessage = isEstonian ? 
+                                'Viga sõnumi saatmisel. Proovige uuesti.' :
+                                'Error sending message. Please try again.';
+                        }
+                        
+                        alert(errorMessage);
+                    })
+                    .finally(function() {
+                        // Reset button state
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    });
+            });
+        }
+
+        // Initialize everything when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize contact form if it exists
+            initializeContactForm();
             
-            // Check if EmailJS is loaded
-            if (typeof emailjs === 'undefined') {
-                console.error('EmailJS is not loaded');
-                alert('Email service is not available. Please try again later.');
-                return;
-            }
-            
-            const submitBtn = document.getElementById('submit-btn');
-            const originalText = submitBtn.innerHTML;
-            
-            // Show loading state
-            submitBtn.innerHTML = '<span class="content-en">Sending...</span><span class="content-ee">Saadan...</span>';
-            submitBtn.disabled = true;
-            
-            // Get form data - MATCHING YOUR TEMPLATE EXACTLY
-            const templateParams = {
-                from_name: document.getElementById('name').value,
-                from_email: document.getElementById('email').value,
-                project_type: document.getElementById('project').value,
-                message: document.getElementById('message').value,
-                subject: 'New contact from portfolio website'
-            };
-            
-            console.log('Sending email with params:', templateParams);
-            
-            // Send email using EmailJS - Use YOUR service and template IDs
-            emailjs.send('service_jcm6n1o', 'template_4t3k57a', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    
-                    // Success message
-                    const isEstonian = document.body.classList.contains('lang-ee');
-                    const successMessage = isEstonian ? 
-                        'Aitäh sõnumi eest! Võtan teiega peagi ühendust.' :
-                        'Thank you for your message! I will get back to you soon.';
-                    
-                    alert(successMessage);
-                    
-                    // Reset form
-                    document.getElementById('contact-form').reset();
-                    
-                })
-                .catch(function(error) {
-                    console.log('FAILED...', error);
-                    
-                    // More detailed error handling
-                    let errorMessage;
-                    const isEstonian = document.body.classList.contains('lang-ee');
-                    
-                    if (error.status === 400) {
-                        errorMessage = isEstonian ? 
-                            'Viga sõnumi vormingus. Kontrollige kõiki välju.' :
-                            'Error in message format. Please check all fields.';
-                    } else if (error.status === 401) {
-                        errorMessage = isEstonian ? 
-                            'Autentimine ebaõnnestus. Proovige hiljem uuesti.' :
-                            'Authentication failed. Please try again later.';
-                    } else {
-                        errorMessage = isEstonian ? 
-                            'Viga sõnumi saatmisel. Proovige uuesti või võtke otse ühendust.' :
-                            'Error sending message. Please try again or contact directly.';
-                    }
-                    
-                    alert(errorMessage);
-                })
-                .finally(function() {
-                    // Reset button state
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                });
+            // Initialize other page functionality
+            initializeNavigation();
         });
+
+        function initializeNavigation() {
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+
+                // Close menu when clicking on a link
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
+            }
+
+            // Smooth scrolling for navigation links (only on home page)
+            if (document.body.classList.contains('home-page')) {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                });
+            }
+        }
     </script>
 </body>
 </html>

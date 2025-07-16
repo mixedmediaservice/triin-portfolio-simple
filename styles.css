@@ -751,3 +751,165 @@ body.lang-ee .content-ee { display: block; }
         max-width: 300px;
     }
 }
+/* Language System CSS Additions */
+
+/* Placeholder updates for Estonian language */
+body.lang-ee input[data-placeholder-ee] {
+    /* This will be handled by JavaScript */
+}
+
+/* Ensure smooth transitions for language switches */
+.content-en,
+.content-ee {
+    transition: opacity 0.3s ease;
+}
+
+/* Loading state for language detection */
+.language-loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Language switcher improvements */
+.nav-lang-switcher {
+    position: relative;
+}
+
+.nav-lang-btn {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-lang-btn.active {
+    transform: scale(1.05);
+}
+
+/* Form label improvements for bilingual support */
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-group label span {
+    display: inline-block;
+}
+
+/* Ensure proper spacing for bilingual labels */
+.form-group label .content-en,
+.form-group label .content-ee {
+    display: block;
+}
+
+body.lang-ee .form-group label .content-en {
+    display: none;
+}
+
+body.lang-ee .form-group label .content-ee {
+    display: block;
+}
+
+body:not(.lang-ee) .form-group label .content-en {
+    display: block;
+}
+
+body:not(.lang-ee) .form-group label .content-ee {
+    display: none;
+}
+
+/* Improved mobile responsiveness for language switcher */
+@media (max-width: 768px) {
+    .nav-lang-switcher {
+        justify-content: center;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+    }
+    
+    .nav-lang-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+/* Language System CSS Additions - ADD TO BOTTOM OF styles.css */
+
+/* Placeholder updates for Estonian language */
+body.lang-ee input[data-placeholder-ee] {
+    /* This will be handled by JavaScript */
+}
+
+/* Ensure smooth transitions for language switches */
+.content-en,
+.content-ee {
+    transition: opacity 0.3s ease;
+}
+
+/* Loading state for language detection */
+.language-loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Language switcher improvements */
+.nav-lang-switcher {
+    position: relative;
+}
+
+.nav-lang-btn {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-lang-btn.active {
+    transform: scale(1.05);
+}
+
+/* Form label improvements for bilingual support */
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-group label span {
+    display: inline-block;
+}
+
+/* Ensure proper spacing for bilingual labels */
+.form-group label .content-en,
+.form-group label .content-ee {
+    display: block;
+}
+
+body.lang-ee .form-group label .content-en {
+    display: none;
+}
+
+body.lang-ee .form-group label .content-ee {
+    display: block;
+}
+
+body:not(.lang-ee) .form-group label .content-en {
+    display: block;
+}
+
+body:not(.lang-ee) .form-group label .content-ee {
+    display: none;
+}
+
+/* Improved mobile responsiveness for language switcher */
+@media (max-width: 768px) {
+    .nav-lang-switcher {
+        justify-content: center;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+    }
+    
+    .nav-lang-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}

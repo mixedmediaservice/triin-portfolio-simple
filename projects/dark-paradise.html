@@ -163,5 +163,57 @@
             }
         }
     </script>
+    <script>
+// Language persistence for project pages
+document.addEventListener('DOMContentLoaded', function() {
+    // Check for saved language preference
+    const savedLang = localStorage.getItem('preferred-language');
+    
+    if (savedLang) {
+        const body = document.body;
+        const buttons = document.querySelectorAll('.nav-lang-btn');
+        
+        // Apply saved language
+        if (savedLang === 'ee') {
+            body.classList.add('lang-ee');
+        } else {
+            body.classList.remove('lang-ee');
+        }
+        
+        // Update language buttons
+        buttons.forEach(btn => {
+            btn.classList.remove('active');
+            const onclick = btn.getAttribute('onclick');
+            if (onclick && onclick.includes(`'${savedLang}'`)) {
+                btn.classList.add('active');
+            }
+        });
+    }
+});
+
+// Enhanced switchLanguage function for project pages
+function switchLanguage(lang) {
+    const body = document.body;
+    const buttons = document.querySelectorAll('.nav-lang-btn');
+    
+    // Save user's preference
+    localStorage.setItem('preferred-language', lang);
+    
+    // Remove active class from all buttons
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // Add active class to clicked button
+    document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+    
+    // Switch language
+    if (lang === 'ee') {
+        body.classList.add('lang-ee');
+    } else {
+        body.classList.remove('lang-ee');
+    }
+    
+    console.log('Language switched to:', lang);
+}
+</script>
 </body>
 </html>
