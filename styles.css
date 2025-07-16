@@ -871,3 +871,123 @@ body:not(.lang-ee) .form-group label .content-ee {
         padding: 0.4rem 0.8rem;
     }
 }
+/* ===================
+   PAGE TRANSITIONS (ITEM 4)
+   =================== */
+/* Overlay for smooth page transitions */
+.page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.98));
+    backdrop-filter: blur(20px);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.page-transition-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+/* Cinematic loading indicator */
+.page-transition-overlay::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(201, 169, 97, 0.3);
+    border-top: 2px solid var(--accent-gold);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Body fade effect for page loads */
+body.page-loading {
+    opacity: 0.7;
+    transition: opacity 0.4s ease;
+}
+
+body.page-loaded {
+    opacity: 1;
+    transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Enhanced link hover with underline animation */
+.nav-menu a,
+.film-card,
+.commercial-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent-gold);
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* Card transitions with stagger effect */
+.films-grid .film-card,
+.commercial-grid .commercial-card {
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.films-grid .film-card:nth-child(1) { animation-delay: 0.1s; }
+.films-grid .film-card:nth-child(2) { animation-delay: 0.2s; }
+.commercial-grid .commercial-card:nth-child(1) { animation-delay: 0.1s; }
+.commercial-grid .commercial-card:nth-child(2) { animation-delay: 0.2s; }
+.commercial-grid .commercial-card:nth-child(3) { animation-delay: 0.3s; }
+.commercial-grid .commercial-card:nth-child(4) { animation-delay: 0.4s; }
+.commercial-grid .commercial-card:nth-child(5) { animation-delay: 0.5s; }
+.commercial-grid .commercial-card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Section transitions */
+.section {
+    animation: fadeIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    opacity: 0;
+}
+
+.section:nth-child(1) { animation-delay: 0.2s; }
+.section:nth-child(2) { animation-delay: 0.4s; }
+.section:nth-child(3) { animation-delay: 0.6s; }
+.section:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* ===================
+   MOBILE RESPONSIVE
+   =================== */
