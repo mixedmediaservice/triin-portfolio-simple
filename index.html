@@ -6,14 +6,300 @@
     <title>Triin Ruumet - Film Director & Producer</title>
     <link rel="stylesheet" href="styles.css">
     
-    <!-- EmailJS SDK -->
+    <!-- EmailJS SDK - Updated approach -->
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        (function(){
-            emailjs.init("Q8mF-kCkl5IzUVp2b");
-        })();
+        // Wait for EmailJS to load, then initialize
+        window.addEventListener('load', function() {
+            if (typeof emailjs !== 'undefined') {
+                emailjs.init("Q8mF-kCkl5IzUVp2b");
+                console.log('EmailJS initialized successfully');
+            } else {
+                console.error('EmailJS failed to load');
+            }
+        });
     </script>
 </head>
+<body class="home-page">
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">TRIIN RUUMET</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#films"><span class="content-en">FILMS</span><span class="content-ee">FILMID</span></a></li>
+                <li><a href="#commercial"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
+                <li><a href="#about"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
+                <li><a href="#contact"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
+                <li class="nav-lang-switcher">
+                    <button class="nav-lang-btn active" onclick="switchLanguage('en')">EN</button>
+                    <button class="nav-lang-btn" onclick="switchLanguage('ee')">EE</button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Clean video only -->
+    <section id="home" class="hero">
+        <video class="hero-video" autoplay muted loop>
+            <source src="images/hero-video.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <!-- Films Section -->
+    <section id="films" class="section">
+        <h2 class="section-title"><span class="content-en">FILMS</span><span class="content-ee">FILMID</span></h2>
+        <div class="films-grid">
+            <div class="film-card" onclick="location.href='projects/dark-paradise.html'">
+                <img src="images/films/dark-paradise/dark-paradise-cover.jpg" alt="Dark Paradise">
+                <div class="film-overlay">
+                    <h3 class="film-title">Dark Paradise</h3>
+                    <p class="film-meta">2023 • Feature Film • 1hr 51min</p>
+                </div>
+            </div>
+            <div class="film-card" onclick="location.href='projects/the-days-that-confused.html'">
+                <img src="images/films/the-days-that-confused/the-days-that-confused-cover.jpg" alt="The Days That Confused">
+                <div class="film-overlay">
+                    <h3 class="film-title">The Days That Confused</h3>
+                    <p class="film-meta">2016 • Feature Film • 1hr 45min</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commercial Section -->
+    <section id="commercial" class="section commercial">
+        <h2 class="section-title"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></h2>
+        <div class="commercial-grid">
+            <div class="commercial-card" onclick="location.href='projects/saku-on-ice.html'">
+                <img src="images/commercial/saku-on-ice/saku-on-ice-cover.jpg" alt="Saku On Ice">
+                <div class="commercial-info">
+                    <h3 class="commercial-title">Saku On Ice</h3>
+                </div>
+            </div>
+            <div class="commercial-card" onclick="location.href='projects/koik-on-tehtav.html'">
+                <img src="images/commercial/koik-on-tehtav/koik-on-tehtav-cover.jpg" alt="Kõik on tehtav!">
+                <div class="commercial-info">
+                    <h3 class="commercial-title">Kõik on tehtav!</h3>
+                </div>
+            </div>
+            <div class="commercial-card" onclick="location.href='projects/meliva-imago.html'">
+                <img src="images/commercial/meliva-imago/meliva-imago-cover.jpg" alt="Meliva Imago">
+                <div class="commercial-info">
+                    <h3 class="commercial-title">Meliva Imago</h3>
+                </div>
+            </div>
+            <div class="commercial-card" onclick="location.href='projects/coop-pank-kaardivagi.html'">
+                <img src="images/commercial/coop-pank-kaardivagi/coop-pank-kaardivagi-cover.jpg" alt="Coop Pank Kaardivagi">
+                <div class="commercial-info">
+                    <h3 class="commercial-title">Coop Pank Kaardivagi</h3>
+                </div>
+            </div>
+            <div class="commercial-card" onclick="location.href='projects/miljardid-protsendid.html'">
+                <img src="images/commercial/miljardid-protsendid/miljardid-protsendid-cover.jpg" alt="Miljardid - Protsendid saavad otsa">
+                <div class="commercial-info">
+                    <h3 class="commercial-title">Miljardid - Protsendid saavad otsa</h3>
+                </div>
+            </div>
+            <div class="commercial-card" onclick="location.href='projects/anna-arile-vunki.html'">
+                <img src="images/commercial/anna-arile-vunki/anna-arile-vunki-cover.jpg" alt="Anna ärile vunki juurde!">
+                <div class="commercial-info">
+                    <h3 class="commercial-title">Anna ärile vunki juurde!</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></h2>
+        <div class="about-content">
+            <div class="content-en">
+                <p class="about-text">
+                    Triin Ruumet is an acclaimed Estonian film director whose distinctive vision and storytelling prowess have earned her a place on the international stage. Her original films, which she both writes and directs, have captivated audiences and critics alike, premiering at prestigious festivals such as the Karlovy Vary International Film Festival and the Tallinn Black Nights Film Festival.
+                </p>
+                <p class="about-text">
+                    In addition to her celebrated film work, Ruumet is a skilled videographer, bringing a cinematic touch to a range of commercial projects. This includes agency-led social media campaigns that maintain a cinematic quality while meeting the unique demands of digital platforms.
+                </p>
+            </div>
+            <div class="content-ee">
+                <p class="about-text">
+                    Triin Ruumet on tunnustatud eesti filmirežissöör, kelle ainulaadne visioon ja loojutustamisoskus on toonud talle rahvusvahelise tunnustuse. Ruumeti kirjutatud ja lavastatud originaalfilmid on lummanud nii publikut kui ka kriitikuid, esilinastudes mainekatel festivalidel, sealhulgas Karlovy Vary rahvusvahelisel filmifestivalil ja Pimedate Ööde filmifestivalil Tallinnas.
+                </p>
+                <p class="about-text">
+                    Lisaks oma hinnatud filmitööle on Ruumet osav videograaf, tuues kinematograafilist hõngu erinevatesse kommertsprojektidesse ja sotsiaalmeedia kampaaniatesse. Nendes projektides püüdleb ta alati filmikvaliteedi saavutamise poole, vastates samas erinevate digikanalite nõudmistele.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <h2 class="section-title"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></h2>
+        <div class="contact-content">
+            <div class="content-en">
+                <p class="about-text">
+                    Open to new opportunities and collaborations that align with a passion for storytelling, whether in film, commercial projects or social media.
+                </p>
+                <p class="about-text">
+                    For any questions or enquiries please complete the form below
+                </p>
+            </div>
+            <div class="content-ee">
+                <p class="about-text">
+                    Olen avatud uutele ideedele ja koostööle, mis on kooskõlas kirega jutustada lugusid, olgu selleks siis filmid, kommertsprojektid või sotsiaalmeedia kampaaniad.
+                </p>
+                <p class="about-text">
+                    Ettepanekute puhul täida palun allolev vorm :)
+                </p>
+            </div>
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="project">Project Type</label>
+                    <input type="text" id="project" name="project" placeholder="Feature Film, Commercial, Documentary...">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn" id="submit-btn">
+                    <span class="content-en">Send Message</span>
+                    <span class="content-ee">Saada sõnum</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Language switching
+        function switchLanguage(lang) {
+            const body = document.body;
+            const buttons = document.querySelectorAll('.nav-lang-btn');
+            
+            // Remove active class from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+            
+            // Switch language
+            if (lang === 'ee') {
+                body.classList.add('lang-ee');
+            } else {
+                body.classList.remove('lang-ee');
+            }
+        }
+
+        // EmailJS Contact form submission - Updated version
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Check if EmailJS is available
+            if (typeof emailjs === 'undefined') {
+                console.error('EmailJS is not loaded');
+                alert('Email service is not available. Please try again later.');
+                return;
+            }
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<span class="content-en">Sending...</span><span class="content-ee">Saadan...</span>';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                project: document.getElementById('project').value,
+                message: document.getElementById('message').value
+            };
+            
+            console.log('Sending email with data:', formData);
+            
+            // Send email using EmailJS
+            emailjs.send('service_jcm6n1o', 'template_uwb0s1f', formData)
+                .then(function(response) {
+                    console.log('Email sent successfully!', response);
+                    
+                    // Success message
+                    const isEstonian = document.body.classList.contains('lang-ee');
+                    const successMessage = isEstonian ? 
+                        'Aitäh sõnumi eest! Võtan teiega peagi ühendust.' :
+                        'Thank you for your message! I will get back to you soon.';
+                    
+                    alert(successMessage);
+                    
+                    // Reset form
+                    document.getElementById('contact-form').reset();
+                    
+                })
+                .catch(function(error) {
+                    console.log('Email failed to send:', error);
+                    
+                    // Error message
+                    const isEstonian = document.body.classList.contains('lang-ee');
+                    const errorMessage = isEstonian ? 
+                        'Viga sõnumi saatmisel. Palun proovige uuesti.' :
+                        'Error sending message. Please try again.';
+                    
+                    alert(errorMessage);
+                })
+                .finally(function() {
+                    // Reset button state
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
+        });
+    </script>
+</body>
+</html>
 <body class="home-page">
     <!-- Navigation -->
     <nav class="nav">
