@@ -139,7 +139,7 @@
         </div>
     </section>
 
-    <!-- Contact Section with Bilingual Form Labels -->
+    <!-- Contact Section -->
     <section id="contact" class="section contact">
         <h2 class="section-title"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></h2>
         <div class="contact-content">
@@ -313,8 +313,8 @@
         // Initialize the language manager
         const languageManager = new LanguageManager();
 
-        // Global function for onclick handlers (maintains backward compatibility)
-      function switchLanguage(lang) {
+        // Global function for onclick handlers
+        function switchLanguage(lang) {
             languageManager.switchLanguage(lang);
             updateLanguageSwitcherAnimation(lang);
         }
@@ -416,17 +416,47 @@
             });
         }
 
-        // Initialize everything when DOM is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize contact form if it exists
-            initializeContactForm();
+        // Page Transitions System
+        function initializePageTransitions() {
+            // Create transition overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'page-transition-overlay';
+            document.body.appendChild(overlay);
             
-            // Initialize other page functionality
-            initializeNavigation();
-
-            // Initialize other page functionality
-            initializeNavigation()
-        });
+            // Add page loaded class after initial load
+            setTimeout(() => {
+                document.body.classList.add('page-loaded');
+            }, 100);
+            
+            // Handle all navigation links
+            document.querySelectorAll('a[href]').forEach(link => {
+                // Skip external links, anchors, and mailto links
+                const href = link.getAttribute('href');
+                if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('http')) {
+                    return;
+                }
+                
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Show transition overlay
+                    overlay.classList.add('active');
+                    document.body.classList.add('page-loading');
+                    
+                    // Navigate after transition
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 300);
+                });
+            });
+            
+            // Handle browser back/forward
+            window.addEventListener('pageshow', function() {
+                overlay.classList.remove('active');
+                document.body.classList.remove('page-loading');
+                document.body.classList.add('page-loaded');
+            });
+        }
 
         function initializeNavigation() {
             // Mobile menu toggle
@@ -447,15 +477,17 @@
                     });
                 });
             }
-// Enhanced navigation scroll effect
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('.nav');
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
+
+            // Enhanced navigation scroll effect
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('.nav');
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+
             // Smooth scrolling for navigation links (only on home page)
             if (document.body.classList.contains('home-page')) {
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -472,88 +504,18 @@
                 });
             }
         }
-        // Page Transitions System
-        function initializePageTransitions() {
-            // Create transition overlay
-            const overlay = document.createElement('div');
-            overlay.className = 'page-transition-overlay';
-            document.body.appendChild(overlay);
+
+        // Initialize everything when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize contact form if it exists
+            initializeContactForm();
             
-            // Add page loaded class after initial load
-            setTimeout(() => {
-                document.body.classList.add('page-loaded');
-            }, 100);
+            // Initialize page transitions
+            initializePageTransitions();
             
-            // Handle all navigation links
-            document.querySelectorAll('a[href]').forEach(link => {
-                // Skip external links, anchors, and mailto links
-                const href = link.getAttribute('href');
-                if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('http')) {
-                    return;
-                }
-                
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Show transition overlay
-                    overlay.classList.add('active');
-                    document.body.classList.add('page-loading');
-                    
-                    // Navigate after transition
-                    setTimeout(() => {
-                        window.location.href = href;
-                    }, 300);
-                });
-            });
-            
-            // Handle browser back/forward
-            window.addEventListener('pageshow', function() {
-                overlay.classList.remove('active');
-                document.body.classList.remove('page-loading');
-                document.body.classList.add('page-loaded');
-            });
-        }
-        // Page Transitions System
-        function initializePageTransitions() {
-            // Create transition overlay
-            const overlay = document.createElement('div');
-            overlay.className = 'page-transition-overlay';
-            document.body.appendChild(overlay);
-            
-            // Add page loaded class after initial load
-            setTimeout(() => {
-                document.body.classList.add('page-loaded');
-            }, 100);
-            
-            // Handle all navigation links
-            document.querySelectorAll('a[href]').forEach(link => {
-                // Skip external links, anchors, and mailto links
-                const href = link.getAttribute('href');
-                if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('http')) {
-                    return;
-                }
-                
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Show transition overlay
-                    overlay.classList.add('active');
-                    document.body.classList.add('page-loading');
-                    
-                    // Navigate after transition
-                    setTimeout(() => {
-                        window.location.href = href;
-                    }, 300);
-                });
-            });
-            
-            // Handle browser back/forward
-            window.addEventListener('pageshow', function() {
-                overlay.classList.remove('active');
-                document.body.classList.remove('page-loading');
-                document.body.classList.add('page-loaded');
-            });
-        }
+            // Initialize navigation
+            initializeNavigation();
+        });
     </script>
 </body>
 </html>
