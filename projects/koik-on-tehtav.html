@@ -125,9 +125,14 @@
         // Video poster functionality for commercial
         function playCommercialVideo(poster) {
             const iframe = document.getElementById('commercial-vimeo-iframe');
+            const container = poster.parentElement;
+            
             iframe.src = 'https://player.vimeo.com/video/1062000341?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&color=ffffff&title=0&byline=0&portrait=0';
             iframe.style.display = 'block';
+            
             poster.classList.add('hidden');
+            
+            // Ensure iframe is properly positioned
             setTimeout(() => {
                 poster.style.display = 'none';
             }, 300);
