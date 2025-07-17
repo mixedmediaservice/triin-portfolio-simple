@@ -1,4 +1,4 @@
-/* styles.css - Complete updated version with fixed colors and minimal animations */
+/* styles.css - Complete corrected version */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&display=swap');
 
@@ -47,6 +47,18 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .nav-logo a {
@@ -128,6 +140,54 @@ body {
 
 .nav.scrolled .hamburger span {
     background: var(--text-dark);
+}
+
+/* ===================
+   INSTAGRAM ICON
+   =================== */
+.nav-instagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-decoration: none;
+}
+
+.nav-instagram:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.instagram-icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+    transition: transform 0.3s ease;
+}
+
+.nav-instagram:hover .instagram-icon {
+    transform: scale(1.1);
+}
+
+/* Scrolled state adjustments */
+.nav.scrolled .nav-instagram {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.nav.scrolled .nav-instagram:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.nav.scrolled .instagram-icon {
+    filter: invert(0);
 }
 
 /* ===================
@@ -839,6 +899,11 @@ body:not(.lang-ee) .form-group label .content-ee {
    MOBILE RESPONSIVE
    =================== */
 @media (max-width: 768px) {
+    .nav-center {
+        position: static;
+        transform: none;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -877,9 +942,22 @@ body:not(.lang-ee) .form-group label .content-ee {
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    .nav-right {
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nav-instagram {
+        order: 2;
+    }
+
     .nav-lang-switcher {
+        order: 1;
         justify-content: center;
-        margin-top: 1.5rem;
         padding: 3px;
         border-radius: 25px;
         background: rgba(255, 255, 255, 0.15);
