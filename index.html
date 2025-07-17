@@ -505,11 +505,23 @@
             // Mobile menu toggle
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.nav-menu');
+            const mobileExtras = document.querySelector('.mobile-nav-extras');
 
             if (hamburger && navMenu) {
                 hamburger.addEventListener('click', () => {
+                    const isActive = hamburger.classList.contains('active');
+                    
                     hamburger.classList.toggle('active');
                     navMenu.classList.toggle('active');
+                    
+                    // Show/hide mobile extras with menu
+                    if (mobileExtras) {
+                        if (isActive) {
+                            mobileExtras.classList.remove('active');
+                        } else {
+                            mobileExtras.classList.add('active');
+                        }
+                    }
                 });
 
                 // Close menu when clicking on a link
@@ -517,6 +529,9 @@
                     link.addEventListener('click', () => {
                         hamburger.classList.remove('active');
                         navMenu.classList.remove('active');
+                        if (mobileExtras) {
+                            mobileExtras.classList.remove('active');
+                        }
                     });
                 });
             }

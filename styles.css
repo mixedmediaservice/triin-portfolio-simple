@@ -58,7 +58,9 @@ body {
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
+    min-width: 120px;
+    justify-content: flex-end;
 }
 
 .nav-logo a {
