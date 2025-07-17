@@ -47,20 +47,21 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+    position: relative;
 }
 
 .nav-center {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
 }
 
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    min-width: 120px;
-    justify-content: flex-end;
+    gap: 1rem;
+    margin-left: auto;
 }
 
 .nav-logo a {
@@ -151,8 +152,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -168,8 +169,8 @@ body {
 }
 
 .instagram-icon {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     filter: invert(1);
     transition: transform 0.3s ease;
 }
