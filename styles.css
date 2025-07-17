@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --accent-gold: #8B7355;
+    --accent-gold: #4a4a4a;
     --text-dark: #1a1a1a;
     --text-light: #666;
     --bg-light: #fefefe;
@@ -215,7 +215,7 @@ body {
     background: var(--accent-gold);
     border-radius: 18px;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 2px 8px rgba(139, 115, 85, 0.3);
+    box-shadow: 0 2px 8px rgba(74, 74, 74, 0.3);
     z-index: 1;
 }
 
@@ -322,7 +322,7 @@ body.lang-ee .content-ee { display: block; }
     content: '';
     width: 40px;
     height: 40px;
-    border: 2px solid rgba(139, 115, 85, 0.3);
+    border: 2px solid rgba(74, 74, 74, 0.3);
     border-top: 2px solid var(--accent-gold);
     border-radius: 50%;
     animation: spin 1s linear infinite;
@@ -451,7 +451,7 @@ body.page-loaded {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent, rgba(139, 115, 85, 0.1), transparent);
+    background: linear-gradient(45deg, transparent, rgba(74, 74, 74, 0.1), transparent);
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
@@ -521,7 +521,7 @@ body.page-loaded {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent, rgba(139, 115, 85, 0.1), transparent);
+    background: linear-gradient(45deg, transparent, rgba(74, 74, 74, 0.1), transparent);
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
@@ -978,6 +978,102 @@ body:not(.lang-ee) .form-group label .content-ee {
         min-width: 40px;
         border-radius: 22px;
         color: var(--text-dark);
+    }
+
+    /* Mobile Navigation Extras */
+    .mobile-nav-extras {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        background: white;
+        padding: 1rem 2rem;
+        transition: right 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.active ~ .mobile-nav-extras {
+        right: 0;
+    }
+
+    .mobile-instagram {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-instagram:hover {
+        background: rgba(0, 0, 0, 0.1);
+        transform: scale(1.1);
+    }
+
+    .mobile-instagram-icon {
+        width: 20px;
+        height: 20px;
+        filter: invert(0);
+    }
+
+    .mobile-lang-switcher {
+        position: relative;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 20px;
+        padding: 2px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        gap: 0;
+    }
+
+    .mobile-lang-switcher::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: calc(50% - 2px);
+        height: calc(100% - 4px);
+        background: var(--accent-gold);
+        border-radius: 18px;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 1;
+    }
+
+    .mobile-lang-switcher.ee-active::before {
+        transform: translateX(100%);
+    }
+
+    .mobile-lang-btn {
+        position: relative;
+        background: transparent;
+        border: none;
+        color: var(--text-dark);
+        padding: 0.4rem 0.8rem;
+        cursor: pointer;
+        border-radius: 18px;
+        transition: all 0.3s ease;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        min-width: 32px;
+        z-index: 2;
+    }
+
+    .mobile-lang-btn.active {
+        color: white;
+    }
+
+    /* Hide desktop nav extras on mobile */
+    .nav-right {
+        display: none;
     }
 
     .project-title {

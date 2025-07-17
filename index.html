@@ -52,6 +52,15 @@
                 <span></span>
                 <span></span>
             </div>
+            <div class="mobile-nav-extras">
+                <a href="https://www.instagram.com/triin_ruumet/" target="_blank" rel="noopener noreferrer" class="mobile-instagram">
+                    <img src="images/instagram-t.png" alt="Instagram" class="mobile-instagram-icon">
+                </a>
+                <div class="mobile-lang-switcher">
+                    <button class="mobile-lang-btn active" onclick="switchLanguage('en')">EN</button>
+                    <button class="mobile-lang-btn" onclick="switchLanguage('ee')">EE</button>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -327,6 +336,7 @@
         function switchLanguage(lang) {
             languageManager.switchLanguage(lang);
             updateLanguageSwitcherAnimation(lang);
+            updateMobileLanguageSwitcher(lang);
         }
 
         // Animated language switcher functionality
@@ -339,6 +349,29 @@
                     switcher.classList.remove('ee-active');
                 }
             }
+        }
+
+        // Mobile language switcher functionality
+        function updateMobileLanguageSwitcher(lang) {
+            const mobileSwitcher = document.querySelector('.mobile-lang-switcher');
+            const mobileButtons = document.querySelectorAll('.mobile-lang-btn');
+            
+            if (mobileSwitcher) {
+                if (lang === 'ee') {
+                    mobileSwitcher.classList.add('ee-active');
+                } else {
+                    mobileSwitcher.classList.remove('ee-active');
+                }
+            }
+            
+            // Update mobile button active states
+            mobileButtons.forEach(btn => {
+                btn.classList.remove('active');
+                const onclick = btn.getAttribute('onclick');
+                if (onclick && onclick.includes(`'${lang}'`)) {
+                    btn.classList.add('active');
+                }
+            });
         }
 
         // Enhanced EmailJS form with language-aware messages
