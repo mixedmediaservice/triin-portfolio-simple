@@ -296,7 +296,7 @@
             }
 
             updateLanguageButtons() {
-                const buttons = document.querySelectorAll('.nav-lang-btn');
+                const buttons = document.querySelectorAll('.nav-lang-btn, .mobile-lang-btn');
                 
                 buttons.forEach(btn => {
                     btn.classList.remove('active');
@@ -511,16 +511,13 @@
                 hamburger.addEventListener('click', () => {
                     const isActive = hamburger.classList.contains('active');
                     
+                    // Toggle hamburger and menu
                     hamburger.classList.toggle('active');
                     navMenu.classList.toggle('active');
                     
-                    // Show/hide mobile extras with menu
+                    // Toggle mobile extras
                     if (mobileExtras) {
-                        if (isActive) {
-                            mobileExtras.classList.remove('active');
-                        } else {
-                            mobileExtras.classList.add('active');
-                        }
+                        mobileExtras.classList.toggle('active');
                     }
                 });
 
@@ -536,7 +533,7 @@
                 });
             }
 
-            // Enhanced navigation scroll effect
+            // Navigation scroll effect
             window.addEventListener('scroll', () => {
                 const nav = document.querySelector('.nav');
                 if (window.scrollY > 50) {
