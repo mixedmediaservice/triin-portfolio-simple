@@ -31,8 +31,8 @@ class SharedNavigation {
                         <li><a href="${isHomePage ? '#about' : '../index.html#about'}"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
                         <li><a href="${isHomePage ? '#contact' : '../index.html#contact'}"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
                         <!-- Mobile-only items -->
-                        <li class="mobile-only" style="margin-top: 1rem; display: none;">
-                            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
+                        <li class="mobile-only" style="margin-top: 2rem; padding: 1rem 0;">
+                            <div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
                                 <a href="https://www.instagram.com/triin_ruumet/" target="_blank" rel="noopener noreferrer" class="mobile-instagram">
                                     <img src="${baseURL}images/instagram-t.png" alt="Instagram" class="mobile-instagram-icon">
                                 </a>
@@ -120,7 +120,7 @@ class SharedNavigation {
         this.updatePlaceholders(lang);
     }
 
-   updateLanguageButtons() {
+    updateLanguageButtons() {
         const buttons = document.querySelectorAll('.nav-lang-btn, .mobile-lang-btn');
         const switchers = document.querySelectorAll('.nav-lang-switcher, .mobile-lang-switcher');
         

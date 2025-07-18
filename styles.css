@@ -992,3 +992,60 @@ body:not(.lang-ee) .nav-menu .content-ee {
 .mobile-only {
     display: none !important;
 }
+/* ADD this CSS to ensure mobile menu items show properly */
+
+/* Mobile-only items - hidden on desktop */
+.mobile-only {
+    display: none !important;
+}
+
+/* Show mobile-only items ONLY on mobile */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block !important;
+        margin-top: 2rem;
+        padding: 1rem 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Ensure mobile menu has enough height */
+    .nav-menu {
+        min-height: auto;
+        padding-bottom: 2rem;
+    }
+    
+    /* Mobile Instagram and language switcher container */
+    .mobile-only > div {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+        flex-wrap: wrap !important;
+    }
+}/* ADD this CSS fix to styles.css for better text alignment */
+
+.project-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center !important;  /* Force center alignment */
+    padding: 0 1rem;  /* Add padding for mobile */
+}
+
+/* Ensure all content within project description is centered */
+.project-description p {
+    text-align: center !important;
+    margin: 0 auto;
+}
+
+/* Mobile responsive text alignment */
+@media (max-width: 768px) {
+    .project-description {
+        text-align: center !important;
+        padding: 0 1rem;
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
