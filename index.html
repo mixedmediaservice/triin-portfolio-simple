@@ -36,6 +36,18 @@
                     <li><a href="#commercial"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
                     <li><a href="#about"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
                     <li><a href="#contact"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
+                    <!-- Mobile-only items -->
+                    <li class="mobile-only" style="margin-top: 1rem; display: none;">
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
+                            <a href="https://www.instagram.com/triin_ruumet/" target="_blank" rel="noopener noreferrer" class="mobile-instagram">
+                                <img src="images/instagram-t.png" alt="Instagram" class="mobile-instagram-icon">
+                            </a>
+                            <div class="mobile-lang-switcher">
+                                <button class="mobile-lang-btn active" onclick="switchLanguage('en')">EN</button>
+                                <button class="mobile-lang-btn" onclick="switchLanguage('ee')">EE</button>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="nav-right">
@@ -51,15 +63,6 @@
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
-            <div class="mobile-nav-extras">
-                <a href="https://www.instagram.com/triin_ruumet/" target="_blank" rel="noopener noreferrer" class="mobile-instagram">
-                    <img src="images/instagram-t.png" alt="Instagram" class="mobile-instagram-icon">
-                </a>
-                <div class="mobile-lang-switcher">
-                    <button class="mobile-lang-btn active" onclick="switchLanguage('en')">EN</button>
-                    <button class="mobile-lang-btn" onclick="switchLanguage('ee')">EE</button>
-                </div>
             </div>
         </div>
     </nav>
@@ -505,20 +508,12 @@
             // Mobile menu toggle
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.nav-menu');
-            const mobileExtras = document.querySelector('.mobile-nav-extras');
 
             if (hamburger && navMenu) {
                 hamburger.addEventListener('click', () => {
-                    const isActive = hamburger.classList.contains('active');
-                    
                     // Toggle hamburger and menu
                     hamburger.classList.toggle('active');
                     navMenu.classList.toggle('active');
-                    
-                    // Toggle mobile extras
-                    if (mobileExtras) {
-                        mobileExtras.classList.toggle('active');
-                    }
                 });
 
                 // Close menu when clicking on a link
@@ -526,9 +521,6 @@
                     link.addEventListener('click', () => {
                         hamburger.classList.remove('active');
                         navMenu.classList.remove('active');
-                        if (mobileExtras) {
-                            mobileExtras.classList.remove('active');
-                        }
                     });
                 });
             }
