@@ -1119,3 +1119,129 @@ body:not(.lang-ee) .project-description .content-en {
     margin-left: auto !important;
     margin-right: auto !important;
 }
+/* REPLACE the previous CSS fix with this LANGUAGE-AWARE version */
+/* This centers text but preserves language switching functionality */
+
+/* Remove the previous fix and use this instead: */
+
+/* Center text but preserve language switching display logic */
+.project-content .content-section .project-description {
+    text-align: center !important;
+    margin: 0 auto !important;
+    max-width: 800px !important;
+    padding: 0 2rem !important;
+    /* DON'T override display property - let language switching handle it */
+}
+
+/* Center paragraphs within descriptions */
+.project-content .content-section .project-description p {
+    text-align: center !important;
+    margin: 0 auto 2rem auto !important;
+}
+
+/* Language-specific centering that works WITH the switching system */
+/* English content centering */
+body:not(.lang-ee) .project-content .content-section .project-description .content-en {
+    text-align: center !important;
+    margin: 0 auto !important;
+    /* Preserve display: inline-block from language system */
+}
+
+body:not(.lang-ee) .project-content .content-section .project-description .content-en p {
+    text-align: center !important;
+    margin: 0 auto 2rem auto !important;
+}
+
+/* Estonian content centering */
+body.lang-ee .project-content .content-section .project-description .content-ee {
+    text-align: center !important;
+    margin: 0 auto !important;
+    /* Preserve display: inline-block from language system */
+}
+
+body.lang-ee .project-content .content-section .project-description .content-ee p {
+    text-align: center !important;
+    margin: 0 auto 2rem auto !important;
+}
+
+/* Additional specificity for stubborn cases */
+body.project-page .project-content .content-section .project-description,
+body.project-page .project-content .content-section .project-description p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Ensure language switching still works by NOT overriding display */
+body.lang-ee .project-content .content-section .project-description .content-en {
+    /* Don't override display: none - let language system handle it */
+    text-align: center !important;
+}
+
+body:not(.lang-ee) .project-content .content-section .project-description .content-ee {
+    /* Don't override display: none - let language system handle it */
+    text-align: center !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .project-content .content-section .project-description {
+        padding: 0 1rem !important;
+        font-size: 1rem !important;
+        line-height: 1.7 !important;
+    }
+}
+/* NUCLEAR SOLUTION - This WILL work */
+/* Add this to the VERY END of styles.css */
+
+/* Maximum specificity override - targets the exact structure from your DevTools */
+html body.project-page div.project-content section.content-section div.project-description,
+html body.project-page div.project-content section.content-section div.project-description.content-en,
+html body.project-page div.project-content section.content-section div.project-description.content-ee,
+html body.project-page div.project-content section.content-section div.project-description p,
+html body.project-page div.project-content section.content-section div.project-description.content-en p,
+html body.project-page div.project-content section.content-section div.project-description.content-ee p,
+html body div.project-content section.content-section div.project-description,
+html body div.project-content section.content-section div.project-description p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Container centering with max specificity */
+html body.project-page div.project-content section.content-section div.project-description,
+html body div.project-content section.content-section div.project-description {
+    max-width: 800px !important;
+    margin: 0 auto 3rem auto !important;
+    padding: 0 2rem !important;
+    width: 100% !important;
+}
+
+/* Language switching aware - preserve display but force center */
+html body.lang-ee div.project-content section.content-section div.project-description.content-ee,
+html body.lang-ee div.project-content section.content-section div.project-description.content-ee p,
+html body:not(.lang-ee) div.project-content section.content-section div.project-description.content-en,
+html body:not(.lang-ee) div.project-content section.content-section div.project-description.content-en p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Catch-all for any missed elements */
+.project-content * {
+    text-align: center !important;
+}
+
+/* Override anything trying to left-align in project content */
+.project-content .content-section *:not(.nav):not(.nav *):not(.hamburger):not(.hamburger *) {
+    text-align: center !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    html body div.project-content section.content-section div.project-description {
+        padding: 0 1rem !important;
+        font-size: 1rem !important;
+        line-height: 1.7 !important;
+    }
+}
