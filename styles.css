@@ -1,4 +1,4 @@
-/* styles.css - CLEAN ORGANIZED VERSION */
+/* styles.css - CLEAN ORGANIZED VERSION - NO DUPLICATES */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&display=swap');
 
@@ -333,7 +333,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
     /* Hide all video controls */
     outline: none;
     -webkit-appearance: none;
-      appearance: none;  /* ADD THIS LINE */
+    appearance: none;
     pointer-events: none;
 }
 
@@ -644,7 +644,13 @@ body:not(.lang-ee) .nav-menu .content-ee {
     color: var(--text-light);
     max-width: 800px;
     margin: 0 auto 3rem;
-    text-align: center;
+    text-align: center !important;
+    padding: 0 1rem;
+}
+
+.project-description p {
+    text-align: center !important;
+    margin: 0 auto;
 }
 
 /* Video Containers */
@@ -807,6 +813,12 @@ body:not(.lang-ee) .nav-menu .content-ee {
 /* ===================
    MOBILE RESPONSIVE
    =================== */
+
+/* Hide mobile-only items on desktop by default */
+.mobile-only {
+    display: none !important;
+}
+
 @media (max-width: 768px) {
     /* Hide desktop navigation extras */
     .nav-right {
@@ -840,10 +852,11 @@ body:not(.lang-ee) .nav-menu .content-ee {
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        padding: 2rem 0 0 0;
+        padding: 2rem 0 2rem 0;
         box-shadow: 0 10px 27px rgba(0,0,0,0.05);
         z-index: 1000;
         height: auto;
+        min-height: auto;
     }
 
     .nav-menu a {
@@ -860,9 +873,21 @@ body:not(.lang-ee) .nav-menu .content-ee {
         left: 0;
     }
 
-    /* Mobile-only navigation extras */
+    /* Show mobile-only items ONLY on mobile */
     .mobile-only {
         display: block !important;
+        margin-top: 2rem;
+        padding: 1rem 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Mobile Instagram and language switcher container */
+    .mobile-only > div {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+        flex-wrap: wrap !important;
     }
 
     /* Mobile Instagram icon */
@@ -986,62 +1011,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
     .commercial-video-container {
         max-width: 300px;
     }
-}
 
-/* Hide mobile-only items on desktop by default */
-.mobile-only {
-    display: none !important;
-}
-/* ADD this CSS to ensure mobile menu items show properly */
-
-/* Mobile-only items - hidden on desktop */
-.mobile-only {
-    display: none !important;
-}
-
-/* Show mobile-only items ONLY on mobile */
-@media (max-width: 768px) {
-    .mobile-only {
-        display: block !important;
-        margin-top: 2rem;
-        padding: 1rem 0;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    
-    /* Ensure mobile menu has enough height */
-    .nav-menu {
-        min-height: auto;
-        padding-bottom: 2rem;
-    }
-    
-    /* Mobile Instagram and language switcher container */
-    .mobile-only > div {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        gap: 1.5rem !important;
-        flex-wrap: wrap !important;
-    }
-}/* ADD this CSS fix to styles.css for better text alignment */
-
-.project-description {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-light);
-    max-width: 800px;
-    margin: 0 auto 3rem;
-    text-align: center !important;  /* Force center alignment */
-    padding: 0 1rem;  /* Add padding for mobile */
-}
-
-/* Ensure all content within project description is centered */
-.project-description p {
-    text-align: center !important;
-    margin: 0 auto;
-}
-
-/* Mobile responsive text alignment */
-@media (max-width: 768px) {
     .project-description {
         text-align: center !important;
         padding: 0 1rem;

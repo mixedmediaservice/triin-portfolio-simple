@@ -29,27 +29,23 @@
 <body class="home-page">
     <!-- Navigation will be injected by shared-navigation.js -->
 
-   <!-- REPLACE the hero section in index.html with this mobile-optimized version -->
-
-<!-- Hero Section - Mobile controls hidden -->
-<!-- REPLACE the hero section in index.html with this: -->
-
-<section id="home" class="hero">
-    <video class="hero-video" 
-           autoplay 
-           muted 
-           loop 
-           playsinline 
-           controls="false"
-           disablepictureinpicture
-           webkit-playsinline="true"
-           x5-playsinline="true"
-           x5-video-player-type="h5"
-           x5-video-player-fullscreen="true">
-        <source src="images/hero-video.mp4" type="video/mp4">
-        <source src="images/hero-video.webm" type="video/webm">
-    </video>
-</section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <video class="hero-video" 
+               autoplay 
+               muted 
+               loop 
+               playsinline 
+               controls="false"
+               disablepictureinpicture
+               webkit-playsinline="true"
+               x5-playsinline="true"
+               x5-video-player-type="h5"
+               x5-video-player-fullscreen="true">
+            <source src="images/hero-video.mp4" type="video/mp4">
+            <source src="images/hero-video.webm" type="video/webm">
+        </video>
+    </section>
 
     <!-- Films Section -->
     <section id="films" class="section">
@@ -284,121 +280,63 @@
             });
         }
 
+        // Hero video mobile controls fix
+        function initializeHeroVideo() {
+            const heroVideo = document.querySelector('.hero-video');
+            
+            if (heroVideo) {
+                // Force remove controls
+                heroVideo.controls = false;
+                heroVideo.setAttribute('controls', 'false');
+                heroVideo.removeAttribute('controls');
+                
+                // Ensure autoplay on mobile
+                heroVideo.muted = true;
+                heroVideo.autoplay = true;
+                heroVideo.loop = true;
+                heroVideo.playsInline = true;
+                
+                // Additional mobile attributes
+                heroVideo.setAttribute('playsinline', 'true');
+                heroVideo.setAttribute('webkit-playsinline', 'true');
+                heroVideo.setAttribute('x5-playsinline', 'true');
+                
+                // Disable right-click context menu
+                heroVideo.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // Disable touch interactions that might show controls
+                heroVideo.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                });
+                
+                heroVideo.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                });
+                
+                // Force play on mobile if autoplay fails
+                const playPromise = heroVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log('Autoplay prevented:', error);
+                        // On mobile, user interaction might be required
+                        document.addEventListener('touchstart', function() {
+                            heroVideo.play();
+                        }, { once: true });
+                    });
+                }
+                
+                console.log('Hero video initialized for mobile');
+            }
+        }
+
         // Initialize everything when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize contact form if it exists
             initializeContactForm();
+            initializeHeroVideo();
         });
     </script>
-    // ADD THIS to the end of index.html, before closing </body> tag
-
-<script>
-// Hero video mobile controls fix
-document.addEventListener('DOMContentLoaded', function() {
-    const heroVideo = document.querySelector('.hero-video');
-    
-    if (heroVideo) {
-        // Force remove controls
-        heroVideo.controls = false;
-        heroVideo.setAttribute('controls', 'false');
-        heroVideo.removeAttribute('controls');
-        
-        // Ensure autoplay on mobile
-        heroVideo.muted = true;
-        heroVideo.autoplay = true;
-        heroVideo.loop = true;
-        heroVideo.playsInline = true;
-        
-        // Additional mobile attributes
-        heroVideo.setAttribute('playsinline', 'true');
-        heroVideo.setAttribute('webkit-playsinline', 'true');
-        heroVideo.setAttribute('x5-playsinline', 'true');
-        
-        // Disable right-click context menu
-        heroVideo.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable touch interactions that might show controls
-        heroVideo.addEventListener('touchstart', function(e) {
-            e.preventDefault();
-        });
-        
-        heroVideo.addEventListener('touchend', function(e) {
-            e.preventDefault();
-        });
-        
-        // Force play on mobile if autoplay fails
-        const playPromise = heroVideo.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(error => {
-                console.log('Autoplay prevented:', error);
-                // On mobile, user interaction might be required
-                document.addEventListener('touchstart', function() {
-                    heroVideo.play();
-                }, { once: true });
-            });
-        }
-        
-        console.log('Hero video initialized for mobile');
-    }
-});
-</script>
-<!-- Add this JavaScript at the end of index.html, before closing </body> tag -->
-
-<script>
-// Hero video mobile controls fix
-document.addEventListener('DOMContentLoaded', function() {
-    const heroVideo = document.querySelector('.hero-video');
-    
-    if (heroVideo) {
-        // Force remove controls
-        heroVideo.controls = false;
-        heroVideo.setAttribute('controls', 'false');
-        heroVideo.removeAttribute('controls');
-        
-        // Ensure autoplay on mobile
-        heroVideo.muted = true;
-        heroVideo.autoplay = true;
-        heroVideo.loop = true;
-        heroVideo.playsInline = true;
-        
-        // Additional mobile attributes
-        heroVideo.setAttribute('playsinline', 'true');
-        heroVideo.setAttribute('webkit-playsinline', 'true');
-        heroVideo.setAttribute('x5-playsinline', 'true');
-        
-        // Disable right-click context menu
-        heroVideo.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable touch interactions that might show controls
-        heroVideo.addEventListener('touchstart', function(e) {
-            e.preventDefault();
-        });
-        
-        heroVideo.addEventListener('touchend', function(e) {
-            e.preventDefault();
-        });
-        
-        // Force play on mobile if autoplay fails
-        const playPromise = heroVideo.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(error => {
-                console.log('Autoplay prevented:', error);
-                // On mobile, user interaction might be required
-                document.addEventListener('touchstart', function() {
-                    heroVideo.play();
-                }, { once: true });
-            });
-        }
-        
-        console.log('Hero video initialized for mobile');
-    }
-});
-</script>
 </body>
 </html>
