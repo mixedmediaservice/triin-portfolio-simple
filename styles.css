@@ -257,11 +257,22 @@ body {
 }
 
 /* Language content switching */
-.content-en { display: block; }
-.content-ee { display: none; }
+.content-en { 
+    display: block; 
+    color: inherit;
+}
+.content-ee { 
+    display: none; 
+    color: inherit;
+}
 
-body.lang-ee .content-en { display: none; }
-body.lang-ee .content-ee { display: block; }
+body.lang-ee .content-en { 
+    display: none; 
+}
+body.lang-ee .content-ee { 
+    display: block; 
+    color: inherit;
+}
 
 /* ===================
    HERO SECTION
@@ -929,9 +940,14 @@ body:not(.lang-ee) .form-group label .content-ee {
     }
 
     .nav-menu a {
-        color: var(--text-dark);
+        color: var(--text-dark) !important;
         text-shadow: none;
         padding: 0.5rem 0;
+    }
+
+    .nav-menu a .content-en,
+    .nav-menu a .content-ee {
+        color: var(--text-dark) !important;
     }
 
     .nav-menu.active {

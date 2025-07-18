@@ -232,22 +232,36 @@
             }
 
             async init() {
-                // Check if user has a saved preference
+                // Check if user has a saved preference first
                 const savedLang = localStorage.getItem('preferred-language');
                 
                 if (savedLang) {
-                    // User has a preference, use it
+                    // User has a preference, use it immediately
                     this.currentLang = savedLang;
                     console.log('Using saved language preference:', savedLang);
+                    this.applyLanguage(this.currentLang);
+                    this.updateLanguageButtons();
+                    this.initialized = true;
                 } else {
-                    // First-time visitor, detect location
-                    this.currentLang = await this.detectUserLocation();
-                    console.log('Detected language for first-time visitor:', this.currentLang);
+                    // Start with English default immediately
+                    this.currentLang = 'en';
+                    this.applyLanguage(this.currentLang);
+                    this.updateLanguageButtons();
+                    this.initialized = true;
+                    
+                    // Then detect location in background
+                    try {
+                        const detectedLang = await this.detectUserLocation();
+                        if (detectedLang !== this.currentLang) {
+                            console.log('Detected language for first-time visitor:', detectedLang);
+                            this.currentLang = detectedLang;
+                            this.applyLanguage(this.currentLang);
+                            this.updateLanguageButtons();
+                        }
+                    } catch (error) {
+                        console.log('Language detection failed, staying with English');
+                    }
                 }
-                
-                this.applyLanguage(this.currentLang);
-                this.updateLanguageButtons();
-                this.initialized = true;
             }
 
             async detectUserLocation() {
