@@ -1019,3 +1019,103 @@ body:not(.lang-ee) .nav-menu .content-ee {
         line-height: 1.7;
     }
 }
+/* ADD this SITE-WIDE text centering fix to the END of styles.css */
+/* This will fix centering for ALL project pages */
+
+/* ===================
+   SITE-WIDE TEXT CENTERING FIX
+   =================== */
+
+/* Force center all project description text across all pages */
+.project-description {
+    text-align: center !important;
+    margin: 0 auto 3rem auto !important;
+    max-width: 800px !important;
+    padding: 0 2rem !important;
+    width: 100% !important;
+}
+
+/* Center all paragraphs and divs within project descriptions */
+.project-description p,
+.project-description div {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Center content regardless of language class */
+.project-description .content-en,
+.project-description .content-ee {
+    text-align: center !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+.project-description .content-en p,
+.project-description .content-ee p {
+    text-align: center !important;
+    margin: 0 auto 1.5rem auto !important;
+}
+
+/* Force centering for any nested elements */
+.project-description * {
+    text-align: center !important;
+}
+
+/* Ensure content sections containing descriptions are properly centered */
+.content-section {
+    width: 100% !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+.content-section .project-description {
+    display: block !important;
+    margin: 0 auto 3rem auto !important;
+    text-align: center !important;
+}
+
+/* Mobile responsive centering */
+@media (max-width: 768px) {
+    .project-description {
+        padding: 0 1rem !important;
+        text-align: center !important;
+        font-size: 1rem !important;
+        line-height: 1.7 !important;
+    }
+    
+    .project-description p,
+    .project-description div,
+    .project-description .content-en,
+    .project-description .content-ee,
+    .project-description * {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+/* Override any conflicting styles from language switching */
+body.lang-ee .project-description,
+body.lang-ee .project-description p,
+body.lang-ee .project-description div,
+body.lang-ee .project-description .content-ee {
+    text-align: center !important;
+}
+
+body:not(.lang-ee) .project-description,
+body:not(.lang-ee) .project-description p,
+body:not(.lang-ee) .project-description div,
+body:not(.lang-ee) .project-description .content-en {
+    text-align: center !important;
+}
+
+/* Additional safety override for any inherited styles */
+.project-content .content-section .project-description,
+.project-content .content-section .project-description p,
+.project-content .content-section .project-description div {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
