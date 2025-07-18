@@ -120,10 +120,11 @@ class SharedNavigation {
         this.updatePlaceholders(lang);
     }
 
-    updateLanguageButtons() {
+   updateLanguageButtons() {
         const buttons = document.querySelectorAll('.nav-lang-btn, .mobile-lang-btn');
         const switchers = document.querySelectorAll('.nav-lang-switcher, .mobile-lang-switcher');
         
+        // Remove active class from all buttons
         buttons.forEach(btn => {
             btn.classList.remove('active');
             const onclick = btn.getAttribute('onclick');
@@ -132,6 +133,7 @@ class SharedNavigation {
             }
         });
 
+        // Update switcher container classes for sliding animation
         switchers.forEach(switcher => {
             if (this.currentLang === 'ee') {
                 switcher.classList.add('ee-active');
@@ -139,6 +141,8 @@ class SharedNavigation {
                 switcher.classList.remove('ee-active');
             }
         });
+        
+        console.log('Language buttons updated for:', this.currentLang);
     }
 
     updatePlaceholders(lang) {

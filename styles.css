@@ -1092,3 +1092,137 @@ body:not(.lang-ee) .form-group label .content-ee {
         max-width: 300px;
     }
 }
+/* LANGUAGE SWITCHER STYLING - COMPLETE FIX */
+/* Add this to styles.css to fix the unstyled EN/EE buttons */
+
+/* Desktop Language Switcher */
+.nav-lang-switcher {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    gap: 0;
+    overflow: hidden;
+}
+
+/* Sliding background indicator */
+.nav-lang-switcher::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(50% - 2px);
+    height: calc(100% - 4px);
+    background: var(--accent-gold);
+    border-radius: 18px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1;
+}
+
+/* Move indicator when Estonian is active */
+.nav-lang-switcher.ee-active::before {
+    transform: translateX(100%);
+}
+
+/* Language buttons */
+.nav-lang-btn {
+    position: relative;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    border-radius: 18px;
+    transition: all 0.3s ease;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    min-width: 32px;
+    z-index: 2;
+}
+
+/* Active button styling */
+.nav-lang-btn.active {
+    color: white;
+}
+
+/* Hover effects */
+.nav-lang-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Scrolled state - when navigation background changes */
+.nav.scrolled .nav-lang-switcher {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.nav.scrolled .nav-lang-btn {
+    color: var(--text-dark);
+}
+
+.nav.scrolled .nav-lang-btn.active {
+    color: white;
+}
+
+/* Mobile Language Switcher (in hamburger menu) */
+.mobile-lang-switcher {
+    position: relative;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    padding: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 0;
+    overflow: hidden;
+}
+
+.mobile-lang-switcher::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(50% - 2px);
+    height: calc(100% - 4px);
+    background: var(--accent-gold);
+    border-radius: 18px;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.mobile-lang-switcher.ee-active::before {
+    transform: translateX(100%);
+}
+
+.mobile-lang-btn {
+    position: relative;
+    background: transparent;
+    border: none;
+    color: var(--text-dark);
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    border-radius: 18px;
+    transition: all 0.3s ease;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    min-width: 32px;
+    z-index: 2;
+}
+
+.mobile-lang-btn.active {
+    color: white;
+}
+
+/* Ensure proper z-index stacking */
+.nav-right {
+    z-index: 10;
+}
+
+.nav-lang-switcher,
+.mobile-lang-switcher {
+    z-index: 11;
+}
