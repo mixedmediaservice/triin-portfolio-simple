@@ -143,53 +143,52 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Language Switcher - CLEAN DESIGN */
-.nav-lang-switcher {
-    position: relative;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 2px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    display: flex;
-    gap: 0;
+/* LANGUAGE CONTENT SWITCHING - FIXED VERSION */
+/* This replaces the broken language switching rules in styles.css */
+
+.content-en, .content-ee { 
+    color: inherit !important;
+    opacity: 1 !important;
 }
 
-.nav-lang-switcher::before {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: calc(50% - 2px);
-    height: calc(100% - 4px);
-    background: var(--accent-gold);
-    border-radius: 18px;
-    transition: all 0.4s ease;
-    z-index: 1;
+/* Estonian mode - show EE, hide EN */
+body.lang-ee .content-en { 
+    display: none !important; 
+}
+body.lang-ee .content-ee { 
+    display: inline-block !important; 
+    color: inherit !important;
+    opacity: 1 !important;
 }
 
-.nav-lang-switcher.ee-active::before {
-    transform: translateX(100%);
+/* English mode (default) - show EN, hide EE */
+body:not(.lang-ee) .content-en { 
+    display: inline-block !important; 
+    color: inherit !important;
+    opacity: 1 !important;
+}
+body:not(.lang-ee) .content-ee { 
+    display: none !important; 
 }
 
-.nav-lang-btn {
-    position: relative;
-    background: transparent;
-    border: none;
-    color: white;
-    padding: 0.4rem 0.8rem;
-    cursor: pointer;
-    border-radius: 18px;
-    transition: all 0.3s ease;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    min-width: 32px;
-    z-index: 2;
+/* Special case for navigation items that need to be inline */
+.nav-menu .content-en,
+.nav-menu .content-ee {
+    display: inline !important;
 }
 
-.nav-lang-btn.active {
-    color: white;
+body.lang-ee .nav-menu .content-en { 
+    display: none !important; 
+}
+body.lang-ee .nav-menu .content-ee { 
+    display: inline !important; 
+}
+
+body:not(.lang-ee) .nav-menu .content-en { 
+    display: inline !important; 
+}
+body:not(.lang-ee) .nav-menu .content-ee { 
+    display: none !important; 
 }
 
 /* Hamburger Menu */
@@ -256,22 +255,28 @@ body {
     color: white;
 }
 
-/* Language content switching */
-.content-en { 
-    display: block; 
-    color: inherit;
-}
-.content-ee { 
-    display: none; 
-    color: inherit;
+/* Language content switching - IMPROVED */
+.content-en, .content-ee { 
+    color: inherit !important;
+    opacity: 1 !important;
 }
 
 body.lang-ee .content-en { 
-    display: none; 
+    display: none !important; 
 }
 body.lang-ee .content-ee { 
-    display: block; 
-    color: inherit;
+    display: block !important; 
+    color: inherit !important;
+    opacity: 1 !important;
+}
+
+body:not(.lang-ee) .content-en { 
+    display: block !important; 
+    color: inherit !important;
+    opacity: 1 !important;
+}
+body:not(.lang-ee) .content-ee { 
+    display: none !important; 
 }
 
 /* ===================
@@ -948,6 +953,16 @@ body:not(.lang-ee) .form-group label .content-ee {
     .nav-menu a .content-en,
     .nav-menu a .content-ee {
         color: var(--text-dark) !important;
+        opacity: 1 !important;
+    }
+
+    .nav-menu a:hover {
+        color: var(--accent-gold) !important;
+    }
+
+    .nav-menu a:hover .content-en,
+    .nav-menu a:hover .content-ee {
+        color: var(--accent-gold) !important;
     }
 
     .nav-menu.active {
