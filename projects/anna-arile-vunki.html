@@ -57,31 +57,10 @@
     </script>
     
     <link rel="stylesheet" href="../styles.css">
+    <script src="../shared-navigation.js"></script>
 </head>
 <body class="project-page">
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="../index.html">TRIIN RUUMET</a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="../index.html#films"><span class="content-en">FILMS</span><span class="content-ee">FILMID</span></a></li>
-                <li><a href="../index.html#commercial"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
-                <li><a href="../index.html#about"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
-                <li><a href="../index.html#contact"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
-                <li class="nav-lang-switcher">
-                    <button class="nav-lang-btn active" onclick="switchLanguage('en')">EN</button>
-                    <button class="nav-lang-btn" onclick="switchLanguage('ee')">EE</button>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation injected by shared-navigation.js -->
 
     <!-- Project Hero -->
     <section class="project-hero">
@@ -94,36 +73,31 @@
 
     <!-- Project Content -->
     <div class="project-content">
-        <!-- Main Video - Standard 16:9 Format -->
+        <!-- Video Section - 16:9 Standard Format -->
         <section class="content-section">
             <div class="video-container">
-                <div class="video-poster" style="background-image: url('../images/commercial/anna-arile-vunki/anna-arile-vunki-cover.jpg');" onclick="playVideo(this)"></div>
+                <div class="video-poster" 
+                     style="background-image: url('../images/commercial/anna-arile-vunki/anna-arile-vunki-cover.jpg');" 
+                     onclick="playVideo(this)"></div>
                 <iframe id="vimeo-iframe" src="" 
                         frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen title="Anna ärile vunki juurde! TV Commercial" style="display: none;"></iframe>
             </div>
         </section>
+        
+        <!-- Clean Credits -->
+        <section class="content-section" style="margin-bottom: 2rem;">
+            <div class="credits-grid" style="background: none; padding: 1rem 0; border-radius: 0; margin-bottom: 0;">
+                <div class="credit-item">
+                    <div class="credit-role">Director</div>
+                    <div class="credit-name">Triin Ruumet</div>
+                </div>
+            </div>
+        </section>
     </div>
 
+    <!-- MINIMAL JavaScript - Only video player -->
     <script>
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Video poster functionality
         function playVideo(poster) {
             const iframe = document.getElementById('vimeo-iframe');
             iframe.src = 'https://player.vimeo.com/video/747275865?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&color=ffffff&title=0&byline=0&portrait=0';
@@ -133,77 +107,6 @@
                 poster.style.display = 'none';
             }, 300);
         }
-
-        // Language switching
-        function switchLanguage(lang) {
-            const body = document.body;
-            const buttons = document.querySelectorAll('.nav-lang-btn');
-            
-            // Remove active class from all buttons
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
-            
-            // Switch language
-            if (lang === 'ee') {
-                body.classList.add('lang-ee');
-            } else {
-                body.classList.remove('lang-ee');
-            }
-        }
     </script>
-    <script>
-// Language persistence for project pages
-document.addEventListener('DOMContentLoaded', function() {
-    // Check for saved language preference
-    const savedLang = localStorage.getItem('preferred-language');
-    
-    if (savedLang) {
-        const body = document.body;
-        const buttons = document.querySelectorAll('.nav-lang-btn');
-        
-        // Apply saved language
-        if (savedLang === 'ee') {
-            body.classList.add('lang-ee');
-        } else {
-            body.classList.remove('lang-ee');
-        }
-        
-        // Update language buttons
-        buttons.forEach(btn => {
-            btn.classList.remove('active');
-            const onclick = btn.getAttribute('onclick');
-            if (onclick && onclick.includes(`'${savedLang}'`)) {
-                btn.classList.add('active');
-            }
-        });
-    }
-});
-
-// Enhanced switchLanguage function for project pages
-function switchLanguage(lang) {
-    const body = document.body;
-    const buttons = document.querySelectorAll('.nav-lang-btn');
-    
-    // Save user's preference
-    localStorage.setItem('preferred-language', lang);
-    
-    // Remove active class from all buttons
-    buttons.forEach(btn => btn.classList.remove('active'));
-    
-    // Add active class to clicked button
-    document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
-    
-    // Switch language
-    if (lang === 'ee') {
-        body.classList.add('lang-ee');
-    } else {
-        body.classList.remove('lang-ee');
-    }
-    
-    console.log('Language switched to:', lang);
-}
-</script>
 </body>
 </html>
