@@ -288,7 +288,7 @@ body {
 }
 
 /* ===================
-   LANGUAGE SWITCHING
+   LANGUAGE SWITCHING - FIXED FOR TITLES
    =================== */
 .content-en, .content-ee { 
     color: inherit !important;
@@ -300,14 +300,14 @@ body.lang-ee .content-en {
     display: none !important; 
 }
 body.lang-ee .content-ee { 
-    display: inline-block !important; 
+    display: block !important; /* BLOCK for h1 elements */
     color: inherit !important;
     opacity: 1 !important;
 }
 
 /* English mode (default) - show EN, hide EE */
 body:not(.lang-ee) .content-en { 
-    display: inline-block !important; 
+    display: block !important; /* BLOCK for h1 elements */
     color: inherit !important;
     opacity: 1 !important;
 }
@@ -315,7 +315,7 @@ body:not(.lang-ee) .content-ee {
     display: none !important; 
 }
 
-/* Navigation specific language switching */
+/* Navigation specific language switching - INLINE for nav items */
 .nav-menu .content-en,
 .nav-menu .content-ee {
     display: inline !important;
@@ -332,6 +332,26 @@ body:not(.lang-ee) .nav-menu .content-en {
     display: inline !important; 
 }
 body:not(.lang-ee) .nav-menu .content-ee { 
+    display: none !important; 
+}
+
+/* Commercial navigation language switching - INLINE for nav buttons */
+.commercial-nav-btn .content-en,
+.commercial-nav-btn .content-ee {
+    display: inline !important;
+}
+
+body.lang-ee .commercial-nav-btn .content-en { 
+    display: none !important; 
+}
+body.lang-ee .commercial-nav-btn .content-ee { 
+    display: inline !important; 
+}
+
+body:not(.lang-ee) .commercial-nav-btn .content-en { 
+    display: inline !important; 
+}
+body:not(.lang-ee) .commercial-nav-btn .content-ee { 
     display: none !important; 
 }
 
@@ -591,10 +611,10 @@ body:not(.lang-ee) .nav-menu .content-ee {
 }
 
 /* ===================
-   PROJECT PAGE STYLES - ENHANCED HERO SPACING
+   PROJECT PAGE STYLES - REDUCED SPACING
    =================== */
 .project-hero {
-    min-height: 20vh;
+    min-height: 15vh; /* REDUCED from 20vh */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -602,20 +622,20 @@ body:not(.lang-ee) .nav-menu .content-ee {
     color: var(--text-dark);
     text-align: center;
     position: relative;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem; /* REDUCED from 2rem */
     margin-top: 80px;
 }
 
 .project-info {
     z-index: 2;
     max-width: 800px;
-    padding: 2rem 1rem;
+    padding: 1rem; /* REDUCED from 2rem */
 }
 
 .project-title {
     font-size: 2.5rem;
     font-weight: 300;
-    margin-bottom: 1rem !important;
+    margin-bottom: 0.8rem !important; /* REDUCED from 1rem */
     color: var(--text-dark);
     line-height: 1.2;
     display: block !important;
@@ -624,8 +644,8 @@ body:not(.lang-ee) .nav-menu .content-ee {
 .project-subtitle {
     font-size: 1rem;
     color: var(--text-light);
-    margin-bottom: 1.5rem !important;
-    margin-top: 0.5rem !important;
+    margin-bottom: 1rem !important; /* REDUCED from 1.5rem */
+    margin-top: 0.3rem !important; /* REDUCED from 0.5rem */
     display: block;
     line-height: 1.4;
 }
@@ -634,8 +654,8 @@ body:not(.lang-ee) .nav-menu .content-ee {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin-top: 1rem !important;
-    margin-bottom: 1.5rem !important;
+    margin-top: 0.8rem !important; /* REDUCED from 1rem */
+    margin-bottom: 1rem !important; /* REDUCED from 1.5rem */
     flex-wrap: wrap;
 }
 
@@ -660,11 +680,11 @@ body:not(.lang-ee) .nav-menu .content-ee {
 .project-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem; /* REDUCED from 1rem */
 }
 
 .content-section {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* REDUCED from 2rem */
 }
 
 .project-description {
@@ -672,14 +692,14 @@ body:not(.lang-ee) .nav-menu .content-ee {
     line-height: 1.8;
     color: var(--text-light);
     max-width: 800px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 2rem; /* REDUCED from 3rem */
     text-align: center !important;
     padding: 0 1rem;
 }
 
 .project-description p {
     text-align: center !important;
-    margin: 0 auto;
+    margin: 0 auto 1rem auto; /* REDUCED bottom margin */
 }
 
 /* ===================
@@ -1197,8 +1217,22 @@ body:not(.lang-ee) .nav-menu .content-ee {
 }
 
 /* ===================
-   NUCLEAR TEXT CENTERING SOLUTION
+   ENHANCED NUCLEAR TEXT CENTERING SOLUTION
    =================== */
+
+/* Force center ALL project description content */
+.project-description,
+.project-description *,
+.content-section .project-description,
+.content-section .project-description *,
+section.content-section div.project-description,
+section.content-section div.project-description *,
+div.project-content section.content-section div.project-description,
+div.project-content section.content-section div.project-description * {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
 
 /* Maximum specificity override - targets the exact structure from DevTools */
 html body.project-page div.project-content section.content-section div.project-description,
@@ -1208,7 +1242,10 @@ html body.project-page div.project-content section.content-section div.project-d
 html body.project-page div.project-content section.content-section div.project-description.content-en p,
 html body.project-page div.project-content section.content-section div.project-description.content-ee p,
 html body div.project-content section.content-section div.project-description,
-html body div.project-content section.content-section div.project-description p {
+html body div.project-content section.content-section div.project-description p,
+html body div.project-content section.content-section div.project-description *,
+body.project-page div.project-content section.content-section div.project-description,
+body.project-page div.project-content section.content-section div.project-description * {
     text-align: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -1216,19 +1253,30 @@ html body div.project-content section.content-section div.project-description p 
 
 /* Container centering with max specificity */
 html body.project-page div.project-content section.content-section div.project-description,
-html body div.project-content section.content-section div.project-description {
+html body div.project-content section.content-section div.project-description,
+body.project-page div.project-content section.content-section div.project-description,
+div.project-content section.content-section div.project-description {
     max-width: 800px !important;
-    margin: 0 auto 3rem auto !important;
+    margin: 0 auto 2rem auto !important;
     padding: 0 2rem !important;
     width: 100% !important;
+    display: block !important;
+    text-align: center !important;
 }
 
 /* Language switching aware - preserve display but force center */
 html body.lang-ee div.project-content section.content-section div.project-description.content-ee,
 html body.lang-ee div.project-content section.content-section div.project-description.content-ee p,
+html body.lang-ee div.project-content section.content-section div.project-description.content-ee *,
 html body:not(.lang-ee) div.project-content section.content-section div.project-description.content-en,
-html body:not(.lang-ee) div.project-content section.content-section div.project-description.content-en p {
+html body:not(.lang-ee) div.project-content section.content-section div.project-description.content-en p,
+html body:not(.lang-ee) div.project-content section.content-section div.project-description.content-en *,
+body.lang-ee div.project-content section.content-section div.project-description.content-ee,
+body.lang-ee div.project-content section.content-section div.project-description.content-ee *,
+body:not(.lang-ee) div.project-content section.content-section div.project-description.content-en,
+body:not(.lang-ee) div.project-content section.content-section div.project-description.content-en * {
     text-align: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    display: block !important;
 }
