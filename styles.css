@@ -1,12 +1,13 @@
-/* styles.css - CLEAN ORGANIZED VERSION WITH HERO SPACING FIX */
+/* styles.css - COMPLETE VERSION WITH NO GOLD ACCENT */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&display=swap');
 
 /* ===================
-   CSS VARIABLES
+   CSS VARIABLES - NO GOLD
    =================== */
 :root {
-    --accent-gold: #4a4a4a;
+    --accent-dark: #2c2c2c;
+    --accent-hover: #404040;
     --text-dark: #1a1a1a;
     --text-light: #666;
     --bg-light: #fefefe;
@@ -30,7 +31,7 @@ body {
 }
 
 /* ===================
-   NAVIGATION STYLES
+   NAVIGATION STYLES - PREMIUM HEADER
    =================== */
 .nav {
     position: fixed;
@@ -96,7 +97,7 @@ body {
 }
 
 .nav-menu a:hover {
-    color: var(--accent-gold);
+    color: #e0e0e0;
 }
 
 .nav-menu a::after {
@@ -106,7 +107,7 @@ body {
     left: 0;
     width: 0;
     height: 1px;
-    background: var(--accent-gold);
+    background: #e0e0e0;
     transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -171,7 +172,7 @@ body {
     left: 2px;
     width: calc(50% - 2px);
     height: calc(100% - 4px);
-    background: var(--accent-gold);
+    background: var(--accent-dark);
     border-radius: 18px;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 1;
@@ -220,12 +221,15 @@ body {
     transition: 0.3s;
 }
 
-/* Scrolled State */
+/* PREMIUM SCROLLED STATE - NO GOLD */
 .nav.scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(30px) saturate(140%);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(50px) saturate(160%);
+    -webkit-backdrop-filter: blur(50px) saturate(160%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 
+        0 4px 32px rgba(0, 0, 0, 0.06),
+        0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .nav.scrolled .nav-logo a {
@@ -238,13 +242,27 @@ body {
     text-shadow: none;
 }
 
+.nav.scrolled .nav-menu a:hover {
+    color: var(--accent-dark);
+}
+
+.nav.scrolled .nav-menu a::after {
+    background: var(--accent-dark);
+}
+
 .nav.scrolled .hamburger span {
     background: var(--text-dark);
 }
 
 .nav.scrolled .nav-instagram {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.nav.scrolled .nav-instagram:hover {
+    background: rgba(0, 0, 0, 0.06);
+    transform: scale(1.1);
 }
 
 .nav.scrolled .instagram-icon {
@@ -252,8 +270,13 @@ body {
 }
 
 .nav.scrolled .nav-lang-switcher {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.nav.scrolled .nav-lang-switcher::before {
+    background: var(--accent-dark);
 }
 
 .nav.scrolled .nav-lang-btn {
@@ -548,12 +571,12 @@ body:not(.lang-ee) .nav-menu .content-ee {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--accent-gold);
+    border-color: var(--accent-dark);
 }
 
 .submit-btn {
     padding: 1rem 2rem;
-    background: var(--accent-gold);
+    background: var(--accent-dark);
     color: white;
     border: none;
     border-radius: 6px;
@@ -564,14 +587,14 @@ body:not(.lang-ee) .nav-menu .content-ee {
 }
 
 .submit-btn:hover {
-    background: #7a644a;
+    background: var(--accent-hover);
 }
 
 /* ===================
    PROJECT PAGE STYLES - ENHANCED HERO SPACING
    =================== */
 .project-hero {
-    min-height: 20vh; /* INCREASED from 15vh */
+    min-height: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -579,30 +602,31 @@ body:not(.lang-ee) .nav-menu .content-ee {
     color: var(--text-dark);
     text-align: center;
     position: relative;
-    padding: 2rem 1rem; /* INCREASED padding */
+    padding: 2rem 1rem;
     margin-top: 80px;
 }
 
 .project-info {
     z-index: 2;
     max-width: 800px;
-    padding: 2rem 1rem; /* INCREASED padding */
+    padding: 2rem 1rem;
 }
 
 .project-title {
     font-size: 2.5rem;
     font-weight: 300;
-    margin-bottom: 1.5rem !important; /* INCREASED spacing */
+    margin-bottom: 1rem !important;
     color: var(--text-dark);
-    line-height: 1.2; /* Better line height */
+    line-height: 1.2;
+    display: block !important;
 }
 
 .project-subtitle {
     font-size: 1rem;
     color: var(--text-light);
-    margin-bottom: 2rem !important; /* INCREASED spacing */
+    margin-bottom: 1.5rem !important;
     margin-top: 0.5rem !important;
-    display: block; /* Force block display */
+    display: block;
     line-height: 1.4;
 }
 
@@ -610,8 +634,8 @@ body:not(.lang-ee) .nav-menu .content-ee {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin-top: 1.5rem !important; /* INCREASED space above meta */
-    margin-bottom: 1rem;
+    margin-top: 1rem !important;
+    margin-bottom: 1.5rem !important;
     flex-wrap: wrap;
 }
 
@@ -640,7 +664,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
 }
 
 .content-section {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .project-description {
@@ -658,7 +682,107 @@ body:not(.lang-ee) .nav-menu .content-ee {
     margin: 0 auto;
 }
 
-/* Video Containers */
+/* ===================
+   COMMERCIAL NAVIGATION - ELEGANT WHITE DESIGN (NO GOLD)
+   =================== */
+.commercial-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    padding: 1.5rem 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.commercial-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.4rem;
+    background: white;
+    color: var(--text-dark);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.commercial-nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.commercial-nav-btn:hover {
+    background: white;
+    border-color: var(--accent-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    color: var(--text-dark);
+}
+
+.commercial-nav-btn:hover::before {
+    left: 100%;
+}
+
+.commercial-nav-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.commercial-nav-info {
+    text-align: center;
+    flex: 1;
+    margin: 0 1rem;
+}
+
+.commercial-nav-current {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+.commercial-nav-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.2;
+}
+
+.nav-arrow {
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.commercial-nav-btn:hover .nav-arrow {
+    transform: translateX(3px);
+}
+
+.commercial-nav-btn:hover .nav-arrow:first-child {
+    transform: translateX(-3px);
+}
+
+/* Video Containers - UPDATED SPACING */
 .video-container {
     position: relative;
     width: 100%;
@@ -666,7 +790,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
     padding-bottom: 56.25%;
     background: white;
     overflow: hidden;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .video-container iframe {
@@ -682,7 +806,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
     position: relative;
     width: 100%;
     max-width: 350px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 2rem;
     background: #f5f5f5;
     border-radius: 8px;
     overflow: hidden;
@@ -803,7 +927,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
 
 .credit-role {
     font-size: 0.9rem;
-    color: var(--accent-gold);
+    color: var(--accent-dark);
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -871,7 +995,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
     }
 
     .nav-menu a:hover {
-        color: var(--accent-gold) !important;
+        color: var(--accent-dark) !important;
     }
 
     .nav-menu.active {
@@ -940,7 +1064,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
         left: 2px;
         width: calc(50% - 2px);
         height: calc(100% - 4px);
-        background: var(--accent-gold);
+        background: var(--accent-dark);
         border-radius: 18px;
         transition: all 0.4s ease;
         z-index: 1;
@@ -986,24 +1110,57 @@ body:not(.lang-ee) .nav-menu .content-ee {
 
     /* Mobile project hero adjustments */
     .project-hero {
-        min-height: 18vh; /* Adjusted for mobile */
+        min-height: 18vh;
         padding: 1.5rem 1rem;
     }
     
     .project-title {
         font-size: 2rem;
-        margin-bottom: 1.2rem !important;
+        margin-bottom: 0.8rem !important;
     }
     
     .project-subtitle {
-        margin-bottom: 1.5rem !important;
+        margin-bottom: 1.2rem !important;
         margin-top: 0.3rem !important;
         font-size: 0.95rem;
     }
     
     .project-meta {
         gap: 1rem;
-        margin-top: 1rem !important;
+        margin-top: 0.8rem !important;
+    }
+
+    /* Mobile commercial navigation */
+    .commercial-navigation {
+        padding: 1.2rem 0.8rem;
+        margin: 0 auto 1.5rem;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(25px);
+    }
+    
+    .commercial-nav-btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.8rem;
+        border-radius: 10px;
+        gap: 0.3rem;
+    }
+    
+    .commercial-nav-info {
+        margin: 0 0.5rem;
+    }
+    
+    .commercial-nav-current {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+    
+    .commercial-nav-title {
+        font-size: 0.85rem;
+        line-height: 1.1;
+    }
+    
+    .nav-arrow {
+        font-size: 1rem;
     }
 
     /* Responsive adjustments */
