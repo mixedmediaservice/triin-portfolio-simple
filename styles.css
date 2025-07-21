@@ -361,10 +361,13 @@ body:not(.lang-ee) .nav-menu .content-ee {
 }
 
 /* ===================
-   HERO SECTION
+   HERO SECTION - RESPONSIVE VIDEO
+   Shows more video content by using flexible height
    =================== */
 .hero {
-    height: 100vh;
+    height: 70vh; /* Shorter height to show more video content */
+    min-height: 400px; /* Minimum height for very small screens */
+    max-height: 600px; /* Maximum height for very large screens */
     position: relative;
     overflow: hidden;
 }
@@ -376,6 +379,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
     z-index: 1;
     
     /* Hide all video controls */
@@ -383,6 +387,28 @@ body:not(.lang-ee) .nav-menu .content-ee {
     -webkit-appearance: none;
     appearance: none;
     pointer-events: none;
+}
+
+/* Alternative approach - uncomment if you want even more content visible */
+/*
+.hero-video {
+    object-fit: fill; 
+    This will stretch the video to fit exactly, showing all content but may distort aspect ratio slightly
+}
+*/
+
+/* Mobile adjustments - show even more content */
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh; /* Even shorter on mobile to show more video */
+        min-height: 300px;
+        max-height: 450px;
+    }
+    
+    .hero-video {
+        object-fit: cover;
+        object-position: center 30%; /* Focus on upper-center area of video */
+    }
 }
 
 /* Force hide video controls - all vendors */
@@ -1106,11 +1132,8 @@ body:not(.lang-ee) .nav-menu .content-ee {
         color: white;
     }
 
-    /* MOBILE HERO VIDEO - ZOOM OUT 25% using transform scale */
+    /* Mobile hero video - responsive height */
     .hero-video {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         -khtml-user-select: none;
@@ -1118,13 +1141,6 @@ body:not(.lang-ee) .nav-menu .content-ee {
         -ms-user-select: none;
         user-select: none;
         -webkit-tap-highlight-color: transparent;
-        /* Scale down to zoom out 25% */
-        -webkit-transform: scale(0.75);
-        -moz-transform: scale(0.75);
-        -ms-transform: scale(0.75);
-        -o-transform: scale(0.75);
-        transform: scale(0.75);
-        transform-origin: center center;
     }
 
     /* Mobile project page spacing */
