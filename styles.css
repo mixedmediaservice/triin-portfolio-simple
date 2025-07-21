@@ -1,4 +1,6 @@
-/* styles.css - CLEAN VERSION */
+.nav-container {
+        position: relative; /* Ensure proper positioning context for mobile Instagram */
+    }/* styles.css - CLEAN VERSION */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&display=swap');
 
@@ -1026,14 +1028,19 @@ body:not(.lang-ee) .nav-menu .content-ee {
 }
 
 @media (max-width: 768px) {
+    /* Mobile navigation adjustments */
+    .nav-container {
+        position: relative;
+    }
+    
     /* Reduce navigation header height by 60% */
     .nav {
-        padding: 0.4rem 0; /* Reduced from 1rem (60% less) */
+        padding: 0.4rem 0;
     }
     
     /* Reduce TRIIN RUUMET logo size by 15% */
     .nav-logo a {
-        font-size: 2.125rem; /* Reduced from 2.5rem (15% smaller) */
+        font-size: 2.125rem;
     }
     
     /* Hide desktop navigation extras */
@@ -1058,7 +1065,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Mobile menu styling */
+    /* Mobile menu styling - COMPACT */
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -1068,7 +1075,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        padding: 1rem 0;
+        padding: 0.5rem 0; /* Reduced from 1rem */
         box-shadow: 0 10px 27px rgba(0,0,0,0.05);
         z-index: 1000;
         height: auto;
@@ -1076,13 +1083,13 @@ body:not(.lang-ee) .nav-menu .content-ee {
     }
 
     .nav-menu li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.3rem; /* Reduced from 0.5rem */
     }
 
     .nav-menu a {
         color: var(--text-dark) !important;
         text-shadow: none;
-        padding: 0.3rem 0;
+        padding: 0.2rem 0; /* Reduced from 0.3rem */
     }
 
     .nav-menu a:hover {
@@ -1093,15 +1100,15 @@ body:not(.lang-ee) .nav-menu .content-ee {
         left: 0;
     }
 
-    /* Show mobile-only items ONLY on mobile */
+    /* Mobile-only items - MINIMAL SPACING */
     .mobile-only {
         display: block !important;
-        margin-top: 1rem;
-        padding: 0.5rem 0;
+        margin-top: 0.3rem !important; /* Greatly reduced from 1rem */
+        padding: 0.3rem 0 !important; /* Reduced from 0.5rem */
         border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
     
-    /* Mobile Instagram and language switcher container */
+    /* Mobile Instagram and language switcher container - COMPACT */
     .mobile-only > div {
         display: flex !important;
         justify-content: center !important;
@@ -1115,8 +1122,8 @@ body:not(.lang-ee) .nav-menu .content-ee {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 36px;
-        height: 36px;
+        width: 32px; /* Slightly smaller */
+        height: 32px;
         border-radius: 50%;
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid rgba(0, 0, 0, 0.1);
@@ -1130,16 +1137,16 @@ body:not(.lang-ee) .nav-menu .content-ee {
     }
 
     .mobile-instagram-icon {
-        width: 18px !important;
-        height: 18px !important;
+        width: 16px !important; /* Slightly smaller */
+        height: 16px !important;
         filter: invert(0);
     }
 
-    /* Mobile language switcher */
+    /* Mobile language switcher - COMPACT */
     .mobile-lang-switcher {
         position: relative;
         background: rgba(0, 0, 0, 0.05);
-        border-radius: 20px;
+        border-radius: 18px; /* Slightly smaller radius */
         padding: 2px;
         border: 1px solid rgba(0, 0, 0, 0.1);
         display: flex;
@@ -1156,7 +1163,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
         width: calc(50% - 2px);
         height: calc(100% - 4px);
         background: var(--accent-dark);
-        border-radius: 18px;
+        border-radius: 16px;
         transition: all 0.4s ease;
         z-index: 1;
     }
@@ -1170,14 +1177,14 @@ body:not(.lang-ee) .nav-menu .content-ee {
         background: transparent;
         border: none;
         color: var(--text-dark);
-        padding: 0.3rem 0.6rem;
+        padding: 0.25rem 0.5rem; /* Reduced padding */
         cursor: pointer;
-        border-radius: 18px;
+        border-radius: 16px;
         transition: all 0.3s ease;
-        font-size: 0.75rem;
+        font-size: 0.7rem; /* Slightly smaller */
         font-weight: 500;
         letter-spacing: 0.5px;
-        min-width: 28px;
+        min-width: 26px; /* Slightly smaller */
         z-index: 2;
     }
 
