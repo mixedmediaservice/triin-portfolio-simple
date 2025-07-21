@@ -1,4 +1,4 @@
-/* styles.css - MOBILE MENU WHITE SPACE FIXED */
+/* styles.css - CLEAN VERSION - Updated */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&display=swap');
 
@@ -985,7 +985,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Mobile menu styling - ULTRA COMPACT */
+    /* Mobile menu styling - AGGRESSIVE WHITE SPACE REDUCTION */
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -995,24 +995,23 @@ body:not(.lang-ee) .nav-menu .content-ee {
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        padding: 0 !important; /* Remove all padding */
+        padding: 0.2rem 0 0.2rem 0; /* Minimal padding */
         box-shadow: 0 10px 27px rgba(0,0,0,0.05);
         z-index: 1000;
         height: auto;
         max-height: fit-content;
         min-height: auto;
-        overflow: hidden;
+        overflow: hidden; /* Prevent extra space */
     }
 
     .nav-menu li {
-        margin: 0 !important; /* Remove all margins */
-        padding: 0 !important; /* Remove all padding */
+        margin-bottom: 0.1rem; /* Minimal spacing */
     }
 
     .nav-menu a {
         color: var(--text-dark) !important;
         text-shadow: none;
-        padding: 0.5rem 0 !important; /* Minimal link padding */
+        padding: 0.1rem 0; /* Minimal padding */
         display: block;
     }
 
@@ -1024,20 +1023,20 @@ body:not(.lang-ee) .nav-menu .content-ee {
         left: 0;
     }
 
-    /* Mobile-only items - ULTRA COMPACT */
+    /* Mobile-only items - MINIMAL SPACING */
     .mobile-only {
         display: block !important;
-        margin: 0 !important; /* No margins */
-        padding: 0.5rem 0 !important; /* Minimal padding */
+        margin-top: 0.2rem; /* Minimal margin */
+        padding: 0.2rem 0 0.1rem 0; /* Minimal padding */
         border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
     
-    /* Mobile social/lang container - COMPACT */
-    .mobile-social-lang {
+    /* Mobile Instagram and language switcher container - COMPACT */
+    .mobile-only > div {
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        gap: 1rem !important;
+        gap: 0.8rem !important; /* Reduced gap */
         flex-wrap: wrap !important;
         margin: 0 !important;
         padding: 0 !important;

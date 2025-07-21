@@ -1,4 +1,4 @@
-// shared-navigation.js - FIXED VERSION - Mobile white space removed
+// shared-navigation.js - Single source of truth for all navigation
 class SharedNavigation {
     constructor() {
         this.currentPage = this.detectCurrentPage();
@@ -30,9 +30,9 @@ class SharedNavigation {
                         <li><a href="${isHomePage ? '#commercial' : '../index.html#commercial'}"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
                         <li><a href="${isHomePage ? '#about' : '../index.html#about'}"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
                         <li><a href="${isHomePage ? '#contact' : '../index.html#contact'}"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
-                        <!-- Mobile-only items - INLINE STYLES REMOVED -->
-                        <li class="mobile-only">
-                            <div class="mobile-social-lang">
+                        <!-- Mobile-only items -->
+                        <li class="mobile-only" style="margin-top: 2rem; padding: 1rem 0;">
+                            <div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
                                 <a href="https://www.instagram.com/triin_ruumet/" target="_blank" rel="noopener noreferrer" class="mobile-instagram">
                                     <img src="${baseURL}images/instagram-t.png" alt="Instagram" class="mobile-instagram-icon">
                                 </a>
