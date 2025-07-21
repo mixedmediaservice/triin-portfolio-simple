@@ -1065,7 +1065,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Mobile menu styling - COMPACT */
+    /* Mobile menu styling - MORE TOP PADDING, COMPACT BOTTOM */
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -1075,7 +1075,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        padding: 0.5rem 0; /* Reduced from 1rem */
+        padding: 1rem 0 0.3rem 0; /* More top padding, less bottom */
         box-shadow: 0 10px 27px rgba(0,0,0,0.05);
         z-index: 1000;
         height: auto;
@@ -1100,11 +1100,11 @@ body:not(.lang-ee) .nav-menu .content-ee {
         left: 0;
     }
 
-    /* Mobile-only items - MINIMAL SPACING */
+    /* Mobile-only items - FINE-TUNED SPACING */
     .mobile-only {
         display: block !important;
-        margin-top: 0.3rem !important; /* Greatly reduced from 1rem */
-        padding: 0.3rem 0 !important; /* Reduced from 0.5rem */
+        margin-top: 0.2rem !important; /* Even less space after KONTAKT */
+        padding: 0.6rem 0 0.2rem 0 !important; /* More space above icons, less below */
         border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
     
