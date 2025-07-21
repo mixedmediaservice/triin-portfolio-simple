@@ -1100,10 +1100,10 @@ body:not(.lang-ee) .nav-menu .content-ee {
         left: 0;
     }
 
-    /* Mobile-only items - FINE-TUNED SPACING */
+    /* Mobile-only items - MINIMAL SPACE AFTER KONTAKT */
     .mobile-only {
         display: block !important;
-        margin-top: 0.2rem !important; /* Even less space after KONTAKT */
+        margin-top: 0.1rem !important; /* Minimal space after KONTAKT */
         padding: 0.6rem 0 0.2rem 0 !important; /* More space above icons, less below */
         border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
