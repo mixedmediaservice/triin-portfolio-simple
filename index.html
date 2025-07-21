@@ -86,15 +86,14 @@
     <section id="home" class="hero">
         <video class="hero-video" 
                autoplay 
-               muted 
+               muted
+               playsinline
                loop 
-               playsinline 
-               controls="false"
-               disablepictureinpicture
+               preload="metadata"
                webkit-playsinline="true"
                x5-playsinline="true"
-               x5-video-player-type="h5"
-               x5-video-player-fullscreen="true">
+               disablepictureinpicture
+               data-setup='{}'>
             <source src="images/hero-video.mp4" type="video/mp4">
             <source src="images/hero-video.webm" type="video/webm">
         </video>
@@ -340,55 +339,117 @@
             });
         }
 
-        // Hero video mobile controls fix
+        // NUCLEAR iOS autoplay solution - ENHANCED
         function initializeHeroVideo() {
             const heroVideo = document.querySelector('.hero-video');
             
             if (heroVideo) {
-                // Force remove controls
-                heroVideo.controls = false;
-                heroVideo.setAttribute('controls', 'false');
-                heroVideo.removeAttribute('controls');
+                // Detect iOS and Safari
+                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                             (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+                const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
                 
-                // Ensure autoplay on mobile
-                heroVideo.muted = true;
-                heroVideo.autoplay = true;
-                heroVideo.loop = true;
-                heroVideo.playsInline = true;
+                console.log('Device:', isIOS ? 'iOS' : 'Other', isSafari ? 'Safari' : 'Other browser');
                 
-                // Additional mobile attributes
-                heroVideo.setAttribute('playsinline', 'true');
-                heroVideo.setAttribute('webkit-playsinline', 'true');
-                heroVideo.setAttribute('x5-playsinline', 'true');
-                
-                // Disable right-click context menu
-                heroVideo.addEventListener('contextmenu', function(e) {
-                    e.preventDefault();
-                    return false;
-                });
-                
-                // Disable touch interactions that might show controls
-                heroVideo.addEventListener('touchstart', function(e) {
-                    e.preventDefault();
-                });
-                
-                heroVideo.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                });
-                
-                // Force play on mobile if autoplay fails
-                const playPromise = heroVideo.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(error => {
-                        console.log('Autoplay prevented:', error);
-                        // On mobile, user interaction might be required
-                        document.addEventListener('touchstart', function() {
+                // iOS NUCLEAR approach - recreate video element if needed
+                if (isIOS) {
+                    const parent = heroVideo.parentNode;
+                    const newVideo = document.createElement('video');
+                    
+                    // Copy all attributes
+                    newVideo.className = heroVideo.className;
+                    newVideo.muted = true;
+                    newVideo.defaultMuted = true;
+                    newVideo.autoplay = true;
+                    newVideo.loop = true;
+                    newVideo.playsInline = true;
+                    newVideo.controls = false;
+                    newVideo.volume = 0;
+                    newVideo.preload = 'metadata';
+                    
+                    // iOS-specific attributes
+                    newVideo.setAttribute('muted', '');
+                    newVideo.setAttribute('autoplay', '');
+                    newVideo.setAttribute('playsinline', '');
+                    newVideo.setAttribute('webkit-playsinline', '');
+                    newVideo.setAttribute('disablepictureinpicture', '');
+                    
+                    // Copy sources
+                    const sources = heroVideo.querySelectorAll('source');
+                    sources.forEach(source => {
+                        const newSource = document.createElement('source');
+                        newSource.src = source.src;
+                        newSource.type = source.type;
+                        newVideo.appendChild(newSource);
+                    });
+                    
+                    // Replace the video
+                    parent.replaceChild(newVideo, heroVideo);
+                    
+                    // Update reference
+                    const video = newVideo;
+                    
+                    // Disable interactions
+                    video.addEventListener('contextmenu', e => e.preventDefault());
+                    video.addEventListener('touchstart', e => e.preventDefault());
+                    video.addEventListener('click', e => e.preventDefault());
+                    
+                    // iOS autoplay strategy
+                    const playIOS = () => {
+                        video.muted = true;
+                        video.volume = 0;
+                        video.currentTime = 0;
+                        
+                        const promise = video.play();
+                        if (promise) {
+                            promise.then(() => {
+                                console.log('✅ iOS video playing');
+                            }).catch(err => {
+                                console.log('❌ iOS play failed:', err);
+                                
+                                // Last resort: user interaction trigger
+                                const userTrigger = () => {
+                                    video.muted = true;
+                                    video.volume = 0;
+                                    video.play().catch(e => console.log('User trigger failed:', e));
+                                };
+                                
+                                ['touchstart', 'click', 'scroll', 'touchend'].forEach(event => {
+                                    document.addEventListener(event, userTrigger, { once: true });
+                                    window.addEventListener(event, userTrigger, { once: true });
+                                });
+                            });
+                        }
+                    };
+                    
+                    // Multiple attempts for iOS
+                    video.addEventListener('loadedmetadata', playIOS);
+                    video.addEventListener('canplay', playIOS);
+                    
+                    setTimeout(playIOS, 100);
+                    setTimeout(playIOS, 500);
+                    setTimeout(playIOS, 1000);
+                    
+                    video.load();
+                    
+                } else {
+                    // Non-iOS devices
+                    heroVideo.muted = true;
+                    heroVideo.autoplay = true;
+                    heroVideo.loop = true;
+                    heroVideo.playsInline = true;
+                    heroVideo.controls = false;
+                    
+                    heroVideo.play().catch(err => {
+                        console.log('Non-iOS autoplay failed:', err);
+                        
+                        document.addEventListener('click', () => {
                             heroVideo.play();
                         }, { once: true });
                     });
                 }
                 
-                console.log('Hero video initialized for mobile');
+                console.log('Video initialization complete');
             }
         }
 
