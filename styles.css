@@ -1,4 +1,4 @@
-/* styles.css - CLEAN VERSION */
+/* styles.css - CLEAN VERSION - Updated 210725 */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&display=swap');
 
@@ -985,7 +985,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Mobile menu styling */
+    /* Mobile menu styling - REDUCED WHITE SPACE */
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -995,21 +995,22 @@ body:not(.lang-ee) .nav-menu .content-ee {
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        padding: 1rem 0;
+        padding: 0.5rem 0 1rem 0; /* Reduced top padding */
         box-shadow: 0 10px 27px rgba(0,0,0,0.05);
         z-index: 1000;
         height: auto;
+        max-height: fit-content; /* Only take needed space */
         min-height: auto;
     }
 
     .nav-menu li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.3rem; /* Reduced from 0.5rem */
     }
 
     .nav-menu a {
         color: var(--text-dark) !important;
         text-shadow: none;
-        padding: 0.3rem 0;
+        padding: 0.2rem 0; /* Reduced from 0.3rem */
     }
 
     .nav-menu a:hover {
@@ -1020,11 +1021,11 @@ body:not(.lang-ee) .nav-menu .content-ee {
         left: 0;
     }
 
-    /* Show mobile-only items ONLY on mobile */
+    /* Show mobile-only items ONLY on mobile - FURTHER REDUCED SPACING */
     .mobile-only {
         display: block !important;
-        margin-top: 1rem;
-        padding: 0.5rem 0;
+        margin-top: 0.5rem; /* Reduced from 1rem */
+        padding: 0.3rem 0; /* Reduced from 0.5rem */
         border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
     
