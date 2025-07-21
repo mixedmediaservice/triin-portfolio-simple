@@ -65,16 +65,35 @@
             <div class="nav-logo">
                 <a href="../index.html">TRIIN RUUMET</a>
             </div>
-            <ul class="nav-menu">
-                <li><a href="../index.html#films"><span class="content-en">FILMS</span><span class="content-ee">FILMID</span></a></li>
-                <li><a href="../index.html#commercial"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
-                <li><a href="../index.html#about"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
-                <li><a href="../index.html#contact"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
-                <li class="nav-lang-switcher">
-                    <button class="nav-lang-btn active" onclick="switchLanguage('en')">EN</button>
-                    <button class="nav-lang-btn" onclick="switchLanguage('ee')">EE</button>
-                </li>
-            </ul>
+            <div class="nav-center">
+                <ul class="nav-menu">
+                    <li><a href="../index.html#films"><span class="content-en">FILMS</span><span class="content-ee">FILMID</span></a></li>
+                    <li><a href="../index.html#commercial"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
+                    <li><a href="../index.html#about"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
+                    <li><a href="../index.html#contact"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
+                    <!-- Mobile-only items -->
+                    <li class="mobile-only" style="margin-top: 2rem; padding: 1rem 0;">
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+                            <a href="https://www.instagram.com/triin_ruumet/" target="_blank" rel="noopener noreferrer" class="mobile-instagram">
+                                <img src="../images/instagram-t.png" alt="Instagram" class="mobile-instagram-icon">
+                            </a>
+                            <div class="mobile-lang-switcher">
+                                <button class="mobile-lang-btn active" onclick="sharedNav.switchLanguage('en')">EN</button>
+                                <button class="mobile-lang-btn" onclick="sharedNav.switchLanguage('ee')">EE</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="https://www.instagram.com/triin_ruumet/" target="_blank" rel="noopener noreferrer" class="nav-instagram">
+                    <img src="../images/instagram-t.png" alt="Instagram" class="instagram-icon">
+                </a>
+                <div class="nav-lang-switcher">
+                    <button class="nav-lang-btn active" onclick="sharedNav.switchLanguage('en')">EN</button>
+                    <button class="nav-lang-btn" onclick="sharedNav.switchLanguage('ee')">EE</button>
+                </div>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -124,24 +143,8 @@
         </section>
     </div>
 
+    <script src="../shared-navigation.js"></script>
     <script>
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
         // Video poster functionality
         function playVideo(poster) {
             const iframe = document.getElementById('vimeo-iframe');
@@ -152,77 +155,6 @@
                 poster.style.display = 'none';
             }, 300);
         }
-
-        // Language switching
-        function switchLanguage(lang) {
-            const body = document.body;
-            const buttons = document.querySelectorAll('.nav-lang-btn');
-            
-            // Remove active class from all buttons
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
-            
-            // Switch language
-            if (lang === 'ee') {
-                body.classList.add('lang-ee');
-            } else {
-                body.classList.remove('lang-ee');
-            }
-        }
     </script>
-    <script>
-// Language persistence for project pages
-document.addEventListener('DOMContentLoaded', function() {
-    // Check for saved language preference
-    const savedLang = localStorage.getItem('preferred-language');
-    
-    if (savedLang) {
-        const body = document.body;
-        const buttons = document.querySelectorAll('.nav-lang-btn');
-        
-        // Apply saved language
-        if (savedLang === 'ee') {
-            body.classList.add('lang-ee');
-        } else {
-            body.classList.remove('lang-ee');
-        }
-        
-        // Update language buttons
-        buttons.forEach(btn => {
-            btn.classList.remove('active');
-            const onclick = btn.getAttribute('onclick');
-            if (onclick && onclick.includes(`'${savedLang}'`)) {
-                btn.classList.add('active');
-            }
-        });
-    }
-});
-
-// Enhanced switchLanguage function for project pages
-function switchLanguage(lang) {
-    const body = document.body;
-    const buttons = document.querySelectorAll('.nav-lang-btn');
-    
-    // Save user's preference
-    localStorage.setItem('preferred-language', lang);
-    
-    // Remove active class from all buttons
-    buttons.forEach(btn => btn.classList.remove('active'));
-    
-    // Add active class to clicked button
-    document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
-    
-    // Switch language
-    if (lang === 'ee') {
-        body.classList.add('lang-ee');
-    } else {
-        body.classList.remove('lang-ee');
-    }
-    
-    console.log('Language switched to:', lang);
-}
-</script>
 </body>
 </html>
