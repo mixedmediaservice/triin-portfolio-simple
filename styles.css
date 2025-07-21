@@ -1,4 +1,4 @@
-/* styles.css - CLEAN VERSION - Updated */
+/* styles.css - CLEAN VERSION */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&display=swap');
 
@@ -715,41 +715,13 @@ body:not(.lang-ee) .nav-menu .content-ee {
     margin-bottom: 1.5rem;
 }
 
-/* PROJECT DESCRIPTION STYLING - NUCLEAR CENTERING */
+/* PROJECT DESCRIPTION STYLING */
 .project-description {
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-light);
     max-width: 800px;
     margin: 0 auto 1.5rem auto;
-    padding: 0 1rem;
-    text-align: center !important;
-    display: block !important;
-}
-
-.project-description p {
-    text-align: center !important;
-    margin: 0 auto 1rem auto !important;
-    display: block !important;
-    width: 100% !important;
-}
-
-/* Force centering for language-specific divs */
-.content-en, .content-ee {
-    text-align: center !important;
-}
-
-.content-en p, .content-ee p {
-    text-align: center !important;
-    margin: 0 auto !important;
-}
-
-/* Film Navigation Buttons */
-.film-navigation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem 0;
     padding: 0 1rem;
 }
 
@@ -985,7 +957,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Mobile menu styling - AGGRESSIVE WHITE SPACE REDUCTION */
+    /* Mobile menu styling */
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -995,24 +967,21 @@ body:not(.lang-ee) .nav-menu .content-ee {
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        padding: 0.2rem 0 0.2rem 0; /* Minimal padding */
+        padding: 1rem 0;
         box-shadow: 0 10px 27px rgba(0,0,0,0.05);
         z-index: 1000;
         height: auto;
-        max-height: fit-content;
         min-height: auto;
-        overflow: hidden; /* Prevent extra space */
     }
 
     .nav-menu li {
-        margin-bottom: 0.1rem; /* Minimal spacing */
+        margin-bottom: 0.5rem;
     }
 
     .nav-menu a {
         color: var(--text-dark) !important;
         text-shadow: none;
-        padding: 0.1rem 0; /* Minimal padding */
-        display: block;
+        padding: 0.3rem 0;
     }
 
     .nav-menu a:hover {
@@ -1023,23 +992,21 @@ body:not(.lang-ee) .nav-menu .content-ee {
         left: 0;
     }
 
-    /* Mobile-only items - MINIMAL SPACING */
+    /* Show mobile-only items ONLY on mobile */
     .mobile-only {
         display: block !important;
-        margin-top: 0.2rem; /* Minimal margin */
-        padding: 0.2rem 0 0.1rem 0; /* Minimal padding */
+        margin-top: 1rem;
+        padding: 0.5rem 0;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
     
-    /* Mobile Instagram and language switcher container - COMPACT */
+    /* Mobile Instagram and language switcher container */
     .mobile-only > div {
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        gap: 0.8rem !important; /* Reduced gap */
+        gap: 1rem !important;
         flex-wrap: wrap !important;
-        margin: 0 !important;
-        padding: 0 !important;
     }
 
     /* Mobile Instagram icon */
