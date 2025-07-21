@@ -58,50 +58,10 @@
     </script>
     
     <link rel="stylesheet" href="../styles.css">
+    <script src="../shared-navigation.js"></script>
 </head>
 <body class="project-page">
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="../index.html">TRIIN RUUMET</a>
-            </div>
-            <div class="nav-center">
-                <ul class="nav-menu">
-                    <li><a href="../index.html#films"><span class="content-en">FILMS</span><span class="content-ee">FILMID</span></a></li>
-                    <li><a href="../index.html#commercial"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
-                    <li><a href="../index.html#about"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
-                    <li><a href="../index.html#contact"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
-                    <!-- Mobile-only items -->
-                    <li class="mobile-only" style="margin-top: 2rem; padding: 1rem 0;">
-                        <div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
-                            <a href="https://www.instagram.com/triin_ruumet/" target="_blank" rel="noopener noreferrer" class="mobile-instagram">
-                                <img src="../images/instagram-t.png" alt="Instagram" class="mobile-instagram-icon">
-                            </a>
-                            <div class="mobile-lang-switcher">
-                                <button class="mobile-lang-btn active" onclick="sharedNav.switchLanguage('en')">EN</button>
-                                <button class="mobile-lang-btn" onclick="sharedNav.switchLanguage('ee')">EE</button>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="nav-right">
-                <a href="https://www.instagram.com/triin_ruumet/" target="_blank" rel="noopener noreferrer" class="nav-instagram">
-                    <img src="../images/instagram-t.png" alt="Instagram" class="instagram-icon">
-                </a>
-                <div class="nav-lang-switcher">
-                    <button class="nav-lang-btn active" onclick="sharedNav.switchLanguage('en')">EN</button>
-                    <button class="nav-lang-btn" onclick="sharedNav.switchLanguage('ee')">EE</button>
-                </div>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation will be injected by shared-navigation.js -->
 
     <!-- Project Hero -->
     <section class="project-hero">
@@ -113,11 +73,13 @@
             
             <div class="project-meta">
                 <div class="meta-item">
-                    <div class="meta-label">Year</div>
+                    <div class="meta-label content-en">Year</div>
+                    <div class="meta-label content-ee">Aasta</div>
                     <div class="meta-value">2016</div>
                 </div>
                 <div class="meta-item">
-                    <div class="meta-label">Runtime</div>
+                    <div class="meta-label content-en">Runtime</div>
+                    <div class="meta-label content-ee">Pikkus</div>
                     <div class="meta-value">1h 45min</div>
                 </div>
             </div>
@@ -138,13 +100,13 @@
         
         <!-- Description -->
         <section class="content-section">
-            <div class="project-description content-en" style="text-align: center;">
-                <p style="text-align: center;">
+            <div class="project-description content-en">
+                <p>
                     The tragicomedy "The Days That Confused", laced with pitch-black humor, unfolds in the late 1990s. The film's main character, 27-year-old Allar, drifts from one midsummer party in Estonia to the next, encountering increasingly colorful characters and bewildering situations. Tense, absurd events compel Allar to reflect on his life, leading to a chaotic journey of self-discovery amid Estonia's vibrant nineties backdrop.
                 </p>
             </div>
-            <div class="project-description content-ee" style="text-align: center;">
-                <p style="text-align: center;">
+            <div class="project-description content-ee">
+                <p>
                     Süsimusta huumoriga vürtsitatud tragikomöödia "Päevad, mis ajasid segadusse" tegevus toimub 1990. aastate teises pooles. Filmi peategelane Allar (27) liigub ühelt südasuviselt Eestimaa peolt teisele, põrkudes kokku üha värvikamate tegelaste ja segasemate juhtumitega. Pingelised ja jaburad sündmused panevad Allari oma elu üle tõsiselt järele mõtlema ning ees ootab pöörane eneseotsing Eesti üheksakümnendates.
                 </p>
             </div>
@@ -154,18 +116,19 @@
         <section class="content-section">
             <div class="credits-grid" style="background: none; padding: 1rem 0; border-radius: 0; margin-bottom: 0;">
                 <div class="credit-item">
-                    <div class="credit-role">Director</div>
+                    <div class="credit-role content-en">Director</div>
+                    <div class="credit-role content-ee">Režissöör</div>
                     <div class="credit-name">Triin Ruumet</div>
                 </div>
                 <div class="credit-item">
-                    <div class="credit-role">Year</div>
+                    <div class="credit-role content-en">Year</div>
+                    <div class="credit-role content-ee">Aasta</div>
                     <div class="credit-name">2016</div>
                 </div>
             </div>
         </section>
     </div>
 
-    <script src="../shared-navigation.js"></script>
     <script>
         // Video poster functionality
         function playVideo(poster) {

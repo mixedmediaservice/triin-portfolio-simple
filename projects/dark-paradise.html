@@ -55,65 +55,28 @@
     </script>
     
     <link rel="stylesheet" href="../styles.css">
+    <script src="../shared-navigation.js"></script>
 </head>
 <body class="project-page">
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="../index.html">TRIIN RUUMET</a>
-            </div>
-            <div class="nav-center">
-                <ul class="nav-menu">
-                    <li><a href="../index.html#films"><span class="content-en">FILMS</span><span class="content-ee">FILMID</span></a></li>
-                    <li><a href="../index.html#commercial"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
-                    <li><a href="../index.html#about"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
-                    <li><a href="../index.html#contact"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
-                    <!-- Mobile-only items -->
-                    <li class="mobile-only" style="margin-top: 2rem; padding: 1rem 0;">
-                        <div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
-                            <a href="https://www.instagram.com/triin_ruumet/" target="_blank" rel="noopener noreferrer" class="mobile-instagram">
-                                <img src="../images/instagram-t.png" alt="Instagram" class="mobile-instagram-icon">
-                            </a>
-                            <div class="mobile-lang-switcher">
-                                <button class="mobile-lang-btn active" onclick="sharedNav.switchLanguage('en')">EN</button>
-                                <button class="mobile-lang-btn" onclick="sharedNav.switchLanguage('ee')">EE</button>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="nav-right">
-                <a href="https://www.instagram.com/triin_ruumet/" target="_blank" rel="noopener noreferrer" class="nav-instagram">
-                    <img src="../images/instagram-t.png" alt="Instagram" class="instagram-icon">
-                </a>
-                <div class="nav-lang-switcher">
-                    <button class="nav-lang-btn active" onclick="sharedNav.switchLanguage('en')">EN</button>
-                    <button class="nav-lang-btn" onclick="sharedNav.switchLanguage('ee')">EE</button>
-                </div>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation will be injected by shared-navigation.js -->
 
     <!-- Project Hero -->
     <section class="project-hero">
         <div class="project-info">
-            <h1 class="project-title">Dark Paradise</h1>
+            <h1 class="project-title content-en">Dark Paradise</h1>
+            <h1 class="project-title content-ee">Tume Paradiis</h1>
             <p class="project-subtitle content-en">Feature Film</p>
             <p class="project-subtitle content-ee">Mängufilm</p>
             
             <div class="project-meta">
                 <div class="meta-item">
-                    <div class="meta-label">Year</div>
+                    <div class="meta-label content-en">Year</div>
+                    <div class="meta-label content-ee">Aasta</div>
                     <div class="meta-value">2023</div>
                 </div>
                 <div class="meta-item">
-                    <div class="meta-label">Runtime</div>
+                    <div class="meta-label content-en">Runtime</div>
+                    <div class="meta-label content-ee">Pikkus</div>
                     <div class="meta-value">1h 51min</div>
                 </div>
             </div>
@@ -134,14 +97,14 @@
         
         <!-- Description -->
         <section class="content-section">
-            <div class="project-description content-en" style="text-align: center;">
-                <p style="text-align: center;">
-                    In "Dark Paradise," an emotionally complex drama unfolds as the boundaries between reality and imagination blur. The film explores themes of love, loss, and the human capacity for both creation and destruction, set against the backdrop of contemporary Estonia. Through intimate character studies and lyrical cinematography, the narrative weaves together multiple storylines that converge in unexpected ways.
+            <div class="project-description content-en">
+                <p>
+                    The film's main character, Karmen (Rea Lest), is a young woman pampered by her father yet grappling with self-loathing. Her once-secure life suddenly collapses, confronting her with the universe's darkness and emptiness. Her discomfort intensifies due to a misdirected relationship with her half-brother, Viktor (Jörgen Liik), whose inner world is thrown into confusion by unexpected events. The film unveils the dark, hedonistic world of today's youth, overshadowed by past secrets, toxic love affairs, and an undercurrent of the underground world.
                 </p>
             </div>
-            <div class="project-description content-ee" style="text-align: center;">
-                <p style="text-align: center;">
-                    "Dark Paradise" on emotsionaalselt keeruline draama, kus reaalsuse ja kujutluse piirid hägustuvad. Film uurib armastuse, kaotuse ja inimese loomis- ning hävitusvõime teemasid tänapäeva Eesti taustal. Läbi intiimsete karakteristudiate ja lüürilise kinematograafia põimib narratiiv kokku mitu süžeeliini, mis kohtuvad ootamatult.
+            <div class="project-description content-ee">
+                <p>
+                    Filmi peategelaseks on isa poolt ära hellitatud, kuid iseendaga pahuksis olev Karmen (Rea Lest), kelle senise elu turvavõrgustik laguneb ootamatult ning ta seisab silmitsi universumi tumeduse ja tühjusega. Ebamugavust lisavad vales suunas arenevad suhted poolvenna Viktoriga (Jörgen Liik), kelle tõekspidamised ja arusaamad suhetest lähedastega on ootamatute sündmuste tõttu tema sisemaailma segi paisanud. Film avab ukse tänapäeva noorte hämarasse hedonistlikku maailma, mida varjutavad mineviku saladused, toksilised armusuhted ning undergroundlik maailm.
                 </p>
             </div>
         </section>
@@ -150,18 +113,19 @@
         <section class="content-section">
             <div class="credits-grid" style="background: none; padding: 1rem 0; border-radius: 0; margin-bottom: 0;">
                 <div class="credit-item">
-                    <div class="credit-role">Director</div>
+                    <div class="credit-role content-en">Director</div>
+                    <div class="credit-role content-ee">Režissöör</div>
                     <div class="credit-name">Triin Ruumet</div>
                 </div>
                 <div class="credit-item">
-                    <div class="credit-role">Year</div>
+                    <div class="credit-role content-en">Year</div>
+                    <div class="credit-role content-ee">Aasta</div>
                     <div class="credit-name">2023</div>
                 </div>
             </div>
         </section>
     </div>
 
-    <script src="../shared-navigation.js"></script>
     <script>
         // Video poster functionality
         function playVideo(poster) {

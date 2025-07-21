@@ -715,7 +715,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
     margin-bottom: 1.5rem;
 }
 
-/* PROJECT DESCRIPTION STYLING */
+/* PROJECT DESCRIPTION STYLING - NUCLEAR CENTERING FIX */
 .project-description {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -723,6 +723,26 @@ body:not(.lang-ee) .nav-menu .content-ee {
     max-width: 800px;
     margin: 0 auto 1.5rem auto;
     padding: 0 1rem;
+    text-align: center !important;
+}
+
+.project-description p {
+    text-align: center !important;
+    margin: 0 auto !important;
+}
+
+/* Force centering for all content divs in project description */
+.project-description .content-en,
+.project-description .content-ee {
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.project-description .content-en p,
+.project-description .content-ee p {
+    text-align: center !important;
+    margin: 0 auto !important;
 }
 
 /* Video Containers */
@@ -1084,10 +1104,12 @@ body:not(.lang-ee) .nav-menu .content-ee {
         color: white;
     }
 
-    /* Mobile hero video specific fixes */
+    /* MOBILE HERO VIDEO - ZOOM OUT 25% */
     .hero-video {
-        width: 100vw;
-        height: 100vh;
+        width: 125% !important; /* 25% larger */
+        height: 125% !important; /* 25% larger */
+        top: -12.5% !important; /* Center the enlarged video */
+        left: -12.5% !important; /* Center the enlarged video */
         object-fit: cover;
         -webkit-touch-callout: none;
         -webkit-user-select: none;

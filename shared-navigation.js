@@ -26,7 +26,7 @@ class SharedNavigation {
                 </div>
                 <div class="nav-center">
                     <ul class="nav-menu">
-                        <li><a href="${isHomePage ? '#films' : '../index.html#films'}"><span class="content-en">FILMS</span><span class="content-ee">FILMID</span></a></li>
+                        <li><a href="${isHomePage ? '#films' : '../index.html#films'}"><span class="content-en">FILM</span><span class="content-ee">FILM</span></a></li>
                         <li><a href="${isHomePage ? '#commercial' : '../index.html#commercial'}"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
                         <li><a href="${isHomePage ? '#about' : '../index.html#about'}"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
                         <li><a href="${isHomePage ? '#contact' : '../index.html#contact'}"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
