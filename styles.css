@@ -325,19 +325,30 @@ body.lang-ee .content-en {
     display: none !important; 
 }
 body.lang-ee .content-ee { 
-    display: inline-block !important; 
+    display: block !important; 
     color: inherit !important;
     opacity: 1 !important;
 }
 
 /* English mode (default) - show EN, hide EE */
 body:not(.lang-ee) .content-en { 
-    display: inline-block !important; 
+    display: block !important; 
     color: inherit !important;
     opacity: 1 !important;
 }
 body:not(.lang-ee) .content-ee { 
     display: none !important; 
+}
+
+/* Project page specific - FORCE BLOCK DISPLAY */
+.project-title.content-en,
+.project-title.content-ee,
+.project-subtitle.content-en,
+.project-subtitle.content-ee {
+    display: block !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 /* Navigation specific language switching */
@@ -697,14 +708,20 @@ body:not(.lang-ee) .nav-menu .content-ee {
 .project-title {
     font-size: 2.5rem;
     font-weight: 300;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem !important; /* Ensure space after title */
     color: var(--text-dark);
+    display: block !important; /* Force block display */
+    width: 100% !important;
+    line-height: 1.2 !important;
 }
 
 .project-subtitle {
     font-size: 1rem;
     color: var(--text-light);
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.5rem !important; /* Space after subtitle */
+    display: block !important; /* Force block display */
+    width: 100% !important;
+    line-height: 1.4 !important;
 }
 
 .project-meta {
