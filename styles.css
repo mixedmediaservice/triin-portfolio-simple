@@ -1,6 +1,4 @@
-.nav-container {
-        position: relative; /* Ensure proper positioning context for mobile Instagram */
-    }/* styles.css - CLEAN VERSION */
+/* styles.css - COMPLETE VERSION WITH iOS VIDEO FIXES + NAVIGATION FIXES */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&display=swap');
 
@@ -342,17 +340,6 @@ body:not(.lang-ee) .content-ee {
     display: none !important; 
 }
 
-/* Project page specific - FORCE BLOCK DISPLAY */
-.project-title.content-en,
-.project-title.content-ee,
-.project-subtitle.content-en,
-.project-subtitle.content-ee {
-    display: block !important;
-    width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
 /* Navigation specific language switching */
 .nav-menu .content-en,
 .nav-menu .content-ee {
@@ -373,9 +360,19 @@ body:not(.lang-ee) .nav-menu .content-ee {
     display: none !important; 
 }
 
+/* Project page specific - FORCE BLOCK DISPLAY */
+.project-title.content-en,
+.project-title.content-ee,
+.project-subtitle.content-en,
+.project-subtitle.content-ee {
+    display: block !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
 /* ===================
-   HERO SECTION - RESPONSIVE VIDEO
-   Shows more video content by using flexible height
+   HERO SECTION - iOS VIDEO NUCLEAR SOLUTION
    =================== */
 .hero {
     height: 85vh; /* Between 70vh and 100vh - good balance */
@@ -395,36 +392,29 @@ body:not(.lang-ee) .nav-menu .content-ee {
     object-position: center center;
     z-index: 1;
     
-    /* Hide all video controls */
-    outline: none;
-    -webkit-appearance: none;
-    appearance: none;
-    pointer-events: none;
-}
-
-/* Alternative approach - uncomment if you want even more content visible */
-/*
-.hero-video {
-    object-fit: fill; 
-    This will stretch the video to fit exactly, showing all content but may distort aspect ratio slightly
-}
-*/
-
-/* Mobile adjustments - show even more content */
-@media (max-width: 768px) {
-    .hero {
-        height: 75vh; /* Between 60vh and 100vh for mobile */
-        min-height: 400px;
-        max-height: 550px;
-    }
+    /* Hide all video controls - NUCLEAR APPROACH */
+    outline: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    pointer-events: none !important;
     
-    .hero-video {
-        object-fit: cover;
-        object-position: center 30%; /* Focus on upper-center area of video */
-    }
+    /* iOS-specific control hiding */
+    -webkit-media-controls: none !important;
+    -webkit-media-controls-start-playback-button: none !important;
+    -webkit-media-controls-enclosure: none !important;
+    -webkit-media-controls-panel: none !important;
+    -webkit-media-controls-play-button: none !important;
+    -webkit-media-controls-timeline-container: none !important;
+    -webkit-media-controls-current-time-display: none !important;
+    -webkit-media-controls-time-remaining-display: none !important;
+    -webkit-media-controls-timeline: none !important;
+    -webkit-media-controls-volume-slider-container: none !important;
+    -webkit-media-controls-volume-slider: none !important;
+    -webkit-media-controls-mute-button: none !important;
+    -webkit-media-controls-fullscreen-button: none !important;
 }
 
-/* Force hide video controls - all vendors */
+/* Force hide video controls - ALL VENDORS + iOS SPECIFIC */
 .hero-video::-webkit-media-controls,
 .hero-video::-webkit-media-controls-start-playback-button,
 .hero-video::-webkit-media-controls-play-button,
@@ -434,12 +424,22 @@ body:not(.lang-ee) .nav-menu .content-ee {
 .hero-video::-webkit-media-controls-timeline,
 .hero-video::-webkit-media-controls-volume-slider,
 .hero-video::-webkit-media-controls-mute-button,
-.hero-video::-webkit-media-controls-fullscreen-button {
+.hero-video::-webkit-media-controls-fullscreen-button,
+.hero-video::-webkit-media-controls-enclosure,
+.hero-video::-webkit-media-controls-timeline-container,
+.hero-video::-webkit-media-controls-volume-slider-container {
     display: none !important;
     -webkit-appearance: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 .hero-video::-moz-media-controls {
+    display: none !important;
+}
+
+/* iOS Safari specific hiding */
+.hero-video::-webkit-media-controls-overlay-enclosure {
     display: none !important;
 }
 
@@ -984,6 +984,30 @@ body:not(.lang-ee) .nav-menu .content-ee {
     line-height: 1.3;
 }
 
+/* Film navigation - handle bilingual titles */
+.nav-title.content-en,
+.nav-title.content-ee {
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Language switching for navigation titles */
+body.lang-ee .nav-title.content-en {
+    display: none !important;
+}
+
+body.lang-ee .nav-title.content-ee {
+    display: block !important;
+}
+
+body:not(.lang-ee) .nav-title.content-en {
+    display: block !important;
+}
+
+body:not(.lang-ee) .nav-title.content-ee {
+    display: none !important;
+}
+
 /* Credits */
 .credits {
     background: var(--bg-section);
@@ -1192,15 +1216,28 @@ body:not(.lang-ee) .nav-menu .content-ee {
         color: white;
     }
 
-    /* Mobile hero video - responsive height */
+    /* MOBILE HERO VIDEO - iOS optimized */
+    .hero {
+        height: 75vh; /* Between 60vh and 100vh for mobile */
+        min-height: 400px;
+        max-height: 550px;
+    }
+    
     .hero-video {
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        -webkit-tap-highlight-color: transparent;
+        object-fit: cover;
+        object-position: center 30%; /* Focus on upper-center area of video */
+        
+        /* iOS MOBILE SPECIFIC FIXES - ENHANCED */
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        -khtml-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+        
+        /* Force remove any possible controls on iOS */
+        pointer-events: none !important;
     }
 
     /* Mobile project page spacing */
