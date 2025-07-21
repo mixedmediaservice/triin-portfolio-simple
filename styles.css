@@ -580,6 +580,8 @@ body:not(.lang-ee) .nav-menu .content-ee {
     border-radius: 12px;
     object-fit: cover;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 3/4; /* Ensures consistent proportions */
+    object-position: center top; /* Focus on top of image for portraits */
 }
 
 /* ===================
@@ -1104,12 +1106,10 @@ body:not(.lang-ee) .nav-menu .content-ee {
         color: white;
     }
 
-    /* MOBILE HERO VIDEO - ZOOM OUT 25% */
+    /* MOBILE HERO VIDEO - ZOOM OUT 25% using transform scale */
     .hero-video {
-        width: 125% !important; /* 25% larger */
-        height: 125% !important; /* 25% larger */
-        top: -12.5% !important; /* Center the enlarged video */
-        left: -12.5% !important; /* Center the enlarged video */
+        width: 100vw;
+        height: 100vh;
         object-fit: cover;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -1118,6 +1118,13 @@ body:not(.lang-ee) .nav-menu .content-ee {
         -ms-user-select: none;
         user-select: none;
         -webkit-tap-highlight-color: transparent;
+        /* Scale down to zoom out 25% */
+        -webkit-transform: scale(0.75);
+        -moz-transform: scale(0.75);
+        -ms-transform: scale(0.75);
+        -o-transform: scale(0.75);
+        transform: scale(0.75);
+        transform-origin: center center;
     }
 
     /* Mobile project page spacing */
@@ -1161,6 +1168,9 @@ body:not(.lang-ee) .nav-menu .content-ee {
 
     .about-portrait {
         max-width: 250px;
+        margin: 0 auto; /* Center the image on mobile */
+        aspect-ratio: 3/4;
+        object-position: center top;
     }
 
     .section {
