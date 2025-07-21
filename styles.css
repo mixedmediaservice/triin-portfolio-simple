@@ -1026,6 +1026,16 @@ body:not(.lang-ee) .nav-menu .content-ee {
 }
 
 @media (max-width: 768px) {
+    /* Reduce navigation header height by 60% */
+    .nav {
+        padding: 0.4rem 0; /* Reduced from 1rem (60% less) */
+    }
+    
+    /* Reduce TRIIN RUUMET logo size by 15% */
+    .nav-logo a {
+        font-size: 2.125rem; /* Reduced from 2.5rem (15% smaller) */
+    }
+    
     /* Hide desktop navigation extras */
     .nav-right {
         display: none;
