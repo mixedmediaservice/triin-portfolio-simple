@@ -715,13 +715,41 @@ body:not(.lang-ee) .nav-menu .content-ee {
     margin-bottom: 1.5rem;
 }
 
-/* PROJECT DESCRIPTION STYLING */
+/* PROJECT DESCRIPTION STYLING - NUCLEAR CENTERING */
 .project-description {
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-light);
     max-width: 800px;
     margin: 0 auto 1.5rem auto;
+    padding: 0 1rem;
+    text-align: center !important;
+    display: block !important;
+}
+
+.project-description p {
+    text-align: center !important;
+    margin: 0 auto 1rem auto !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Force centering for language-specific divs */
+.content-en, .content-ee {
+    text-align: center !important;
+}
+
+.content-en p, .content-ee p {
+    text-align: center !important;
+    margin: 0 auto !important;
+}
+
+/* Film Navigation Buttons */
+.film-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
     padding: 0 1rem;
 }
 
