@@ -57,10 +57,31 @@
     </script>
     
     <link rel="stylesheet" href="../styles.css">
-    <script src="../shared-navigation.js"></script>
 </head>
 <body class="project-page">
-    <!-- Navigation injected by shared-navigation.js -->
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">TRIIN RUUMET</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#films"><span class="content-en">FILMS</span><span class="content-ee">FILMID</span></a></li>
+                <li><a href="../index.html#commercial"><span class="content-en">COMMERCIAL</span><span class="content-ee">REKLAAM</span></a></li>
+                <li><a href="../index.html#about"><span class="content-en">ABOUT</span><span class="content-ee">BIO</span></a></li>
+                <li><a href="../index.html#contact"><span class="content-en">CONTACT</span><span class="content-ee">KONTAKT</span></a></li>
+                <li class="nav-lang-switcher">
+                    <button class="nav-lang-btn active" onclick="switchLanguage('en')">EN</button>
+                    <button class="nav-lang-btn" onclick="switchLanguage('ee')">EE</button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
     <!-- Project Hero -->
     <section class="project-hero">
@@ -73,43 +94,55 @@
 
     <!-- Project Content -->
     <div class="project-content">
-        <!-- Video Section - 16:9 Standard Format -->
+        <!-- Main Video - Standard 16:9 Format -->
         <section class="content-section">
             <div class="video-container">
-                <div class="video-poster" 
-                     style="background-image: url('../images/commercial/miljardid-protsendid/miljardid-protsendid-cover.jpg');" 
-                     onclick="playVideo(this)"></div>
+                <div class="video-poster" style="background-image: url('../images/commercial/miljardid-protsendid/miljardid-protsendid-cover.jpg');" onclick="playVideo(this)"></div>
                 <iframe id="vimeo-iframe" src="" 
                         frameborder="0" allow="autoplay; fullscreen; picture-in-picture" 
                         allowfullscreen title="Miljardid - Protsendid saavad otsa Music Video" style="display: none;"></iframe>
             </div>
         </section>
-        
+
         <!-- Commercial Navigation -->
-        <section class="content-section" style="margin-bottom: 2rem;">
+        <section class="content-section">
             <div class="commercial-navigation">
-                <a href="coop-pank-kaardivagi.html" class="commercial-nav-btn">
+                <a href="coop-pank-kaardivagi.html" class="nav-btn prev-btn">
                     <span class="nav-arrow">←</span>
-                    <span class="content-en">Previous</span>
-                    <span class="content-ee">Eelmine</span>
+                    <div class="nav-text">
+                        <span class="nav-title">Coop Pank Kaardivagi</span>
+                    </div>
                 </a>
                 
-                <div class="commercial-nav-info">
-                    <div class="commercial-nav-current">5 / 6</div>
-                    <div class="commercial-nav-title">Miljardid - Protsendid saavad otsa</div>
-                </div>
-                
-                <a href="anna-arile-vunki.html" class="commercial-nav-btn">
-                    <span class="content-en">Next</span>
-                    <span class="content-ee">Järgmine</span>
+                <a href="anna-arile-vunki.html" class="nav-btn next-btn">
+                    <div class="nav-text">
+                        <span class="nav-title">Anna ärile vunki juurde!</span>
+                    </div>
                     <span class="nav-arrow">→</span>
                 </a>
             </div>
         </section>
     </div>
 
-    <!-- MINIMAL JavaScript - Only video player -->
     <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Video poster functionality
         function playVideo(poster) {
             const iframe = document.getElementById('vimeo-iframe');
             iframe.src = 'https://player.vimeo.com/video/746922468?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&color=ffffff&title=0&byline=0&portrait=0';
@@ -118,6 +151,46 @@
             setTimeout(() => {
                 poster.style.display = 'none';
             }, 300);
+        }
+
+        // Language persistence and switching
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language');
+            
+            if (savedLang) {
+                const body = document.body;
+                const buttons = document.querySelectorAll('.nav-lang-btn');
+                
+                if (savedLang === 'ee') {
+                    body.classList.add('lang-ee');
+                } else {
+                    body.classList.remove('lang-ee');
+                }
+                
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    const onclick = btn.getAttribute('onclick');
+                    if (onclick && onclick.includes(`'${savedLang}'`)) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+        });
+
+        function switchLanguage(lang) {
+            const body = document.body;
+            const buttons = document.querySelectorAll('.nav-lang-btn');
+            
+            localStorage.setItem('preferred-language', lang);
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[onclick="switchLanguage('${lang}')"]`).classList.add('active');
+            
+            if (lang === 'ee') {
+                body.classList.add('lang-ee');
+            } else {
+                body.classList.remove('lang-ee');
+            }
         }
     </script>
 </body>

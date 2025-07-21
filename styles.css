@@ -1,9 +1,9 @@
-/* styles.css - COMPLETE VERSION WITH NO GOLD ACCENT */
+/* styles.css - COMPLETE WITH ALL FIXES */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&display=swap');
 
 /* ===================
-   CSS VARIABLES - NO GOLD
+   CSS VARIABLES
    =================== */
 :root {
     --accent-dark: #2c2c2c;
@@ -31,7 +31,7 @@ body {
 }
 
 /* ===================
-   NAVIGATION STYLES - PREMIUM HEADER
+   NAVIGATION STYLES
    =================== */
 .nav {
     position: fixed;
@@ -45,6 +45,14 @@ body {
     z-index: 1000;
     padding: 1rem 0;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* PROJECT PAGES: White header with black text from start */
+.project-page .nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(30px) saturate(140%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -69,6 +77,12 @@ body {
     color: white;
     letter-spacing: 1px;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Project page logo styling */
+.project-page .nav-logo a {
+    color: var(--text-dark);
+    text-shadow: none;
 }
 
 /* Navigation Menu */
@@ -96,8 +110,14 @@ body {
     position: relative;
 }
 
+/* Project page menu styling */
+.project-page .nav-menu a {
+    color: var(--text-dark);
+    text-shadow: none;
+}
+
 .nav-menu a:hover {
-    color: #e0e0e0;
+    color: var(--accent-dark);
 }
 
 .nav-menu a::after {
@@ -107,7 +127,7 @@ body {
     left: 0;
     width: 0;
     height: 1px;
-    background: #e0e0e0;
+    background: var(--accent-dark);
     transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -139,9 +159,19 @@ body {
     text-decoration: none;
 }
 
+/* Project page Instagram styling */
+.project-page .nav-instagram {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
 .nav-instagram:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
+}
+
+.project-page .nav-instagram:hover {
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .instagram-icon {
@@ -149,6 +179,10 @@ body {
     height: 16px !important;
     filter: invert(1);
     transition: transform 0.3s ease;
+}
+
+.project-page .instagram-icon {
+    filter: invert(0);
 }
 
 /* Desktop Language Switcher */
@@ -163,6 +197,11 @@ body {
     gap: 0;
     overflow: hidden;
     z-index: 11;
+}
+
+.project-page .nav-lang-switcher {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
 }
 
 .nav-lang-switcher::before {
@@ -198,6 +237,10 @@ body {
     z-index: 2;
 }
 
+.project-page .nav-lang-btn {
+    color: var(--text-dark);
+}
+
 .nav-lang-btn.active {
     color: white;
 }
@@ -221,74 +264,56 @@ body {
     transition: 0.3s;
 }
 
-/* PREMIUM SCROLLED STATE - NO GOLD */
-.nav.scrolled {
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(50px) saturate(160%);
-    -webkit-backdrop-filter: blur(50px) saturate(160%);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-    box-shadow: 
-        0 4px 32px rgba(0, 0, 0, 0.06),
-        0 1px 2px rgba(0, 0, 0, 0.02);
-}
-
-.nav.scrolled .nav-logo a {
-    color: var(--text-dark);
-    text-shadow: none;
-}
-
-.nav.scrolled .nav-menu a {
-    color: var(--text-dark);
-    text-shadow: none;
-}
-
-.nav.scrolled .nav-menu a:hover {
-    color: var(--accent-dark);
-}
-
-.nav.scrolled .nav-menu a::after {
-    background: var(--accent-dark);
-}
-
-.nav.scrolled .hamburger span {
+.project-page .hamburger span {
     background: var(--text-dark);
 }
 
-.nav.scrolled .nav-instagram {
-    background: rgba(0, 0, 0, 0.03);
-    border-color: rgba(0, 0, 0, 0.06);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+/* Scrolled State (only for home page) */
+.home-page .nav.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(30px) saturate(140%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
 }
 
-.nav.scrolled .nav-instagram:hover {
-    background: rgba(0, 0, 0, 0.06);
-    transform: scale(1.1);
+.home-page .nav.scrolled .nav-logo a {
+    color: var(--text-dark);
+    text-shadow: none;
 }
 
-.nav.scrolled .instagram-icon {
+.home-page .nav.scrolled .nav-menu a {
+    color: var(--text-dark);
+    text-shadow: none;
+}
+
+.home-page .nav.scrolled .hamburger span {
+    background: var(--text-dark);
+}
+
+.home-page .nav.scrolled .nav-instagram {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.home-page .nav.scrolled .instagram-icon {
     filter: invert(0);
 }
 
-.nav.scrolled .nav-lang-switcher {
-    background: rgba(0, 0, 0, 0.03);
-    border-color: rgba(0, 0, 0, 0.06);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+.home-page .nav.scrolled .nav-lang-switcher {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
 }
 
-.nav.scrolled .nav-lang-switcher::before {
-    background: var(--accent-dark);
-}
-
-.nav.scrolled .nav-lang-btn {
+.home-page .nav.scrolled .nav-lang-btn {
     color: var(--text-dark);
 }
 
-.nav.scrolled .nav-lang-btn.active {
+.home-page .nav.scrolled .nav-lang-btn.active {
     color: white;
 }
 
 /* ===================
-   LANGUAGE SWITCHING - FIXED FOR TITLES
+   LANGUAGE SWITCHING
    =================== */
 .content-en, .content-ee { 
     color: inherit !important;
@@ -300,14 +325,14 @@ body.lang-ee .content-en {
     display: none !important; 
 }
 body.lang-ee .content-ee { 
-    display: block !important; /* BLOCK for h1 elements */
+    display: inline-block !important; 
     color: inherit !important;
     opacity: 1 !important;
 }
 
 /* English mode (default) - show EN, hide EE */
 body:not(.lang-ee) .content-en { 
-    display: block !important; /* BLOCK for h1 elements */
+    display: inline-block !important; 
     color: inherit !important;
     opacity: 1 !important;
 }
@@ -315,7 +340,7 @@ body:not(.lang-ee) .content-ee {
     display: none !important; 
 }
 
-/* Navigation specific language switching - INLINE for nav items */
+/* Navigation specific language switching */
 .nav-menu .content-en,
 .nav-menu .content-ee {
     display: inline !important;
@@ -332,26 +357,6 @@ body:not(.lang-ee) .nav-menu .content-en {
     display: inline !important; 
 }
 body:not(.lang-ee) .nav-menu .content-ee { 
-    display: none !important; 
-}
-
-/* Commercial navigation language switching - INLINE for nav buttons */
-.commercial-nav-btn .content-en,
-.commercial-nav-btn .content-ee {
-    display: inline !important;
-}
-
-body.lang-ee .commercial-nav-btn .content-en { 
-    display: none !important; 
-}
-body.lang-ee .commercial-nav-btn .content-ee { 
-    display: inline !important; 
-}
-
-body:not(.lang-ee) .commercial-nav-btn .content-en { 
-    display: inline !important; 
-}
-body:not(.lang-ee) .commercial-nav-btn .content-ee { 
     display: none !important; 
 }
 
@@ -518,6 +523,10 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
     width: 100%;
     flex: 1;
     object-fit: cover;
+    object-position: center center;
+    /* Ensure thumbnails 5 & 6 aren't cut off */
+    min-height: 200px;
+    max-height: 300px;
 }
 
 .commercial-info {
@@ -533,12 +542,24 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
 }
 
 /* ===================
-   ABOUT SECTION
+   ABOUT SECTION WITH IMAGE
    =================== */
 .about-content {
     text-align: center;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.about-text-column {
+    text-align: left;
 }
 
 .about-text {
@@ -546,6 +567,20 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
     line-height: 1.8;
     color: var(--text-light);
     margin-bottom: 2rem;
+}
+
+.about-image-column {
+    display: flex;
+    justify-content: center;
+}
+
+.about-portrait {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* ===================
@@ -614,7 +649,7 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
    PROJECT PAGE STYLES - REDUCED SPACING
    =================== */
 .project-hero {
-    min-height: 15vh; /* REDUCED from 20vh */
+    min-height: 10vh; /* REDUCED from 15vh */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -622,40 +657,34 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
     color: var(--text-dark);
     text-align: center;
     position: relative;
-    padding: 1.5rem 1rem; /* REDUCED from 2rem */
+    padding: 1rem; /* REDUCED padding */
     margin-top: 80px;
 }
 
 .project-info {
     z-index: 2;
     max-width: 800px;
-    padding: 1rem; /* REDUCED from 2rem */
+    padding: 0.5rem; /* REDUCED padding */
 }
 
 .project-title {
     font-size: 2.5rem;
     font-weight: 300;
-    margin-bottom: 0.8rem !important; /* REDUCED from 1rem */
+    margin-bottom: 0.5rem; /* REDUCED margin */
     color: var(--text-dark);
-    line-height: 1.2;
-    display: block !important;
 }
 
 .project-subtitle {
     font-size: 1rem;
     color: var(--text-light);
-    margin-bottom: 1rem !important; /* REDUCED from 1.5rem */
-    margin-top: 0.3rem !important; /* REDUCED from 0.5rem */
-    display: block;
-    line-height: 1.4;
+    margin-bottom: 0.8rem; /* REDUCED margin */
 }
 
 .project-meta {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin-top: 0.8rem !important; /* REDUCED from 1rem */
-    margin-bottom: 1rem !important; /* REDUCED from 1.5rem */
+    margin-bottom: 0.5rem;
     flex-wrap: wrap;
 }
 
@@ -680,11 +709,11 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
 .project-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0.5rem 2rem; /* REDUCED from 1rem */
+    padding: 0.5rem 2rem; /* REDUCED padding */
 }
 
 .content-section {
-    margin-bottom: 1.5rem; /* REDUCED from 2rem */
+    margin-bottom: 1.5rem; /* REDUCED margin */
 }
 
 .project-description {
@@ -692,117 +721,17 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
     line-height: 1.8;
     color: var(--text-light);
     max-width: 800px;
-    margin: 0 auto 2rem; /* REDUCED from 3rem */
+    margin: 0 auto 1.5rem auto; /* REDUCED margin */
     text-align: center !important;
     padding: 0 1rem;
 }
 
 .project-description p {
     text-align: center !important;
-    margin: 0 auto 1rem auto; /* REDUCED bottom margin */
+    margin: 0 auto 1rem auto; /* REDUCED margin */
 }
 
-/* ===================
-   COMMERCIAL NAVIGATION - ELEGANT WHITE DESIGN (NO GOLD)
-   =================== */
-.commercial-navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    padding: 1.5rem 1rem;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(20px);
-    border-radius: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-}
-
-.commercial-nav-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.9rem 1.4rem;
-    background: white;
-    color: var(--text-dark);
-    text-decoration: none;
-    border-radius: 12px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    position: relative;
-    overflow: hidden;
-}
-
-.commercial-nav-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    transition: left 0.5s ease;
-}
-
-.commercial-nav-btn:hover {
-    background: white;
-    border-color: var(--accent-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-    color: var(--text-dark);
-}
-
-.commercial-nav-btn:hover::before {
-    left: 100%;
-}
-
-.commercial-nav-btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-}
-
-.commercial-nav-info {
-    text-align: center;
-    flex: 1;
-    margin: 0 1rem;
-}
-
-.commercial-nav-current {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    margin-bottom: 0.3rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 600;
-}
-
-.commercial-nav-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    line-height: 1.2;
-}
-
-.nav-arrow {
-    font-size: 1.1rem;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-}
-
-.commercial-nav-btn:hover .nav-arrow {
-    transform: translateX(3px);
-}
-
-.commercial-nav-btn:hover .nav-arrow:first-child {
-    transform: translateX(-3px);
-}
-
-/* Video Containers - UPDATED SPACING */
+/* Video Containers */
 .video-container {
     position: relative;
     width: 100%;
@@ -810,7 +739,7 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
     padding-bottom: 56.25%;
     background: white;
     overflow: hidden;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* REDUCED margin */
 }
 
 .video-container iframe {
@@ -826,7 +755,7 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
     position: relative;
     width: 100%;
     max-width: 350px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 1.5rem; /* REDUCED margin */
     background: #f5f5f5;
     border-radius: 8px;
     overflow: hidden;
@@ -898,31 +827,99 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
     pointer-events: none;
 }
 
-/* Image Gallery */
-.image-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/* Commercial Navigation - SIMPLIFIED (no "Next/Previous" labels) */
+.commercial-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 2rem;
-    margin-bottom: 3rem;
+    margin: 2rem 0;
+    padding: 0 1rem;
 }
 
-.gallery-item {
-    aspect-ratio: 16/9;
-    background: #f5f5f5;
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    overflow: hidden;
-    position: relative;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    min-width: 0;
+    flex: 1;
+    max-width: 250px;
 }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+.nav-btn:hover {
+    background: var(--bg-section);
+    border-color: var(--accent-dark);
+    transform: translateY(-2px);
 }
 
-.gallery-item:hover img {
-    transform: scale(1.05);
+.prev-btn {
+    justify-content: flex-start;
+}
+
+.next-btn {
+    justify-content: flex-end;
+}
+
+.nav-arrow {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent-dark);
+}
+
+.nav-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.prev-btn .nav-text {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.next-btn .nav-text {
+    align-items: flex-end;
+    text-align: right;
+}
+
+/* REMOVED .nav-label styles since we're not using "Next/Previous" labels */
+
+.nav-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.3;
+}
+
+/* Mobile navigation adjustments */
+@media (max-width: 768px) {
+    .commercial-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-btn {
+        width: 100%;
+        max-width: none;
+        justify-content: center;
+    }
+    
+    .nav-text {
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    .nav-title {
+        font-size: 0.9rem;
+    }
 }
 
 /* Credits */
@@ -991,7 +988,7 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* Mobile menu styling */
+    /* Mobile menu styling - REDUCED SPACING */
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -1001,17 +998,21 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        padding: 2rem 0 2rem 0;
+        padding: 1rem 0; /* REDUCED from 2rem */
         box-shadow: 0 10px 27px rgba(0,0,0,0.05);
         z-index: 1000;
         height: auto;
         min-height: auto;
     }
 
+    .nav-menu li {
+        margin-bottom: 0.5rem; /* REDUCED spacing between menu items */
+    }
+
     .nav-menu a {
         color: var(--text-dark) !important;
         text-shadow: none;
-        padding: 0.5rem 0;
+        padding: 0.3rem 0; /* REDUCED padding */
     }
 
     .nav-menu a:hover {
@@ -1022,11 +1023,11 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
         left: 0;
     }
 
-    /* Show mobile-only items ONLY on mobile */
+    /* Show mobile-only items ONLY on mobile - REDUCED SPACING */
     .mobile-only {
         display: block !important;
-        margin-top: 2rem;
-        padding: 1rem 0;
+        margin-top: 1rem; /* REDUCED from 2rem */
+        padding: 0.5rem 0; /* REDUCED padding */
         border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
     
@@ -1035,7 +1036,7 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        gap: 1.5rem !important;
+        gap: 1rem !important; /* REDUCED gap */
         flex-wrap: wrap !important;
     }
 
@@ -1044,8 +1045,8 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 40px;
-        height: 40px;
+        width: 36px; /* REDUCED size */
+        height: 36px;
         border-radius: 50%;
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid rgba(0, 0, 0, 0.1);
@@ -1059,8 +1060,8 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
     }
 
     .mobile-instagram-icon {
-        width: 20px !important;
-        height: 20px !important;
+        width: 18px !important; /* REDUCED size */
+        height: 18px !important;
         filter: invert(0);
     }
 
@@ -1099,14 +1100,14 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
         background: transparent;
         border: none;
         color: var(--text-dark);
-        padding: 0.4rem 0.8rem;
+        padding: 0.3rem 0.6rem; /* REDUCED padding */
         cursor: pointer;
         border-radius: 18px;
         transition: all 0.3s ease;
-        font-size: 0.8rem;
+        font-size: 0.75rem; /* REDUCED font size */
         font-weight: 500;
         letter-spacing: 0.5px;
-        min-width: 32px;
+        min-width: 28px; /* REDUCED width */
         z-index: 2;
     }
 
@@ -1128,72 +1129,51 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
         -webkit-tap-highlight-color: transparent;
     }
 
-    /* Mobile project hero adjustments */
+    /* Mobile project page spacing - FURTHER REDUCED */
     .project-hero {
-        min-height: 18vh;
-        padding: 1.5rem 1rem;
+        min-height: 8vh; /* FURTHER REDUCED */
+        padding: 0.5rem; /* MINIMAL padding */
     }
     
     .project-title {
         font-size: 2rem;
-        margin-bottom: 0.8rem !important;
+        margin-bottom: 0.3rem; /* REDUCED */
     }
     
     .project-subtitle {
-        margin-bottom: 1.2rem !important;
-        margin-top: 0.3rem !important;
-        font-size: 0.95rem;
+        margin-bottom: 0.5rem; /* REDUCED */
     }
     
     .project-meta {
         gap: 1rem;
-        margin-top: 0.8rem !important;
-    }
-
-    /* Mobile commercial navigation */
-    .commercial-navigation {
-        padding: 1.2rem 0.8rem;
-        margin: 0 auto 1.5rem;
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(25px);
+        margin-bottom: 0.3rem; /* REDUCED */
     }
     
-    .commercial-nav-btn {
-        padding: 0.7rem 1rem;
-        font-size: 0.8rem;
-        border-radius: 10px;
-        gap: 0.3rem;
-    }
-    
-    .commercial-nav-info {
-        margin: 0 0.5rem;
-    }
-    
-    .commercial-nav-current {
-        font-size: 0.7rem;
-        letter-spacing: 1px;
-    }
-    
-    .commercial-nav-title {
-        font-size: 0.85rem;
-        line-height: 1.1;
-    }
-    
-    .nav-arrow {
-        font-size: 1rem;
-    }
-
-    /* Responsive adjustments */
     .project-content {
-        padding: 2rem 1rem;
+        padding: 0.5rem 1rem; /* MINIMAL padding */
     }
     
     .content-section {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem; /* REDUCED */
+    }
+
+    /* About section mobile layout */
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .about-text-column {
+        text-align: center;
+    }
+
+    .about-portrait {
+        max-width: 250px;
     }
 
     .section {
-        padding: 3rem 1rem;
+        padding: 2rem 1rem; /* REDUCED */
     }
 
     .films-grid {
@@ -1213,70 +1193,49 @@ body:not(.lang-ee) .commercial-nav-btn .content-ee {
         padding: 0 1rem;
         font-size: 1rem;
         line-height: 1.7;
+        margin-bottom: 1rem; /* REDUCED */
     }
 }
 
-/* ===================
-   ENHANCED NUCLEAR TEXT CENTERING SOLUTION
-   =================== */
-
-/* Force center ALL project description content */
-.project-description,
-.project-description *,
-.content-section .project-description,
-.content-section .project-description *,
-section.content-section div.project-description,
-section.content-section div.project-description *,
-div.project-content section.content-section div.project-description,
-div.project-content section.content-section div.project-description * {
+/* ENHANCED Nuclear text centering solution for ALL project pages */
+.project-page .project-description,
+.project-page .project-description *,
+.project-page .project-description p,
+.project-page .project-description.content-en,
+.project-page .project-description.content-ee,
+.project-page .project-description.content-en p,
+.project-page .project-description.content-ee p,
+.project-content .project-description,
+.project-content .project-description *,
+.project-content .project-description p,
+.project-content .project-description.content-en,
+.project-content .project-description.content-ee,
+.project-content .project-description.content-en p,
+.project-content .project-description.content-ee p {
     text-align: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
-}
-
-/* Maximum specificity override - targets the exact structure from DevTools */
-html body.project-page div.project-content section.content-section div.project-description,
-html body.project-page div.project-content section.content-section div.project-description.content-en,
-html body.project-page div.project-content section.content-section div.project-description.content-ee,
-html body.project-page div.project-content section.content-section div.project-description p,
-html body.project-page div.project-content section.content-section div.project-description.content-en p,
-html body.project-page div.project-content section.content-section div.project-description.content-ee p,
-html body div.project-content section.content-section div.project-description,
-html body div.project-content section.content-section div.project-description p,
-html body div.project-content section.content-section div.project-description *,
-body.project-page div.project-content section.content-section div.project-description,
-body.project-page div.project-content section.content-section div.project-description * {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-/* Container centering with max specificity */
-html body.project-page div.project-content section.content-section div.project-description,
-html body div.project-content section.content-section div.project-description,
-body.project-page div.project-content section.content-section div.project-description,
-div.project-content section.content-section div.project-description {
     max-width: 800px !important;
-    margin: 0 auto 2rem auto !important;
-    padding: 0 2rem !important;
-    width: 100% !important;
-    display: block !important;
-    text-align: center !important;
 }
 
-/* Language switching aware - preserve display but force center */
-html body.lang-ee div.project-content section.content-section div.project-description.content-ee,
-html body.lang-ee div.project-content section.content-section div.project-description.content-ee p,
-html body.lang-ee div.project-content section.content-section div.project-description.content-ee *,
-html body:not(.lang-ee) div.project-content section.content-section div.project-description.content-en,
-html body:not(.lang-ee) div.project-content section.content-section div.project-description.content-en p,
-html body:not(.lang-ee) div.project-content section.content-section div.project-description.content-en *,
-body.lang-ee div.project-content section.content-section div.project-description.content-ee,
-body.lang-ee div.project-content section.content-section div.project-description.content-ee *,
-body:not(.lang-ee) div.project-content section.content-section div.project-description.content-en,
-body:not(.lang-ee) div.project-content section.content-section div.project-description.content-en * {
+/* Language switching aware centering - ENHANCED */
+body.lang-ee .project-description.content-ee,
+body.lang-ee .project-description.content-ee *,
+body.lang-ee .project-description.content-ee p,
+body:not(.lang-ee) .project-description.content-en,
+body:not(.lang-ee) .project-description.content-en *,
+body:not(.lang-ee) .project-description.content-en p {
     text-align: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    display: block !important;
+    max-width: 800px !important;
+}
+
+/* Force center for both displayed and hidden language content */
+.project-description,
+.project-description p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 800px !important;
 }
