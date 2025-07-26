@@ -777,7 +777,8 @@ body:not(.lang-ee) .nav-menu .content-ee {
 /* Video Containers */
 .video-container {
     position: relative;
-    width: 100%;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
     height: 0;
     padding-bottom: 56.25%;
     background: white;
@@ -796,11 +797,11 @@ body:not(.lang-ee) .nav-menu .content-ee {
 
 .commercial-video-container {
     position: relative;
-    width: 100%;
-    max-width: 350px;
-    margin: 0 auto 1.5rem;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-bottom: 1.5rem;
     background: #f5f5f5;
-    border-radius: 8px;
+    border-radius: 0;
     overflow: hidden;
 }
 
@@ -1257,7 +1258,9 @@ body:not(.lang-ee) .nav-title.content-ee {
     }
 
     .commercial-video-container {
-        max-width: 300px;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        border-radius: 0;
     }
 
     .project-description {
