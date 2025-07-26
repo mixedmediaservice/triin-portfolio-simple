@@ -71,7 +71,7 @@ body {
 
 .nav-logo a {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 300;
     text-decoration: none;
     color: white;
@@ -1062,9 +1062,9 @@ body:not(.lang-ee) .nav-title.content-ee {
         padding: 0.24rem 0;
     }
     
-    /* Reduce TRIIN RUUMET logo size by 15% */
+    /* Reduce TRIIN RUUMET logo size by 40% */
     .nav-logo a {
-        font-size: 2.125rem;
+        font-size: 1.275rem;
     }
     
     /* Hide desktop navigation extras */
