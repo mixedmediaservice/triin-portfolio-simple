@@ -851,12 +851,15 @@ body:not(.lang-ee) .nav-menu .content-ee {
     transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 50%;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23000"><path d="M8 5v14l11-7z"/></svg>');
     background-repeat: no-repeat;
     background-position: 52% 50%;
     background-size: 30px;
+    z-index: 10;
+    pointer-events: none;
+    transition: all 0.2s ease;
 }
 
 .commercial-video-container .video-poster::after {
@@ -867,6 +870,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
 
 .video-poster:hover::after {
     background: rgba(255, 255, 255, 1);
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 .video-poster.hidden {
