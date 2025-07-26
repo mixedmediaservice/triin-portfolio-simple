@@ -57,6 +57,7 @@ class SharedNavigation {
                     <span></span>
                     <span></span>
                     <span></span>
+                    <img src="${baseURL}images/favicon.png" alt="Close" class="hamburger-favicon">
                 </div>
             </div>
         </nav>`;

@@ -215,6 +215,11 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
 }
 
 .hamburger span {
@@ -223,6 +228,13 @@ body {
     background: #FFFFFF;
     margin: 3px 0;
     transition: 0.3s;
+}
+
+.hamburger-favicon {
+    display: none;
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
 }
 
 
@@ -1210,16 +1222,12 @@ body:not(.lang-ee) .nav-title.content-ee {
         display: flex;
     }
 
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
+    .hamburger.active span {
+        display: none;
     }
 
-    .hamburger.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+    .hamburger.active .hamburger-favicon {
+        display: block;
     }
 
     /* Mobile menu styling - MORE TOP PADDING, COMPACT BOTTOM */
