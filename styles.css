@@ -1059,7 +1059,7 @@ body:not(.lang-ee) .nav-title.content-ee {
     
     /* Reduce navigation header height by 60% */
     .nav {
-        padding: 0.4rem 0;
+        padding: 0.24rem 0;
     }
     
     /* Reduce TRIIN RUUMET logo size by 15% */
