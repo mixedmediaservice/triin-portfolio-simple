@@ -47,12 +47,12 @@ body {
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* PROJECT PAGES: White header with black text from start */
+/* PROJECT PAGES: Black header consistent with home page */
 .project-page .nav {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(30px) saturate(140%);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 1);
+    backdrop-filter: blur(25px) saturate(120%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
@@ -81,8 +81,8 @@ body {
 
 /* Project page logo styling */
 .project-page .nav-logo a {
-    color: var(--text-dark);
-    text-shadow: none;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Navigation Menu */
@@ -112,8 +112,8 @@ body {
 
 /* Project page menu styling */
 .project-page .nav-menu a {
-    color: var(--text-dark);
-    text-shadow: none;
+    color: white;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .nav-menu a:hover {
@@ -161,8 +161,8 @@ body {
 
 /* Project page Instagram styling */
 .project-page .nav-instagram {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .nav-instagram:hover {
@@ -171,7 +171,7 @@ body {
 }
 
 .project-page .nav-instagram:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .instagram-icon {
@@ -182,7 +182,7 @@ body {
 }
 
 .project-page .instagram-icon {
-    filter: invert(0);
+    filter: invert(1);
 }
 
 /* Desktop Language Switcher */
@@ -200,8 +200,8 @@ body {
 }
 
 .project-page .nav-lang-switcher {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .nav-lang-switcher::before {
@@ -238,7 +238,7 @@ body {
 }
 
 .project-page .nav-lang-btn {
-    color: var(--text-dark);
+    color: white;
 }
 
 .nav-lang-btn.active {
@@ -265,7 +265,7 @@ body {
 }
 
 .project-page .hamburger span {
-    background: var(--text-dark);
+    background: white;
 }
 
 /* Scrolled State (only for home page) */
