@@ -837,7 +837,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
 }
 
 .video-poster::before {
-    content: '▶';
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
@@ -845,13 +845,24 @@ body:not(.lang-ee) .nav-menu .content-ee {
     margin-left: -40px;
     width: 80px;
     height: 80px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 50%;
-    line-height: 80px;
-    text-align: center;
-    font-size: 24px;
-    color: #000;
     z-index: 5;
+}
+
+.video-poster::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -8px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid #000;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    z-index: 6;
 }
 
 .commercial-video-container .video-poster::before {
@@ -859,12 +870,22 @@ body:not(.lang-ee) .nav-menu .content-ee {
     height: 60px;
     margin-top: -30px;
     margin-left: -30px;
-    line-height: 60px;
-    font-size: 18px;
+}
+
+.commercial-video-container .video-poster::after {
+    margin-top: -9px;
+    margin-left: -6px;
+    border-left: 15px solid #000;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
 }
 
 .video-poster:hover::before {
     background: rgba(255, 255, 255, 1);
+}
+
+.video-poster:hover::after {
+    border-left-color: #333;
 }
 
 .video-poster.hidden {
@@ -1223,13 +1244,13 @@ body:not(.lang-ee) .nav-title.content-ee {
     }
 
     .nav-menu a {
-        color: #FFFFFF !important;
-        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        color: #121418 !important;
+        text-shadow: none;
         padding: 0.2rem 0; /* Reduced from 0.3rem */
     }
 
     .nav-menu a:hover {
-        color: #FFFFFF !important;
+        color: #121418 !important;
     }
 
     .nav-menu.active {
@@ -1312,7 +1333,7 @@ body:not(.lang-ee) .nav-title.content-ee {
         position: relative;
         background: transparent;
         border: none;
-        color: #FFFFFF;
+        color: #121418;
         padding: 0.25rem 0.5rem; /* Reduced padding */
         cursor: pointer;
         border-radius: 16px;
