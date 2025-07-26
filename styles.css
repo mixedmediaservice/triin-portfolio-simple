@@ -1351,9 +1351,9 @@ body:not(.lang-ee) .nav-title.content-ee {
 
     /* MOBILE HERO VIDEO - iOS optimized */
     .hero {
-        height: 75vh; /* Between 60vh and 100vh for mobile */
-        min-height: 400px;
-        max-height: 550px;
+        height: 100vh; /* Full viewport height for mobile */
+        min-height: 100vh;
+        max-height: none;
     }
     
     .hero-video {
