@@ -37,7 +37,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 1);
+    background: #121418;
     backdrop-filter: blur(25px) saturate(120%);
     -webkit-backdrop-filter: blur(25px) saturate(120%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -67,7 +67,7 @@ body {
     font-size: 1.5rem;
     font-weight: 300;
     text-decoration: none;
-    color: white;
+    color: #FFFFFF;
     letter-spacing: 1px;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
@@ -90,7 +90,7 @@ body {
 
 .nav-menu a {
     text-decoration: none;
-    color: white;
+    color: #FFFFFF;
     font-weight: 400;
     letter-spacing: 1px;
     transition: color 0.3s ease;
@@ -191,7 +191,7 @@ body {
     position: relative;
     background: transparent;
     border: none;
-    color: white;
+    color: #FFFFFF;
     padding: 0.4rem 0.8rem;
     cursor: pointer;
     border-radius: 18px;
@@ -205,7 +205,7 @@ body {
 
 
 .nav-lang-btn.active {
-    color: white;
+    color: #FFFFFF;
 }
 
 .nav-lang-btn:hover {
@@ -222,54 +222,54 @@ body {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: white;
+    background: #FFFFFF;
     margin: 3px 0;
     transition: 0.3s;
 }
 
 
-/* Scrolled State (only for home page) */
+/* Scrolled State - Override to maintain consistent #121418 background */
 .home-page .nav.scrolled {
-    background: rgba(255, 255, 255, 0.95);
+    background: #121418;
     backdrop-filter: blur(30px) saturate(140%);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 .home-page .nav.scrolled .nav-logo a {
-    color: var(--text-dark);
-    text-shadow: none;
+    color: #FFFFFF;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .home-page .nav.scrolled .nav-menu a {
-    color: var(--text-dark);
-    text-shadow: none;
+    color: #FFFFFF;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .home-page .nav.scrolled .hamburger span {
-    background: var(--text-dark);
+    background: #FFFFFF;
 }
 
 .home-page .nav.scrolled .nav-instagram {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .home-page .nav.scrolled .instagram-icon {
-    filter: invert(0);
+    filter: invert(1);
 }
 
 .home-page .nav.scrolled .nav-lang-switcher {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .home-page .nav.scrolled .nav-lang-btn {
-    color: var(--text-dark);
+    color: #FFFFFF;
 }
 
 .home-page .nav.scrolled .nav-lang-btn.active {
-    color: white;
+    color: #FFFFFF;
 }
 
 /* ===================
@@ -460,7 +460,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
     right: 0;
     background: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
-    color: white;
+    color: #FFFFFF;
     padding: 2rem;
     transform: translateY(100%);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -481,7 +481,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
 
 .film-meta {
     font-size: 0.9rem;
-    color: white;
+    color: #FFFFFF;
     opacity: 0.9;
 }
 
@@ -632,7 +632,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
 .submit-btn {
     padding: 1rem 2rem;
     background: var(--accent-dark);
-    color: white;
+    color: #FFFFFF;
     border: none;
     border-radius: 6px;
     font-size: 1rem;
@@ -1071,13 +1071,13 @@ body:not(.lang-ee) .nav-title.content-ee {
     }
 
     .nav-menu a {
-        color: var(--text-dark) !important;
-        text-shadow: none;
+        color: #FFFFFF !important;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
         padding: 0.2rem 0; /* Reduced from 0.3rem */
     }
 
     .nav-menu a:hover {
-        color: var(--accent-dark) !important;
+        color: #FFFFFF !important;
     }
 
     .nav-menu.active {
@@ -1160,7 +1160,7 @@ body:not(.lang-ee) .nav-title.content-ee {
         position: relative;
         background: transparent;
         border: none;
-        color: var(--text-dark);
+        color: #FFFFFF;
         padding: 0.25rem 0.5rem; /* Reduced padding */
         cursor: pointer;
         border-radius: 16px;
@@ -1173,7 +1173,7 @@ body:not(.lang-ee) .nav-title.content-ee {
     }
 
     .mobile-lang-btn.active {
-        color: white;
+        color: #FFFFFF;
     }
 
     /* MOBILE HERO VIDEO - iOS optimized */
