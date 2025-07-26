@@ -1001,6 +1001,46 @@ body:not(.lang-ee) .nav-title.content-ee {
 }
 
 /* ===================
+   FILM STILL GALLERY
+   =================== */
+.film-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.film-still {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.film-still:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .film-gallery {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+    
+    .film-still {
+        border-radius: 6px;
+    }
+}
+
+/* ===================
    MOBILE RESPONSIVE
    =================== */
 
