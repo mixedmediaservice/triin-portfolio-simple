@@ -115,14 +115,14 @@
         <!-- Film Stills Gallery -->
         <section class="content-section">
             <div class="film-gallery">
-                <img src="../images/films/the-days-that-confused/the-days-that-confused-1.jpg" alt="The Days That Confused Still 1" class="film-still">
-                <img src="../images/films/the-days-that-confused/the-days-that-confused-2.jpg" alt="The Days That Confused Still 2" class="film-still">
-                <img src="../images/films/the-days-that-confused/the-days-that-confused-3.jpg" alt="The Days That Confused Still 3" class="film-still">
-                <img src="../images/films/the-days-that-confused/the-days-that-confused-4.jpg" alt="The Days That Confused Still 4" class="film-still">
-                <img src="../images/films/the-days-that-confused/the-days-that-confused-5.jpg" alt="The Days That Confused Still 5" class="film-still">
-                <img src="../images/films/the-days-that-confused/the-days-that-confused-6.jpg" alt="The Days That Confused Still 6" class="film-still">
-                <img src="../images/films/the-days-that-confused/the-days-that-confused-7.jpg" alt="The Days That Confused Still 7" class="film-still">
-                <img src="../images/films/the-days-that-confused/the-days-that-confused-8.jpg" alt="The Days That Confused Still 8" class="film-still">
+                <img src="../images/films/the-days-that-confused/the-days-that-confused-1.jpg" alt="The Days That Confused Still 1" class="film-still" onclick="openLightbox(0)">
+                <img src="../images/films/the-days-that-confused/the-days-that-confused-2.jpg" alt="The Days That Confused Still 2" class="film-still" onclick="openLightbox(1)">
+                <img src="../images/films/the-days-that-confused/the-days-that-confused-3.jpg" alt="The Days That Confused Still 3" class="film-still" onclick="openLightbox(2)">
+                <img src="../images/films/the-days-that-confused/the-days-that-confused-4.jpg" alt="The Days That Confused Still 4" class="film-still" onclick="openLightbox(3)">
+                <img src="../images/films/the-days-that-confused/the-days-that-confused-5.jpg" alt="The Days That Confused Still 5" class="film-still" onclick="openLightbox(4)">
+                <img src="../images/films/the-days-that-confused/the-days-that-confused-6.jpg" alt="The Days That Confused Still 6" class="film-still" onclick="openLightbox(5)">
+                <img src="../images/films/the-days-that-confused/the-days-that-confused-7.jpg" alt="The Days That Confused Still 7" class="film-still" onclick="openLightbox(6)">
+                <img src="../images/films/the-days-that-confused/the-days-that-confused-8.jpg" alt="The Days That Confused Still 8" class="film-still" onclick="openLightbox(7)">
             </div>
         </section>
         
@@ -151,6 +151,63 @@
                 poster.style.display = 'none';
             }, 300);
         }
+
+        // Lightbox functionality
+        const filmImages = [
+            '../images/films/the-days-that-confused/the-days-that-confused-1.jpg',
+            '../images/films/the-days-that-confused/the-days-that-confused-2.jpg',
+            '../images/films/the-days-that-confused/the-days-that-confused-3.jpg',
+            '../images/films/the-days-that-confused/the-days-that-confused-4.jpg',
+            '../images/films/the-days-that-confused/the-days-that-confused-5.jpg',
+            '../images/films/the-days-that-confused/the-days-that-confused-6.jpg',
+            '../images/films/the-days-that-confused/the-days-that-confused-7.jpg',
+            '../images/films/the-days-that-confused/the-days-that-confused-8.jpg'
+        ];
+
+        let currentImageIndex = 0;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightbox-img').src = filmImages[index];
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % filmImages.length;
+            document.getElementById('lightbox-img').src = filmImages[currentImageIndex];
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + filmImages.length) % filmImages.length;
+            document.getElementById('lightbox-img').src = filmImages[currentImageIndex];
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('lightbox').style.display === 'flex') {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+            }
+        });
     </script>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" class="lightbox-image" src="" alt="Film Still">
+            <div class="lightbox-nav">
+                <button class="lightbox-btn lightbox-prev" onclick="prevImage()">&#8249;</button>
+                <button class="lightbox-btn lightbox-next" onclick="nextImage()">&#8250;</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
