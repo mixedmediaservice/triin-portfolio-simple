@@ -47,14 +47,6 @@ body {
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* PROJECT PAGES: Black header consistent with home page */
-.project-page .nav {
-    background: rgba(0, 0, 0, 1);
-    backdrop-filter: blur(25px) saturate(120%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    padding: 0.6rem 0;
-}
 
 .nav-container {
     max-width: 1200px;
@@ -80,13 +72,6 @@ body {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Project page logo styling */
-.project-page .nav-logo a {
-    color: white;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    font-size: 1.5rem;
-    font-weight: 300;
-}
 
 /* Navigation Menu */
 .nav-center {
@@ -113,11 +98,6 @@ body {
     position: relative;
 }
 
-/* Project page menu styling */
-.project-page .nav-menu a {
-    color: white;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-}
 
 .nav-menu a:hover {
     color: var(--accent-dark);
@@ -162,19 +142,9 @@ body {
     text-decoration: none;
 }
 
-/* Project page Instagram styling */
-.project-page .nav-instagram {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
 .nav-instagram:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
-}
-
-.project-page .nav-instagram:hover {
-    background: rgba(255, 255, 255, 0.2);
 }
 
 .instagram-icon {
@@ -184,9 +154,6 @@ body {
     transition: transform 0.3s ease;
 }
 
-.project-page .instagram-icon {
-    filter: invert(1);
-}
 
 /* Desktop Language Switcher */
 .nav-lang-switcher {
@@ -202,10 +169,6 @@ body {
     z-index: 11;
 }
 
-.project-page .nav-lang-switcher {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-}
 
 .nav-lang-switcher::before {
     content: '';
@@ -240,9 +203,6 @@ body {
     z-index: 2;
 }
 
-.project-page .nav-lang-btn {
-    color: white;
-}
 
 .nav-lang-btn.active {
     color: white;
@@ -267,9 +227,6 @@ body {
     transition: 0.3s;
 }
 
-.project-page .hamburger span {
-    background: white;
-}
 
 /* Scrolled State (only for home page) */
 .home-page .nav.scrolled {
