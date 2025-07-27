@@ -216,24 +216,24 @@ body {
     flex-direction: column;
     cursor: pointer;
     position: relative;
-    width: 20px;
-    height: 16px; /* Smaller overall size */
+    width: 24px;
+    height: 20px; /* Slightly bigger overall size */
     justify-content: center;
     align-items: center;
 }
 
 .hamburger span {
-    width: 20px;
-    height: 1px; /* Ultra-thin lines for minimal weight */
+    width: 24px;
+    height: 1px; /* Keep ultra-thin lines */
     background: #FFFFFF;
-    margin: 1.5px 0;
+    margin: 2px 0;
     transition: 0.3s;
 }
 
 .hamburger-favicon {
     display: none;
-    width: 16px; /* Match smaller hamburger height */
-    height: 16px;
+    width: 20px; /* Bigger than hamburger lines but smaller than before */
+    height: 20px;
     filter: invert(1);
 }
 
