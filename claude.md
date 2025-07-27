@@ -19,3 +19,6 @@ This project was started in an older Claude web session and may contain redundan
      - Edit only what’s necessary using VS Code diff previews.
 
 *(Do not rewrite working code unnecessarily. Focus on cleanup first, then proceed step by step.)*
+
+## ⚡ Project Continuity
+**ALWAYS read HANDOFF.md first when starting work on this project** - it contains current project state, recent changes, and development guidelines including the auto-compact at 11% rule.
