@@ -22,3 +22,11 @@ This project was started in an older Claude web session and may contain redundan
 
 ## ⚡ Project Continuity
 **ALWAYS read HANDOFF.md first when starting work on this project** - it contains current project state, recent changes, and development guidelines including the auto-compact at 11% rule.
+
+### Quick Context (Last Updated: 2025-07-28)
+- Portfolio site for Estonian film director Triin Ruumet
+- Live site: https://triin-portfolio-simple.vercel.app
+- Recent work: Mobile hamburger menu enhancements (favicon close button, sizing refinements)
+- Key features: Lightbox galleries, mobile-optimized hero video, bilingual EN/EE
+- Mobile-first approach with elegant, minimal design
+- All major functionality working and deployed
