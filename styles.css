@@ -1341,7 +1341,7 @@ body:not(.lang-ee) .nav-title.content-ee {
         position: relative;
         background: transparent;
         border: none;
-        color: rgba(18, 20, 24, 0.5);
+        color: rgba(18, 20, 24, 0.7);
         padding: 0.25rem 0.5rem; /* Reduced padding */
         cursor: pointer;
         border-radius: 16px;
@@ -1354,7 +1354,7 @@ body:not(.lang-ee) .nav-title.content-ee {
     }
 
     .mobile-lang-btn.active {
-        color: #121418;
+        color: #FFFFFF;
     }
 
     /* MOBILE HERO VIDEO - iOS optimized */
