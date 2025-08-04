@@ -3,11 +3,24 @@
 ## Project Overview
 Portfolio website for Estonian film director Triin Ruumet. Site is 99% complete with recent enhancements made in this session.
 
-**Live Site:** https://triin-portfolio-simple.vercel.app  
+**Live Site:** https://triin-portfolio-simple.vercel.app (transitioning to www.triinruumet.com)  
+**Target Domain:** www.triinruumet.com (DNS migration in progress)  
 **Repo:** https://github.com/mixedmediaservice/triin-portfolio-simple.git  
 **Tech Stack:** Vanilla HTML/CSS/JS, hosted on Vercel
 
-## Recent Changes Made (This Session)
+## Recent Changes Made (2025-08-04 Session)
+1. **Google Analytics 4 Integration** - Added GA4 tracking (G-RZY7323H9M) to all pages
+   - Added GA4 script to index.html and all 8 project pages
+   - Tracking code placed after Twitter meta tags, before structured data
+   - Ready to collect data once domain migration completes
+
+2. **Domain Migration to www.triinruumet.com - IN PROGRESS**
+   - ✅ Added domain to Vercel project (triinruumet.com + www.triinruumet.com)
+   - ✅ Updated nameservers in Squarespace Domains to ns1/ns2.vercel-dns.com
+   - 🔄 DNS propagation in progress (showing transition state with `-` entries)
+   - ⏱️ Waiting for A records to resolve to Vercel IPs (15-30 min estimated)
+
+## Previous Changes (Earlier Session)
 1. **Mobile Hamburger Menu Enhancement** - Replaced X icon with favicon when menu is open
    - Added favicon image to hamburger HTML structure
    - Updated CSS to show/hide favicon vs hamburger lines

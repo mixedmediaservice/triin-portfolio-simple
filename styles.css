@@ -189,7 +189,7 @@ body {
     position: relative;
     background: transparent;
     border: none;
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.6);
     padding: 0.4rem 0.8rem;
     cursor: pointer;
     border-radius: 18px;
@@ -273,7 +273,7 @@ body {
 }
 
 .home-page .nav.scrolled .nav-lang-btn {
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .home-page .nav.scrolled .nav-lang-btn.active {
@@ -1341,7 +1341,7 @@ body:not(.lang-ee) .nav-title.content-ee {
         position: relative;
         background: transparent;
         border: none;
-        color: #121418;
+        color: rgba(18, 20, 24, 0.5);
         padding: 0.25rem 0.5rem; /* Reduced padding */
         cursor: pointer;
         border-radius: 16px;
@@ -1354,7 +1354,7 @@ body:not(.lang-ee) .nav-title.content-ee {
     }
 
     .mobile-lang-btn.active {
-        color: #FFFFFF;
+        color: #121418;
     }
 
     /* MOBILE HERO VIDEO - iOS optimized */
