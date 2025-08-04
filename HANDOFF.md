@@ -1,10 +1,10 @@
 # Project Handoff Document - Triin Ruumet Portfolio
 
 ## Project Overview
-Portfolio website for Estonian film director Triin Ruumet. Site is 99% complete with recent enhancements made in this session.
+Portfolio website for Estonian film director Triin Ruumet. **Migration to www.triinruumet.com completed successfully!** Site is fully functional with modern features.
 
-**Live Site:** https://triin-portfolio-simple.vercel.app (transitioning to www.triinruumet.com)  
-**Target Domain:** www.triinruumet.com (DNS migration in progress)  
+**Live Site:** https://www.triinruumet.com ✅  
+**Staging URL:** https://triin-portfolio-simple.vercel.app  
 **Repo:** https://github.com/mixedmediaservice/triin-portfolio-simple.git  
 **Tech Stack:** Vanilla HTML/CSS/JS, hosted on Vercel
 
@@ -12,13 +12,18 @@ Portfolio website for Estonian film director Triin Ruumet. Site is 99% complete 
 1. **Google Analytics 4 Integration** - Added GA4 tracking (G-RZY7323H9M) to all pages
    - Added GA4 script to index.html and all 8 project pages
    - Tracking code placed after Twitter meta tags, before structured data
-   - Ready to collect data once domain migration completes
+   - GA4 tracking now live and collecting data
 
-2. **Domain Migration to www.triinruumet.com - IN PROGRESS**
+2. **Domain Migration to www.triinruumet.com - COMPLETED** ✅
    - ✅ Added domain to Vercel project (triinruumet.com + www.triinruumet.com)
-   - ✅ Updated nameservers in Squarespace Domains to ns1/ns2.vercel-dns.com
-   - 🔄 DNS propagation in progress (showing transition state with `-` entries)
-   - ⏱️ Waiting for A records to resolve to Vercel IPs (15-30 min estimated)
+   - ✅ Updated DNS using Squarespace nameservers + manual DNS records
+   - ✅ DNS fully propagated and site live at www.triinruumet.com
+   - ✅ All project pages and functionality working perfectly
+
+3. **Language Selector UX Enhancement** - Fixed visual indication for active language
+   - Inactive language buttons now show with reduced opacity (60% desktop, 50% mobile)
+   - Active language clearly highlighted with full opacity
+   - Improved user experience with clear visual feedback
 
 ## Previous Changes (Earlier Session)
 1. **Mobile Hamburger Menu Enhancement** - Replaced X icon with favicon when menu is open
