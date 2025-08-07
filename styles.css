@@ -584,7 +584,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
     width: 100%;
     max-width: 300px;
     height: auto;
-    border-radius: 12px;
+    border-radius: 0px;
     object-fit: cover;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     aspect-ratio: 3/4; /* Ensures consistent proportions */
@@ -1049,7 +1049,7 @@ body:not(.lang-ee) .nav-title.content-ee {
 .film-still {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 0px;
     object-fit: cover;
     aspect-ratio: 16/9;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1069,7 +1069,7 @@ body:not(.lang-ee) .nav-title.content-ee {
     }
     
     .film-still {
-        border-radius: 6px;
+        border-radius: 0px;
     }
 }
 
@@ -1103,7 +1103,7 @@ body:not(.lang-ee) .nav-title.content-ee {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 0px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 

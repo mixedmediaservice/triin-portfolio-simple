@@ -25,16 +25,17 @@ This project was started in an older Claude web session and may contain redundan
 
 ### Quick Context (Last Updated: 2025-08-04)
 - Portfolio site for Estonian film director Triin Ruumet
-- MIGRATION IN PROGRESS: Transitioning from https://triin-portfolio-simple.vercel.app to www.triinruumet.com
-- DNS propagation status: Nameservers changed to Vercel, waiting for A records to resolve (15-30 min)
-- Recent work: GA4 integration (G-RZY7323H9M), domain migration from Squarespace
+- **MIGRATION COMPLETED:** Successfully moved to www.triinruumet.com ✅
+- Recent work: Complete domain migration, GA4 integration, UX improvements
 - Key features: Lightbox galleries, mobile-optimized hero video, bilingual EN/EE
 - Mobile-first approach with elegant, minimal design
-- All major functionality working and deployed
+- All functionality working perfectly on live domain
 
-### Current Migration Status
-- ✅ Google Analytics 4 tracking added to all pages
-- ✅ Domain added to Vercel (triinruumet.com + www.triinruumet.com)  
-- ✅ Nameservers updated in Squarespace Domains (ns1/ns2.vercel-dns.com)
-- 🔄 DNS propagation in progress (showing `-` transition state)
-- ⏱️ Next: Monitor dnschecker.org for Vercel IPs to appear
+### Current Project Status
+- ✅ **Domain Migration:** www.triinruumet.com fully live and functional
+- ✅ **Google Analytics 4:** Tracking active (G-RZY7323H9M)
+- ✅ **DNS Configuration:** Manual DNS records via Squarespace + Vercel hosting
+- ✅ **UX Enhancement:** Language selector visual indication fixed
+- ✅ **All Features Working:** Hero video, project galleries, contact form, navigation
+- ✅ **Mobile Optimized:** Responsive design with hamburger menu + favicon close
+- ✅ **SEO Ready:** Structured data, meta tags, bilingual content

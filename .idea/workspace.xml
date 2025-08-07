@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d9fac91-ce98-4ca6-a418-3d4c4523f144" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/HANDOFF.md" beforeDir="false" afterPath="$PROJECT_DIR$/HANDOFF.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/claude.md" beforeDir="false" afterPath="$PROJECT_DIR$/claude.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/anna-arile-vunki.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/anna-arile-vunki.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/coop-pank-kaardivagi.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/coop-pank-kaardivagi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/dark-paradise.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/dark-paradise.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/koik-on-tehtav.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/koik-on-tehtav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/meliva-imago.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/meliva-imago.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/miljardid-protsendid.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/miljardid-protsendid.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/saku-on-ice.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/saku-on-ice.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/the-days-that-confused.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/the-days-that-confused.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +17,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "mixedmediaservice"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/mixedmediaservice/triin-portfolio-simple.git",
+    "accountId": "458e0828-6530-4490-a772-fd7a736d18ea"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -44,6 +48,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -67,7 +72,9 @@
       <workItem from="1753531538615" duration="2262000" />
       <workItem from="1753534020095" duration="8463000" />
       <workItem from="1753697492684" duration="7000" />
-      <workItem from="1754294322774" duration="5483000" />
+      <workItem from="1754294322774" duration="11295000" />
+      <workItem from="1754331244996" duration="41000" />
+      <workItem from="1754574017724" duration="550000" />
     </task>
     <servers />
   </component>
