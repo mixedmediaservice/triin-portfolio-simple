@@ -62,7 +62,7 @@ body {
 
 .nav-logo a {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-size: 1.875rem;
     font-weight: 300;
     text-decoration: none;
     color: #FFFFFF;
@@ -439,7 +439,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
 
 .film-card {
     position: relative;
-    border-radius: 12px;
+    border-radius: 0px;
     overflow: hidden;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -508,7 +508,7 @@ body:not(.lang-ee) .nav-menu .content-ee {
 
 .commercial-card {
     background: white;
-    border-radius: 12px;
+    border-radius: 0px;
     overflow: hidden;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -1209,7 +1209,7 @@ body:not(.lang-ee) .nav-title.content-ee {
     
     /* Reduce TRIIN RUUMET logo size by 40% */
     .nav-logo a {
-        font-size: 1.275rem;
+        font-size: 1.59375rem;
     }
     
     /* Hide desktop navigation extras */
